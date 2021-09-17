@@ -1,2 +1,5 @@
-# language-of-music
-Music Tech - Project Studio Technology group project.
+# Language of Music
+
+Georgia Tech School of Music
+
+Project Studio Technology group project.
