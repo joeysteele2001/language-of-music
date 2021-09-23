@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import YouTubePlayer from './components/YouTubePlayer';
+import Lyrics from './components/Lyrics';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         title="Music Video Player"
         videoId="dQw4w9WgXcQ"
       />
+      <Lyrics />
     </main>
   );
 }
