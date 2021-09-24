@@ -1,20 +1,48 @@
 import React from 'react';
-import AnswerButton from './AnswerButton';
+import AnswerButton, { Status } from './AnswerButton';
 import './Quiz.css';
 
 export interface Props {
     question: string;
     answers: string[];
+
+    /** Index of the correct answer. */
+    correctAnswer: number;
 }
 
-export const Quiz = ({ question, answers }: Props) => {
+export const Quiz = ({ question, answers, correctAnswer }: Props) => {
+    const [feedback, setFeedback] = React.useState("");
+    const [clicked, setClicked] = React.useState<undefined | number>(undefined);
+    const [enabled, setEnabled] = React.useState(true);
+
+    const handleClick = (idx: number) => {
+        if (!enabled) {
+            return;
+        }
+
+        setEnabled(false);
+        setClicked(idx);
+
+        if (idx === correctAnswer) {
+            setFeedback("Correct!");
+        } else {
+            setFeedback("Incorrect.");
+            setTimeout(resetQuiz, 1500);
+        }
+
+    }
+
+    const resetQuiz = () => {
+        setClicked(undefined);
+        setFeedback("");
+        setEnabled(true);
+    }
+
     // Make a `<div>` element for each answer.
     // `map` takes an array and makes a new array with the mapping function
-
     const answersButtons = answers.map((answer, idx) => {
-
-        let status: "correct" | "incorrect";
-        if (idx === 3) {
+        let status: Status;
+        if (idx === correctAnswer) {
             status = "correct";
         } else {
             status = "incorrect";
@@ -26,6 +54,8 @@ export const Quiz = ({ question, answers }: Props) => {
             <AnswerButton
                 key={idx}
                 status={status}
+                clicked={clicked === idx}
+                onClick={() => handleClick(idx)}
             >
                 {answer}
             </AnswerButton>
@@ -36,7 +66,7 @@ export const Quiz = ({ question, answers }: Props) => {
     return (
         <div className="Quiz">
             <div className="Quiz-question">{question}</div>
-            <div className="Quiz-feedback"></div>
+            <div className="Quiz-feedback">{feedback}</div>
             <div className="Quiz-answers">{answersButtons}</div>
         </div>
     );

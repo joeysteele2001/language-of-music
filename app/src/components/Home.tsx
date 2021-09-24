@@ -17,7 +17,8 @@ const Home = () => {
 
             <Quiz
                 question="Question"
-                answers={["Answer 1", "Answer 2", "Answer 3", "Answer 4", "Answer 5"]}
+                answers={["Answer 1", "Answer 2", "Answer 3", "I'm the correct answer", "Answer 5"]}
+                correctAnswer={3}
             />
 
             <Route exact path="/rickroll" component={YouTubePlayer} />

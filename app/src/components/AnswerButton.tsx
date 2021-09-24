@@ -4,13 +4,13 @@ import './AnswerButton.css';
 export interface Props {
     children: React.ReactNode;
     status: Status;
+    clicked?: boolean;
+    onClick: () => void;
 }
 
 export type Status = "correct" | "incorrect";
 
-const AnswerButton = ({ children, status }: Props) => {
-    const [clicked, setClicked] = React.useState(false);
-
+const AnswerButton = ({ children, status, clicked = false, onClick }: Props) => {
     let className;
     if (clicked) {
         const color = status === "correct" ? "green" : "red";
@@ -20,7 +20,7 @@ const AnswerButton = ({ children, status }: Props) => {
     }
 
     return (
-        <button className={className} onClick={() => setClicked(true)}>
+        <button className={className} onClick={onClick}>
             {children}
         </button>
     )
