@@ -1,0 +1,13 @@
+.Quiz-answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.Quiz div {
+    border: 1px solid gray;
+}
+
+.Quiz * {
+    padding: 2px;
+    margin: 8px;
+}
