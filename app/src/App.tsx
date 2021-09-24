@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 import YouTubePlayer from './components/YouTubePlayer';
 import Home from './components/Home';
+import SelectMode from './components/SelectMode';
 
 const App = () => {
   return (
@@ -14,6 +15,9 @@ const App = () => {
           </li>
           <li>
             <Link to="/rickroll">Rickroll</Link>
+          </li>
+          <li>
+            <Link to="/SelectMode">Select Mode</Link>
           </li>
         </ul>
       </nav>
@@ -29,6 +33,9 @@ const App = () => {
             title="Music Video Player"
             videoId="dQw4w9WgXcQ"
           />
+        </Route>
+        <Route exact path="/SelectMode">
+          <SelectMode />
         </Route>
       </Switch>
 
