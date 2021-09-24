@@ -1,9 +1,12 @@
 import React from 'react';
-import AnswerButton, { Status } from './AnswerButton';
+import AnswerButton from './AnswerButton';
 import './Quiz.css';
 
 export interface Props {
+    /** The quiz question text. */
     question: string;
+
+    /** The quiz answers' texts. */
     answers: string[];
 
     /** Index of the correct answer. */
@@ -11,10 +14,13 @@ export interface Props {
 }
 
 export const Quiz = ({ question, answers, correctAnswer }: Props) => {
+    // state for the quiz
     const [feedback, setFeedback] = React.useState("");
     const [clicked, setClicked] = React.useState<undefined | number>(undefined);
     const [enabled, setEnabled] = React.useState(true);
 
+    // the function that is called when a button is clicked
+    // idx: the index of the button
     const handleClick = (idx: number) => {
         if (!enabled) {
             return;
@@ -32,6 +38,7 @@ export const Quiz = ({ question, answers, correctAnswer }: Props) => {
 
     }
 
+    // reset the quiz to its initial state
     const resetQuiz = () => {
         setClicked(undefined);
         setFeedback("");
@@ -41,19 +48,14 @@ export const Quiz = ({ question, answers, correctAnswer }: Props) => {
     // Make a `<div>` element for each answer.
     // `map` takes an array and makes a new array with the mapping function
     const answersButtons = answers.map((answer, idx) => {
-        let status: Status;
-        if (idx === correctAnswer) {
-            status = "correct";
-        } else {
-            status = "incorrect";
-        }
+        const correct = idx === correctAnswer;
 
         return (
             // when you make a list of elements, react really wants you to give
             // each element a unique `key`
             <AnswerButton
                 key={idx}
-                status={status}
+                correct={correct}
                 clicked={clicked === idx}
                 onClick={() => handleClick(idx)}
             >

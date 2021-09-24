@@ -2,18 +2,23 @@ import React from 'react';
 import './AnswerButton.css';
 
 export interface Props {
+    /** The answer's inner components. */
     children: React.ReactNode;
-    status: Status;
+
+    /** Whether the answer is correct. */
+    correct: boolean;
+
+    /** Is the button currently clicked? */
     clicked?: boolean;
+
+    /** Function to run when the button is clicked. */
     onClick: () => void;
 }
 
-export type Status = "correct" | "incorrect";
-
-const AnswerButton = ({ children, status, clicked = false, onClick }: Props) => {
+const AnswerButton = ({ children, correct, clicked = false, onClick }: Props) => {
     let className;
     if (clicked) {
-        const color = status === "correct" ? "green" : "red";
+        const color = correct ? "green" : "red";
         className = `AnswerButton-${color}`;
     } else {
         className = "";
