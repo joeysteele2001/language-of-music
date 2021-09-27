@@ -1,97 +1,76 @@
 import React from 'react';
 import './Lyrics.css';
 import LyricsLine from './LyricsLine';
+export interface Props {
+    children?: React.ReactNode[];
+}
+export interface State {
+    // lines: React.ReactNode[];
+    activeLine: number;
+}
 
-const exampleLyrics = `We're no strangers to love
-You know the rules and so do I
-A full commitment's what I'm thinkin' of
-You wouldn't get this from any other guy
-I just wanna tell you how I'm feelin'
-Gotta make you understand
+export class Lyrics extends React.Component<Props, State> {
+    constructor(props: Props) {
+        // initialize component: necessary for all class components
+        super(props);
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
+        // initialize the component's state
+        this.state = { activeLine: 0 };
+    }
 
-We've know each other for so long
-Your heart's been achin' but you're too shy to say it
-Inside we both know what's been going on
-We know the game and we're gonna play it
-And if you ask me how I'm feelin'
-Don't tell me you're too blind to see
+    /** Increment the active line of lyrics. */
+    private incActiveLine = () => {
+        // set numChildren to 0 if no children were given
+        const numChildren = this.props.children?.length || 0;
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-(Give you up, give you up)
-Never gonna give, never gonna give
-(Give you up)
-Never gonna give, never gonna give
-(Give you up)
-
-We've know each other for so long
-Your heart's been achin' but you're too shy to say it
-Inside we both know what's been going on
-We know the game and we're gonna play it
-I just wanna tell you how I'm feelin'
-Gotta make you understand
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you`
-    .split('\n');
-
-export const Lyrics = () => {
-    const lines = exampleLyrics.map((line, index) => {
-        let content: React.ReactNode = line;
-        let current = false;
-
-        if (line === "") {
-            content = <br />;
+        // do nothing if we're at the last line of lyrics
+        if (this.state.activeLine >= numChildren) {
+            return;
         }
 
-        // for prototyping purposes, highlight the 3rd line of lyrics
-        if (index === 2) {
-            current = true;
+        // update the state
+        // we have to call `setState` rather than setting it directly
+        // we take in the old `activeLine` and return the new one
+        // see https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous
+        this.setState(({ activeLine }) => {
+            return { activeLine: activeLine + 1 };
+        });
+    }
+
+    // TEMPORARY: automatically increment the lyrics line every 2 seconds
+    // set the timer when the component first loads
+    componentDidMount() {
+        setInterval(this.incActiveLine, 2000);
+    }
+
+    /** Get the inner list of `LyricsLine` elements for rendering. */
+    private lineElements = () => {
+        // don't render anything if there are no children
+        if (!this.props.children) {
+            return false;
         }
 
-        return <LyricsLine key={index} current={current}>{content}</LyricsLine>;
-    });
+        return this.props.children.map((line, idx) => {
+            let content: React.ReactNode = line;
+            if (line === "") {
+                content = <br />;
+            }
 
-    return (
-        <div className="Lyrics">{lines}</div>
-    );
-};
+            return (
+                <LyricsLine key={idx} current={idx === this.state.activeLine}>
+                    {content}
+                </LyricsLine>
+            );
+        });
+    };
+
+    render() {
+        return (
+            <div className="Lyrics">
+                {this.lineElements()}
+            </div>
+        );
+    }
+}
 
 export default Lyrics;
