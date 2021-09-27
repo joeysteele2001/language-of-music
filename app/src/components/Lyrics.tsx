@@ -1,6 +1,7 @@
 import React from 'react';
 import './Lyrics.css';
 import LyricsLine from './LyricsLine';
+
 export interface Props {
     children?: React.ReactNode[];
 }
@@ -10,6 +11,9 @@ export interface State {
 }
 
 export class Lyrics extends React.Component<Props, State> {
+    // Store a handle to the timer in order to clear it when the component unloads.
+    intervalID: ReturnType<typeof setTimeout> | undefined;
+
     constructor(props: Props) {
         // initialize component: necessary for all class components
         super(props);
@@ -40,7 +44,14 @@ export class Lyrics extends React.Component<Props, State> {
     // TEMPORARY: automatically increment the lyrics line every 2 seconds
     // set the timer when the component first loads
     componentDidMount() {
-        setInterval(this.incActiveLine, 2000);
+        this.intervalID = setInterval(this.incActiveLine, 2000);
+    }
+
+    // TEMPORARY: clear the lyrics line timer when the component unloads
+    componentWillUnmount() {
+        if (this.intervalID) {
+            clearInterval(this.intervalID);
+        }
     }
 
     /** Get the inner list of `LyricsLine` elements for rendering. */
