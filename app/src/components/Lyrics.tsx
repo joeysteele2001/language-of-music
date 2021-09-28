@@ -10,7 +10,7 @@ export interface State {
     activeLine: number;
 }
 
-export class Lyrics extends React.Component<Props, State> {
+export class Lyrics extends React.PureComponent<Props, State> {
     // Store a handle to the timer in order to clear it when the component unloads.
     intervalID: ReturnType<typeof setTimeout> | undefined;
 
