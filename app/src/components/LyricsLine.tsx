@@ -11,7 +11,7 @@ export interface Props {
 
 /** A line of lyrics that may or may not be "current". */
 export const LyricsLine = ({ current, children }: Props) => {
-    const className = (current ? "LyricsLine-current" : "");
+    const className = (current ? "LyricsLine-current" : undefined);
 
     let ref: React.RefObject<HTMLParagraphElement> | undefined;
 
@@ -23,8 +23,29 @@ export const LyricsLine = ({ current, children }: Props) => {
     // scroll this element into view if it's the current one
     // this function runs whenever the element loads or is updated
     useEffect(() => {
-        if (current) {
-            ref?.current?.scrollIntoView({ behavior: "smooth" });
+        if (current && ref?.current) {
+            // `scrollIntoView()` doesn't give any option to offset it
+            // so we get to do the pixel calculations from scratch!
+            // we'll keep 2 lines of lyrics above the current line
+
+            // the parent scrolling `<div>` that this line lives in
+            const parent = ref.current.parentElement!;
+
+            // get the y-coordinate of this line, relative to the top of the lyrics view
+            const relativeY = ref.current.getBoundingClientRect().top - parent.getBoundingClientRect().top;
+
+            // then get the y-coordinate of this line, relative to the first line of lyrics
+            const scrollY = relativeY + parent.scrollTop;
+
+            // find the height of each line
+            const margin = parseFloat(window.getComputedStyle(ref.current)['marginBottom']);
+            const elemHeight = margin + ref.current.offsetHeight;
+
+            // the actual position to scroll to within the parent container
+            const extraSpace = 2 * elemHeight + margin / 2;
+            const y = scrollY - (extraSpace);
+
+            parent.scrollTo({ top: y, behavior: 'smooth' });
         }
     }, [current, ref]);
 
