@@ -3,13 +3,17 @@ import './Lyrics.css';
 import LyricsLine from './LyricsLine';
 
 export interface Props {
+    /** The actual lyrics.
+     * 
+     * Can be a list of strings or components.
+     */
     children?: React.ReactNode[];
 }
 export interface State {
-    // lines: React.ReactNode[];
     activeLine: number;
 }
 
+/** A scrolling lyrics view. */
 export class Lyrics extends React.PureComponent<Props, State> {
     // Store a handle to the timer in order to clear it when the component unloads.
     intervalID: ReturnType<typeof setTimeout> | undefined;
