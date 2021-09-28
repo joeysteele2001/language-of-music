@@ -51,6 +51,7 @@ export class Lyrics extends React.PureComponent<Props, State> {
 
         // increment the immediate timer line counter
         // also, set the next timer
+        // TODO make the timer accurate using `Date()`, or else we'll slowly get out-of-sync with real time
         if (this.props.times) {
             const times = this.props.times;
             const line = this.lineForTime;
