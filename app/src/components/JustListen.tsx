@@ -10,7 +10,7 @@ const JustListen = () => {
                 title="Music Video Player"
                 videoId="dQw4w9WgXcQ"
             />
-            <Lyrics>
+            <Lyrics times={exampleTimes}>
                 {exampleLyrics}
             </Lyrics>
         </div>
@@ -89,3 +89,6 @@ Never gonna make you cry
 Never gonna say goodbye
 Never gonna tell a lie and hurt you`
     .split('\n');
+
+const exampleTimes = Array.from(Array(exampleLyrics.length).keys())
+    .map(i => (i ** 1.7) * 10);
