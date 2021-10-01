@@ -1,22 +1,24 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
-import YouTubePlayer from './YouTubePlayer';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import SelectMode from './SelectMode';
 
 
 const Home = () => {
     return (
         <main>
-            <h1>Hello World!</h1>
-            <p>This is the start of our app!</p>
-            <YouTubePlayer
-                id="music-video-player"
-                title="Music Video Player"
-                videoId="dQw4w9WgXcQ"
-            />
+            <h1>App Name</h1>
+            <p>Songs</p>
+            {//When any song clicked: link to selectmode page & simultaneously navigate to that song's data in a library//
+}
+            <BrowserRouter>
+                <Link to="/SelectMode">SelectMode</Link>
+                <Route exact path="/SelectMode">
+                    <SelectMode />
+                </Route>
+            </BrowserRouter>
 
-            <Route exact path="/rickroll" component={YouTubePlayer} />
-            <Link to="/rickroll">RICKROLL</Link>
         </main>
+        
     );
 };
 
