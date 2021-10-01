@@ -1,6 +1,11 @@
 import React from 'react';
 import './YouTubePlayer.css';
 
+// TODO: add YouTube API
+// TODO: disable YouTube embed controls
+// TODO: add our own play / pause button
+// TODO: add our own time scrubber
+
 export interface Props {
     /** the player `<iframe>` id */
     id: string;

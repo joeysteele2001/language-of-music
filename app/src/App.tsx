@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import YouTubePlayer from './components/YouTubePlayer';
+import JustListen from './components/JustListen';
 import Home from './components/Home';
 import ColorPalette from './components/ColorPalette';
+import Quiz from './components/Quiz';
 
 const App = () => {
   return (
@@ -14,7 +15,10 @@ const App = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/rickroll">Rickroll</Link>
+            <Link to="/justlisten">Just Listen</Link>
+          </li>
+          <li>
+            <Link to="/quiz">Quiz</Link>
           </li>
           <li>
             <Link to="/colors">Colors</Link>
@@ -27,11 +31,15 @@ const App = () => {
           <Home />
         </Route>
 
-        <Route exact path="/rickroll">
-          <YouTubePlayer
-            id="music-video-player"
-            title="Music Video Player"
-            videoId="dQw4w9WgXcQ"
+        <Route exact path="/justlisten">
+          <JustListen />
+        </Route>
+
+        <Route exact path="/quiz">
+          <Quiz
+            question="Question"
+            answers={["Answer 1", "Answer 2", "Answer 3", "I'm the correct answer", "Answer 5"]}
+            correctAnswer={3}
           />
         </Route>
 
@@ -39,8 +47,6 @@ const App = () => {
           <ColorPalette />
         </Route>
       </Switch>
-
-
     </BrowserRouter>
   );
 }

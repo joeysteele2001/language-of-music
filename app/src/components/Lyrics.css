@@ -1,0 +1,8 @@
+.Lyrics {
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: scroll;
+
+    /* todo: figure out how to make this the right height */
+    height: 5in;
+}

@@ -1,23 +1,20 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import YouTubePlayer from './YouTubePlayer';
-
+import JustListen from './JustListen';
 
 const Home = () => {
     return (
         <main>
             <h1>Hello World!</h1>
             <p>This is the start of our app!</p>
-            <YouTubePlayer
-                id="music-video-player"
-                title="Music Video Player"
-                videoId="dQw4w9WgXcQ"
-            />
 
             <Route exact path="/rickroll" component={YouTubePlayer} />
-            <Link to="/rickroll">RICKROLL</Link>
+            <Route exact path="/justlisten" component={JustListen} />
         </main>
     );
 };
+
+
 
 export default Home;
