@@ -2,6 +2,8 @@ import React from 'react';
 import './Lyrics.css';
 import LyricsLine from './LyricsLine';
 
+// TODO: add play / pause / scrub functionality
+
 export interface Props {
     /** The actual lyrics.
      * 

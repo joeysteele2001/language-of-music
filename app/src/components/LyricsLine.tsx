@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import './LyricsLine.css';
 
+// TODO: test LyricsLine with Japanese `<ruby>` elements
+
 export interface Props {
     /** Is this the currently playing line of lyrics within its song? */
     current?: boolean;
