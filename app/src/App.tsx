@@ -43,8 +43,6 @@ const App = () => {
           />
         </Route>
       </Switch>
-
-
     </BrowserRouter>
   );
 }
