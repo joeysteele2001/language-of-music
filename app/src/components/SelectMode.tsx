@@ -3,12 +3,14 @@ import './SelectMode.css';
 import JustListen from './JustListen';
 import PlayAlong from './PlayAlong';
 import ListenandLearn from './ListenandLearn';
-import { BrowserRouter, Switch, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 const SelectMode = () => {
 return (
     <main>
-    <h1>Select Mode</h1>
+      <div className="SelectModeHeader">
+        <h1>Select Mode</h1>
+      </div>
 
     <BrowserRouter>
       <div className= "SelectMode">
