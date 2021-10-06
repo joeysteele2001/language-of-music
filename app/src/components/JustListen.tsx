@@ -5,6 +5,7 @@ import YouTubePlayer from './YouTubePlayer';
 const JustListen = () => {
     return (
         <div className="JustListen">
+            <h1>Song Title</h1>
             <YouTubePlayer
                 id="music-video-player"
                 title="Music Video Player"

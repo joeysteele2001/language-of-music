@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 const ListenandLearn = () => {
     return (
         <div className="JustListen">
+            <h1>Song Title</h1>
             <YouTubePlayer
                 id="music-video-player"
                 title="Music Video Player"
