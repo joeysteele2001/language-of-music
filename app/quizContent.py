@@ -14,7 +14,7 @@ def vocabSearch(song="uneditedLyrics.html", level="n5copy.csv"):
                 continue
             
     
-
+#use original csv to generate ruby tags?
 
 
 
