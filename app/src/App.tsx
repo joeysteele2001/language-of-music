@@ -8,7 +8,7 @@ const App = () => {
   return (
   <main>
     <BrowserRouter>
-      <Link to="/">Home</Link>
+      <Link to="/"><button>Home</button></Link>
         <Route exact path="/">
           <Home />
         </Route>

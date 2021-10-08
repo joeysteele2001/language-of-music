@@ -1,25 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Lyrics from './Lyrics';
 import YouTubePlayer from './YouTubePlayer';
+import TranslationPopUp from './TranslationPopUp';
 
-const PlayAlong = () => {
-    return (
-        <main>
-            <h1>Song Title</h1>
-            <YouTubePlayer
-                id="music-video-player"
-                title="Music Video Player"
-                videoId="dQw4w9WgXcQ"
-            />
-            <Lyrics times={exampleTimes}>
-                {exampleLyrics}
-            </Lyrics>
-        </main>
-        
-    );
-  };
+ const PlayAlong = () => {
+     return (
+         <main>
+             <div className="PlayAlong">
+             <h1>Song Title</h1>
+             <YouTubePlayer
+                 id="music-video-player"
+                 title="Music Video Player"
+                 videoId="dQw4w9WgXcQ"
+             />
+             <Lyrics times={exampleTimes}>
+                 {exampleLyrics}
+             </Lyrics>
+             </div>
+         </main>
+     );
+   };
   
-  export default PlayAlong;
+ export default PlayAlong;
 
   const exampleLyrics = `G                      A
   Were no strangers to love
