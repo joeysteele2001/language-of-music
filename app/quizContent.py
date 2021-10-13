@@ -17,7 +17,7 @@ def vocabSearch(song="Gurenge", level=5):
                 continue
             
 
-
+#combine lists 1,2,3?
 
 vocabSearch(song="YoruNiKakeru", level=5)
 vocabSearch(song="YoruNiKakeru", level=4)
