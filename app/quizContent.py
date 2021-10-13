@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from csv import reader
 
-def vocabSearch(song="uneditedLyrics.html", level="n5.csv"):
-    with open(level) as myFile, open(song) as mySong, open('foundVocab.html','w') as output:
+def vocabSearch(song="Gurenge", level=5):
+    with open('n' + str(level) + '.csv') as myFile, open(song + '.html') as mySong, open(str(song) + 'Level' + str(level) + '.html','w') as output:
         vocab = reader(myFile)
         lyrics = mySong.read()
         outList = []
@@ -19,4 +19,8 @@ def vocabSearch(song="uneditedLyrics.html", level="n5.csv"):
 
 
 
-vocabSearch();
+vocabSearch(song="YoruNiKakeru", level=5)
+vocabSearch(song="YoruNiKakeru", level=4)
+vocabSearch(song="YoruNiKakeru", level=3)
+vocabSearch(song="YoruNiKakeru", level=2)
+vocabSearch(song="YoruNiKakeru", level=1)
