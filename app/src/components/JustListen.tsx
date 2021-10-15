@@ -15,8 +15,6 @@ const JustListen = () => {
             <Lyrics times={exampleTimes}>
                 {exampleLyrics}
             </Lyrics>
-             {/*translate(testlyrics)*/}
-       
         </div>
     );
 };
