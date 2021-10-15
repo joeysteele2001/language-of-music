@@ -1,7 +1,6 @@
 import React from 'react';
 import Lyrics from './Lyrics';
 import YouTubePlayer from './YouTubePlayer';
-import exampleLyrics from './exampleLyrics';
 
 const JustListen = () => {
     return (
