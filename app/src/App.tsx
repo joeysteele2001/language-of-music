@@ -24,7 +24,12 @@ const App = () => {
       </nav>
 
       <Switcher activeView={page}>
-        {pages.map(page => page.component)}
+        {
+          pages.map(page => {
+            // we need to give each page a 'key' prop, so we re-create each page with a key
+            return React.cloneElement(page.component, { key: page.name })
+          })
+        }
       </Switcher>
     </main >
   );
