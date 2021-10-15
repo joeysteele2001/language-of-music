@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import JustListen from './components/JustListen';
 import Home from './components/Home';
+import ColorPalette from './components/ColorPalette';
 import Quiz from './components/Quiz';
 
 import Switcher from './components/Switcher';
@@ -46,6 +47,7 @@ const pages = [
       correctAnswer={3}
     />
   },
+  { name: "Color Palette", component: <ColorPalette /> },
 ];
 
 export default App;
