@@ -13,7 +13,7 @@ export interface Props {
 
 /** A line of lyrics that may or may not be "current". */
 export const LyricsLine = ({ current, children }: Props) => {
-    const className = (current ? "LyricsLine-current" : undefined);
+    const className = current ? "LyricsLine LyricsLine-current" : "LyricsLine";
 
     let ref: React.RefObject<HTMLParagraphElement> | undefined;
 
@@ -52,7 +52,7 @@ export const LyricsLine = ({ current, children }: Props) => {
     }, [current, ref]);
 
     return (
-        <p className={className} ref={ref}>{children}</p>
+        <div className={className} ref={ref}>{children}</div>
     );
 };
 
