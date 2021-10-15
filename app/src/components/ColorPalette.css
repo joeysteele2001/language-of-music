@@ -1,0 +1,12 @@
+.ColorPalette {
+    display: flex;
+}
+
+.ColorPalette > * {
+    flex-grow: 1;
+    text-align: center;
+    height: 500px;
+    line-height: 500px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
