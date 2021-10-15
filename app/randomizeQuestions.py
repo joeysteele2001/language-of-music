@@ -11,5 +11,17 @@ def randomizeQuestions(file, numberOfQuestions=5):
         indices = sample(range(0, len(lines)), numberOfQuestions)
         for i in indices:
             output.write(lines[i])
+            # incorrectAnswers(file, i)
+
+
+# todo: generate incorrect answers
+# default three incorrect choices
+# return as indices?
+def incorrectAnswers(file, correctIndex, numberOfAnswers=3):
+    with open(file) as myList:
+        output = []
+        # check that incorrect answer doesn't match correct answer
+        # only Japanese text needed for incorrect answers
+
 
 randomizeQuestions('GurengeBeginnerVocab.html')
