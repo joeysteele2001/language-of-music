@@ -1,6 +1,7 @@
 import React from 'react';
 import Lyrics from './Lyrics';
 import YouTubePlayer from './YouTubePlayer';
+import Popup from './Popup';
 
 import exampleLyrics from '../resources/exampleLyrics.json';
 
@@ -15,7 +16,12 @@ const JustListen = () => {
             <Lyrics times={exampleTimes} >
                 {lyricsElements(exampleLyrics)}
             </Lyrics>
-        </div >
+
+            <Popup>
+                <b>Your Lyrics</b>
+                <p>Translation</p>
+            </Popup>
+        </div>
 
     )
 };
