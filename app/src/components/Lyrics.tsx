@@ -134,7 +134,7 @@ export class Lyrics extends React.PureComponent<Props, State> {
                     <PopUpFunction />
                 </>
         );
-    }
-}
+    };
+};
 
 export default Lyrics;
