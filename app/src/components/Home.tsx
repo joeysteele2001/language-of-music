@@ -11,8 +11,6 @@ return (
             <div className="HomeHeader">
             <h1>App Name</h1>
             </div>
-            {//When any song clicked: link to selectmode page & simultaneously navigate to that song's data in a library//
-}
             <BrowserRouter>
             <div className="Home">
                 <div>
