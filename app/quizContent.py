@@ -1,8 +1,22 @@
 # -*- coding: utf-8 -*-
 from csv import reader
 
-def vocabSearch(song="Gurenge", level=5):
-    with open('n' + str(level) + '.csv') as myFile, open(song + '.html') as mySong, open(str(song) + 'Level' + str(level) + '.html','w') as output:
+
+# Creates a list of all vocab words present in a song for a specified level
+# Beginner: n5, Intermediate: n4, Advanced: n3-n1
+def vocabSearch(song, level):
+    if level == 'Beginner':
+        helper(song, 5, level)
+    elif level == 'Intermediate':
+        helper(song, 4, level)
+    elif level == 'Advanced':
+        helper(song, 3, level)
+        helper(song, 2, level)
+        helper(song, 1, level)
+            
+
+def helper(song, number, level):
+    with open('n' + str(number) + '.csv') as myFile, open(song + '.html') as mySong, open(str(song) + str(level) + 'Vocab.html','a') as output:
         vocab = reader(myFile)
         lyrics = mySong.read()
         outList = []
@@ -15,12 +29,8 @@ def vocabSearch(song="Gurenge", level=5):
                     output.write('<ruby><rb>' + i[0] + '</rb><rp>(</rp><rt>' + i[1] + '</rt><rp>)</rp></ruby>' + ', ' + i[2] + "\n")
                 counter += 1
                 continue
-            
 
-#combine lists 1,2,3?
 
-vocabSearch(song="YoruNiKakeru", level=5)
-vocabSearch(song="YoruNiKakeru", level=4)
-vocabSearch(song="YoruNiKakeru", level=3)
-vocabSearch(song="YoruNiKakeru", level=2)
-vocabSearch(song="YoruNiKakeru", level=1)
+vocabSearch("Pretender", "Beginner")
+vocabSearch("Pretender", "Intermediate")
+vocabSearch("Pretender", "Advanced")
