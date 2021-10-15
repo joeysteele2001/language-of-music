@@ -2,93 +2,45 @@ import React from 'react';
 import Lyrics from './Lyrics';
 import YouTubePlayer from './YouTubePlayer';
 
+import exampleLyrics from '../resources/exampleLyrics.json';
+
 const JustListen = () => {
     return (
         <div className="JustListen">
             <YouTubePlayer
                 id="music-video-player"
                 title="Music Video Player"
-                videoId="dQw4w9WgXcQ"
+                videoId="_IkopJwRDKU"
             />
-            <Lyrics times={exampleTimes}>
-                {exampleLyrics}
+            <Lyrics times={exampleTimes} >
+                {lyricsElements(exampleLyrics)}
             </Lyrics>
-        </div>
+        </div >
 
     )
 };
 
 export default JustListen;
 
-const exampleLyrics = `We're no strangers to love
-You know the rules and so do I
-A full commitment's what I'm thinkin' of
-You wouldn't get this from any other guy
-I just wanna tell you how I'm feelin'
-Gotta make you understand
+export type LyricsText = LyricsLine[];
+export type LyricsLine = AnnotatedText[];
+export type AnnotatedText = { text: string, ruby?: string };
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
 
-We've know each other for so long
-Your heart's been achin' but you're too shy to say it
-Inside we both know what's been going on
-We know the game and we're gonna play it
-And if you ask me how I'm feelin'
-Don't tell me you're too blind to see
+const annotatedTextToElements = (annotatedText: AnnotatedText) => {
+    const { text, ruby } = annotatedText;
+    if (ruby) {
+        return <ruby>{text} <rp>(</rp><rt>{ruby}</rt><rp>)</rp></ruby>;
+    } else {
+        return text;
+    }
+}
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
+const lineToElements = (line: AnnotatedText[]) => {
+    return line.map(annotatedTextToElements);
+}
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-(Give you up, give you up)
-Never gonna give, never gonna give
-(Give you up)
-Never gonna give, never gonna give
-(Give you up)
-
-We've know each other for so long
-Your heart's been achin' but you're too shy to say it
-Inside we both know what's been going on
-We know the game and we're gonna play it
-I just wanna tell you how I'm feelin'
-Gotta make you understand
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you`
-    .split('\n');
+const lyricsElements = (lyrics: LyricsText) => lyrics.map(line => <div>{lineToElements(line)}</div>);
 
 const exampleTimes = Array.from(Array(exampleLyrics.length).keys())
     .map(i => (i ** 1.7) * 10);
