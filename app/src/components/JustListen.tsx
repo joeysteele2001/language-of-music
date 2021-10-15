@@ -38,15 +38,20 @@ const annotatedTextToElements = (annotatedText: AnnotatedText) => {
     if (ruby) {
         return <ruby>{text} <rp>(</rp><rt>{ruby}</rt><rp>)</rp></ruby>;
     } else {
-        return text;
+        return <span>{text}</span>;
     }
 }
 
 const lineToElements = (line: AnnotatedText[]) => {
-    return line.map(annotatedTextToElements);
+    // give each line's elements `key`s so React is happy
+    return line
+        .map(annotatedTextToElements)
+        .map((elem, idx) => React.cloneElement(elem, { key: idx }));
 }
 
-const lyricsElements = (lyrics: LyricsText) => lyrics.map(line => <div>{lineToElements(line)}</div>);
+const lyricsElements = (lyrics: LyricsText) => (
+    lyrics.map((line, idx) => <div key={idx}>{lineToElements(line)}</div>)
+);
 
 const exampleTimes = Array.from(Array(exampleLyrics.length).keys())
     .map(i => (i ** 1.7) * 10);
