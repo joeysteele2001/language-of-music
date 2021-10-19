@@ -1,49 +1,28 @@
 import React from 'react';
 import './SelectMode.css';
-import JustListen from './JustListen';
-import PlayAlong from './PlayAlong';
-import ListenandLearn from './ListenandLearn';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const SelectMode = () => {
-return (
+  return (
     <main>
       <div className="SelectModeHeader">
         <h1>Select Mode</h1>
       </div>
 
-    <BrowserRouter>
-      <div className= "SelectMode">
+      <div className="SelectMode">
         <div>
-        <Link to="/JustListen">JustListen</Link>
+          <Link to="/JustListen">Just Listen</Link>
         </div>
         <div>
-        <Link to="/ListenandLearn">ListenandLearn</Link>
+          <Link to="/ListenandLearn">Listen and Learn</Link>
         </div>
         <div>
-        <Link to="/PlayAlong">PlayAlong</Link>
+          <Link to="/PlayAlong">Play Along</Link>
         </div>
 
       </div>
-    
-    <Switch>
-    
-        <Route exact path="/JustListen">
-          <JustListen />
-        </Route>
-
-        <Route exact path="/ListenandLearn">
-          <ListenandLearn />
-        </Route>
-        <Route exact path="/PlayAlong">
-          <PlayAlong />
-        </Route>
-      </Switch>
-
-      </BrowserRouter>
-
     </main>
-);
+  );
 };
 
 
