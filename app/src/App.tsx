@@ -2,9 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
-import JustListen from './components/JustListen';
-import ListenandLearn from './components/ListenandLearn';
-import PlayAlong from './components/PlayAlong';
+import SongPage from './components/SongPage';
 
 
 const App = () => {
@@ -19,15 +17,15 @@ const App = () => {
           </Route>
 
           <Route path="/JustListen">
-            <JustListen />
+            <SongPage mode="JustListen" />
           </Route>
 
           <Route path="/ListenandLearn">
-            <ListenandLearn />
+            <SongPage mode="ListenLearn" />
           </Route>
 
           <Route path="/PlayAlong">
-            <PlayAlong />
+            <SongPage mode="PlayAlong" />
           </Route>
         </Switch>
       </main>
