@@ -1,6 +1,6 @@
 import config from './config';
 
-function translate(input:string): void{
+function translate(input: string): void {
 	var mykey = config.TRANSLATE_KEY;
 
 	fetch("https://google-translate1.p.rapidapi.com/language/translate/v2/detect", {
@@ -15,13 +15,13 @@ function translate(input:string): void{
 			"q": input
 		})
 	})
-	.then(response => {
-		console.log(response);
-		return(response);
-	})
-	.catch(err => {
-		console.error(err);
-	});
+		.then(response => {
+			console.log(response);
+			return (response);
+		})
+		.catch(err => {
+			console.error(err);
+		});
 };
 
 export default translate;

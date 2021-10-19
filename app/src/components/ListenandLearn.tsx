@@ -2,9 +2,11 @@ import React from 'react';
 import YouTubePlayer from './YouTubePlayer';
 import QuizPage from './QuizPage';
 import Lyrics from './Lyrics';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Route, Link, Switch, useRouteMatch } from 'react-router-dom';
 
 const ListenandLearn = () => {
+    const { path, url } = useRouteMatch();
+
     return (
         <div className="JustListen">
             <h1>Song Title</h1>
@@ -17,12 +19,12 @@ const ListenandLearn = () => {
                 {exampleLyrics}
             </Lyrics>
 
-            <BrowserRouter>
-                <Link to="/Quiz">Quiz</Link>
-                <Route exact path="/Quiz">
-                    <QuizPage/>
+            <Link to={`${url}/Quiz`}>Quiz</Link>
+            <Switch>
+                <Route path={`${path}/Quiz`}>
+                    <QuizPage />
                 </Route>
-            </BrowserRouter>
+            </Switch>
         </div>
 
     )
