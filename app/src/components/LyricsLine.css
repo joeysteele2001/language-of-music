@@ -1,3 +1,7 @@
+.LyricsLine {
+    text-align: left;
+}
+
 .LyricsLine + .LyricsLine {
     margin: 1em 0;
 }

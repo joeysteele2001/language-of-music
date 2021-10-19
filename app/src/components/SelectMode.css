@@ -1,0 +1,12 @@
+.SelectMode {
+    display: flex;
+}
+.SelectMode div {
+    flex-basis: 100%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.SelectModeHeader {
+    text-align: center;
+}
