@@ -3,6 +3,9 @@ import { Link, Switch, Route, useRouteMatch, useLocation } from 'react-router-do
 import YouTubePlayer from './YouTubePlayer';
 import Lyrics from './Lyrics';
 import QuizPage from './QuizPage';
+import Popup from './Popup';
+
+import exampleLyrics from '../resources/exampleLyrics.json';
 
 export type SongMode = "JustListen" | "ListenLearn" | "PlayAlong";
 
@@ -10,7 +13,7 @@ export interface Props {
     mode: SongMode;
 }
 
-const DEFAULT_SONG = 'dQw4w9WgXcQ';
+const DEFAULT_SONG = '_IkopJwRDKU';
 
 // Custom hook function to get the `?song=<id>` part of the URL
 // Modified from an example on `reactrouter.com`
@@ -30,12 +33,13 @@ export const SongPage = (props: Props) => {
     if (mode === 'PlayAlong') {
         lyrics = exampleLyricsChords;
     } else {
-        lyrics = exampleLyrics;
+        lyrics = lyricsElements(exampleLyrics);
     }
 
     return (
         <div className={`SongPage ${mode}`}>
             <h1>Song Title</h1>
+
             <YouTubePlayer
                 id="music-video-player"
                 title="Music Video Player"
@@ -45,6 +49,11 @@ export const SongPage = (props: Props) => {
             <Lyrics times={exampleTimes}>
                 {lyrics}
             </Lyrics>
+
+            <Popup>
+                <b>Your Lyrics</b>
+                <p>Translation</p>
+            </Popup>
 
             {
                 mode === 'ListenLearn' &&
@@ -63,142 +72,75 @@ export const SongPage = (props: Props) => {
 
 export default SongPage;
 
-const exampleLyrics = `We're no strangers to love
-You know the rules and so do I
-A full commitment's what I'm thinkin' of
-You wouldn't get this from any other guy
-I just wanna tell you how I'm feelin'
-Gotta make you understand
+const exampleLyricsChords = `suyoku nareru riyuu wo shitta
+C       D      Em D Em D
+boku wo tsurete susume
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
+Em D Em D
+Em D Em D
+Em D Em D
 
-We've know each other for so long
-Your heart's been achin' but you're too shy to say it
-Inside we both know what's been going on
-We know the game and we're gonna play it
-And if you ask me how I'm feelin'
-Don't tell me you're too blind to see
+Em            D            C   D
+doro darake no soumatou ni you  kowabaru kokoro
+Em           D                   C
+furueru te wa tsukamitai mono ga aru
+D     Dsus4
+soredakesa
+Em            D
+yoru no nioi ni (I'll spend all thirty nights)
+C            D
+sora nirande mo (Staring into the sky)
+Em             D             C
+kawatteikeruno wa jibun jishin dake
+D     Dsus4
+soredakesa
+C       D        Em         Bm
+tsuyoku nareru riyuu wo shitta
+C       D      Em
+boku wo tsurete susume
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
+N.C.
+doushitatte!
+C                 D
+kesenai yume mo tomarenai ima mo
+Em                   Bm          C
+dareka no tame ni tsuyoku nareru nara
+     D#dim    Em D Em D
+nando demo tachiagare
+Bm A Bm  A  C                  D
+sekai ni uchinomesarete makeru imi wo shitta
+D#dim         Em       C
+guren no hana yo sakihokore!
+    D
+un'mei wo terashite
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-(Give you up, give you up)
-Never gonna give, never gonna give
-(Give you up)
-Never gonna give, never gonna give
-(Give you up)
-
-We've know each other for so long
-Your heart's been achin' but you're too shy to say it
-Inside we both know what's been going on
-We know the game and we're gonna play it
-I just wanna tell you how I'm feelin'
-Gotta make you understand
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you`
+Em D Em D Em`
     .split('\n');
 
-const exampleLyricsChords = `G                      A
-Were no strangers to love
-G                      A
-You know the rules and so do I
-G                            A
-A full commitment's what I'm thinking of
-G                               A
-You wouldn't get this from any other guy
-G             A
-I just wanna tell you how I'm feeling
-G              A
-Gotta make you understand
-    
-                G       A
-Never gonna give you up
-                F#m     Bm
-Never gonna let you down
-                G   A          F#    Bm
-Never gonna run around and desert you
-                G       A
-Never gonna make you cry
-                F#m     Bm
-Never gonna say goodbye
-                G   A          F#   Bm
-Never gonna tell a lie and hurt you
-    
-[Verse]
-G                       A
-We've known each other for so long
-G                             A
-Your heart's been aching but you're too shy to say it
-G                                A
-Inside we both know what's been going on
-G                           A
-We know the game and were gonna play it
-G           A
-And if you ask me how Im feeling
-G                         A
-Dont tell me youre too blind to see
-    
-[Chorus]
-                G       A
-Never gonna give you up
-                F#m     Bm
-Never gonna let you down
-                G   A          F#    Bm
-Never gonna run around and desert you
-                G       A
-Never gonna make you cry
-                F#m     Bm
-Never gonna say goodbye
-                G   A          F#   Bm
-Never gonna tell a lie and hurt you
-                G       A
-Never gonna give you up
-                F#m     Bm
-Never gonna let you down
-                G   A          F#    Bm
-Never gonna run around and desert you
-                G       A
-Never gonna make you cry
-                F#m     Bm
-Never gonna say goodbye
-                G   A          F#   Bm
-Never gonna tell a lie and hurt you`
-    .split('\n');
+export type LyricsText = LyricsLine[];
+export type LyricsLine = AnnotatedText[];
+export type AnnotatedText = { text: string, ruby?: string };
+
+
+const annotatedTextToElements = (annotatedText: AnnotatedText) => {
+    const { text, ruby } = annotatedText;
+    if (ruby) {
+        return <ruby>{text} <rp>(</rp><rt>{ruby}</rt><rp>)</rp></ruby>;
+    } else {
+        return <span>{text}</span>;
+    }
+}
+
+const lineToElements = (line: AnnotatedText[]) => {
+    // give each line's elements `key`s so React is happy
+    return line
+        .map(annotatedTextToElements)
+        .map((elem, idx) => React.cloneElement(elem, { key: idx }));
+}
+
+const lyricsElements = (lyrics: LyricsText) => (
+    lyrics.map((line, idx) => <div key={idx}>{lineToElements(line)}</div>)
+);
 
 const exampleTimes = Array.from(Array(exampleLyrics.length).keys())
     .map(i => (i ** 1.7) * 10);

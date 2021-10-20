@@ -1,7 +1,6 @@
 import React from 'react';
 import './Lyrics.css';
 import LyricsLine from './LyricsLine';
-import PopUpFunction from './PopUpFunction';
 
 // TODO: add play / pause / scrub functionality
 
@@ -128,11 +127,9 @@ export class Lyrics extends React.PureComponent<Props, State> {
 
     render() {
         return (
-            <><div className="Lyrics">
+            <div className="Lyrics">
                 {this.lineElements()}
             </div>
-                    <PopUpFunction />
-                </>
         );
     };
 };
