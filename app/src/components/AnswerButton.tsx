@@ -21,8 +21,8 @@ const AnswerButton = ({ children, correct, clicked = false, onClick }: Props) =>
         const color = correct ? "green" : "red";
         className = `AnswerButton-${color}`;
     } else {
-        className = ""
-    };
+        className = "";
+    }
 
     return (
         <button className={className} onClick={onClick}>

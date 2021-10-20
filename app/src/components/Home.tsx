@@ -11,15 +11,16 @@ const Home = () => {
             <div className="HomeHeader">
                 <h1>App Name</h1>
             </div>
-            {//When any song clicked: link to selectmode page & simultaneously navigate to that song's data in a library//
-            }
+
             <div className="Home">
                 <div>
                     <button className="songButton">Song1</button>
                 </div>
+
                 <div>
                     <Link to={`${url}/SelectMode`}><button className="songButton">Song2</button></Link>
                 </div>
+
                 <Switch>
                     <Route path={`${path}/SelectMode`}>
                         <SelectMode />
