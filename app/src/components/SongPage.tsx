@@ -125,9 +125,9 @@ export type AnnotatedText = { text: string, ruby?: string };
 const annotatedTextToElements = (annotatedText: AnnotatedText) => {
     const { text, ruby } = annotatedText;
     if (ruby) {
-        return <ruby>{text} <rp>(</rp><rt>{ruby}</rt><rp>)</rp></ruby>;
+        return <ruby>{text}<rp> (</rp><rt>{ruby}</rt><rp>)</rp></ruby>;
     } else {
-        return <span>{text}</span>;
+        return <>{text}</>;
     }
 }
 
