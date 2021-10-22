@@ -35,13 +35,13 @@ export const SongPage = (props: Props) => {
     if (mode === 'PlayAlong') {
         lyrics = exampleLyricsChords;
     } else {
-        lyrics = lyricsElements(exampleLyrics);
+        lyrics = lyricsElements(exampleLyrics.lyrics);
     }
 
     return (
         <div className={`SongPage ${mode}`}>
             <div>
-                <h1>Song Title</h1>
+                <h1>Gurenge</h1>
 
                 <YouTubePlayer
                     id="music-video-player"
@@ -51,7 +51,7 @@ export const SongPage = (props: Props) => {
             </div>
 
             <div>
-                <Lyrics times={exampleTimes}>
+                <Lyrics times={exampleLyrics.times}>
                     {lyrics}
                 </Lyrics>
             </div>
@@ -147,8 +147,5 @@ const lineToElements = (line: AnnotatedText[]) => {
 }
 
 const lyricsElements = (lyrics: LyricsText) => (
-    lyrics.map((line, idx) => <div key={idx}>{lineToElements(line)}</div>)
+    lyrics.map((line, idx) => <div key={idx}>{idx + 1}. {lineToElements(line)}</div>)
 );
-
-const exampleTimes = Array.from(Array(exampleLyrics.length).keys())
-    .map(i => (i ** 1.7) * 10);
