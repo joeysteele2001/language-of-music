@@ -4,6 +4,7 @@ import YouTubePlayer from './YouTubePlayer';
 import Lyrics from './Lyrics';
 import QuizPage from './QuizPage';
 import Popup from './Popup';
+import Button from './Button';
 
 import './SongPage.css';
 
@@ -66,7 +67,7 @@ export const SongPage = (props: Props) => {
                 {
                     mode === 'ListenLearn' &&
                     <>
-                        <Link to={`${url}/Quiz`}>Take the Quiz</Link>
+                        <Button><Link to={`${url}/Quiz`}>Take the Quiz</Link></Button>
                         <Switch>
                             <Route path={`${path}/Quiz`}>
                                 <QuizPage />
@@ -75,7 +76,7 @@ export const SongPage = (props: Props) => {
                     </>
                 }
             </div>
-        </div>
+        </div >
     )
 };
 

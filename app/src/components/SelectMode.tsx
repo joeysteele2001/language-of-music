@@ -2,6 +2,8 @@ import React from 'react';
 import './SelectMode.css';
 import { Link } from 'react-router-dom';
 
+import Button from './Button';
+
 const SelectMode = () => {
   return (
     <main>
@@ -10,15 +12,15 @@ const SelectMode = () => {
       </div>
 
       <div className="SelectMode">
-        <div>
+        <Button>
           <Link to="/JustListen">Just Listen</Link>
-        </div>
-        <div>
+        </Button>
+        <Button>
           <Link to="/ListenandLearn">Listen and Learn</Link>
-        </div>
-        <div>
+        </Button>
+        <Button>
           <Link to="/PlayAlong">Play Along</Link>
-        </div>
+        </Button>
 
       </div>
     </main>
