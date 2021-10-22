@@ -9,7 +9,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <main>
-        <nav>
+        <nav className="dev">
           <ul>
             <li><Link to="/home">Home</Link></li>
             <li><Link to="/colors">Color Palette</Link></li>

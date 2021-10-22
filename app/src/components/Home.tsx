@@ -9,24 +9,48 @@ const Home = () => {
     return (
         <main>
             <div className="HomeHeader">
-                <h1>App Name</h1>
+                <h1><span className="dev">App Name</span></h1>
             </div>
 
-            <div className="Home">
-                <div>
-                    <button className="songButton">Song1</button>
+            <div className="SongBrowser">
+                <div className="SongBrowser-song">
+                    <Link to="#">Song 1</Link>
                 </div>
 
-                <div>
-                    <Link to={`${url}/SelectMode`}><button className="songButton">Song2</button></Link>
+                <div
+                    className="SongBrowser-song"
+                    style={{
+                        backgroundImage: "url(https://img.youtube.com/vi/_IkopJwRDKU/mqdefault.jpg)",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        backgroundSize: "cover",
+                    }}
+                >
+                    <Link to={`${url}/SelectMode`}>Gurenge</Link>
                 </div>
 
-                <Switch>
-                    <Route path={`${path}/SelectMode`}>
-                        <SelectMode />
-                    </Route>
-                </Switch>
+                <div className="SongBrowser-song">
+                    <Link to="#">Song 3</Link>
+                </div>
+
+                <div className="SongBrowser-song">
+                    <Link to="#">Song 4</Link>
+                </div>
+
+                <div className="SongBrowser-song">
+                    <Link to="#">Song 5</Link>
+                </div>
+
+                <div className="SongBrowser-song">
+                    <Link to="#">Song 6</Link>
+                </div>
             </div>
+
+            <Switch>
+                <Route path={`${path}/SelectMode`}>
+                    <SelectMode />
+                </Route>
+            </Switch>
         </main>
     );
 };

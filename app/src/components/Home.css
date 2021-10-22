@@ -1,34 +1,26 @@
-.Home {
-    display: list-item;
+.SongBrowser {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin: 0 2rem;
+    justify-items: center;
 }
-.Home div {
-    flex-basis: 100%;
-    text-align: center;
+
+.SongBrowser-song {
+    background-color: black;
+    min-height: 280px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
-.songButton {
-    -webkit-appearance: button;
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: buttontext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: left;
-    align-items: flex-start;
-    cursor: default;
-    background-color: rgb(206, 227, 233);
-    box-sizing: content-box;
-    width: 75%;
-    margin: 0em;
-    font: 400 11px system-ui;
-    padding: 1px 7px 2px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(216, 216, 216) rgb(216, 216, 216) rgb(216, 216, 216);
-    border-image: initial;
+
+.SongBrowser-song a {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    background-color: #0000007f;
 }
 
 .HomeHeader {
