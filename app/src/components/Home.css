@@ -6,21 +6,31 @@
     justify-items: center;
 }
 
+@media (max-width: 1200px) {
+    .SongBrowser {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .SongBrowser {
+        grid-template-columns: 1fr;
+    }
+}
+
 .SongBrowser-song {
+    width: 100%;
+    max-width: 500px;
+}
+
+.SongBrowser-thumbnail {
     background-color: black;
-    min-height: 280px;
-    width: 500px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
 }
 
 .SongBrowser-song a {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    color: var(--text-color);
-    background-color: #0000007f;
+    color: inherit;
 }
 
 .HomeHeader {
