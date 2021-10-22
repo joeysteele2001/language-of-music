@@ -5,6 +5,8 @@ import Lyrics from './Lyrics';
 import QuizPage from './QuizPage';
 import Popup from './Popup';
 
+import './SongPage.css';
+
 import exampleLyrics from '../resources/exampleLyrics.json';
 
 export type SongMode = "JustListen" | "ListenLearn" | "PlayAlong";
@@ -38,34 +40,40 @@ export const SongPage = (props: Props) => {
 
     return (
         <div className={`SongPage ${mode}`}>
-            <h1>Song Title</h1>
+            <div>
+                <h1>Song Title</h1>
 
-            <YouTubePlayer
-                id="music-video-player"
-                title="Music Video Player"
-                videoId={songId}
-            />
+                <YouTubePlayer
+                    id="music-video-player"
+                    title="Music Video Player"
+                    videoId={songId}
+                />
+            </div>
 
-            <Lyrics times={exampleTimes}>
-                {lyrics}
-            </Lyrics>
+            <div>
+                <Lyrics times={exampleTimes}>
+                    {lyrics}
+                </Lyrics>
+            </div>
 
-            <Popup>
-                <b>Your Lyrics</b>
-                <p>Translation</p>
-            </Popup>
+            <div className="SongPage-dev">
+                <Popup>
+                    <b>Your Lyrics</b>
+                    <p>Translation</p>
+                </Popup>
 
-            {
-                mode === 'ListenLearn' &&
-                <>
-                    <Link to={`${url}/Quiz`}>Take the Quiz</Link>
-                    <Switch>
-                        <Route path={`${path}/Quiz`}>
-                            <QuizPage />
-                        </Route>
-                    </Switch>
-                </>
-            }
+                {
+                    mode === 'ListenLearn' &&
+                    <>
+                        <Link to={`${url}/Quiz`}>Take the Quiz</Link>
+                        <Switch>
+                            <Route path={`${path}/Quiz`}>
+                                <QuizPage />
+                            </Route>
+                        </Switch>
+                    </>
+                }
+            </div>
         </div>
     )
 };
