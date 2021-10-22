@@ -31,7 +31,7 @@ const Home = () => {
                                 backgroundSize: "cover",
                             }}
                         />
-                        <div className="SongBrowser-name">Gurenge</div>
+                        <div className="SongBrowser-name">Gurenge - LiSA</div>
                     </Link>
                 </div>
 
