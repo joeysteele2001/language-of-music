@@ -1,7 +1,7 @@
 import React from 'react';
 import Lyrics from './Lyrics';
+import TranslationPopUp from './TranslationPopUp';
 import YouTubePlayer from './YouTubePlayer';
-import translate from './translate';
 
 const JustListen = () => {
     return (
@@ -93,6 +93,3 @@ Never gonna tell a lie and hurt you`
 
 const exampleTimes = Array.from(Array(exampleLyrics.length).keys())
     .map(i => (i ** 1.7) * 10);
-
-
-const testlyrics = `強くなれる理由を知った`

@@ -1,27 +1,25 @@
-import config from './config';
+ import config from './config';
+ 
+ function translate(input:string): void{
+    var axios = require("axios").default;
 
-function translate(input:string): void{
-	var mykey = config.TRANSLATE_KEY;
-	console.log(input);
-	fetch("https://google-translate1.p.rapidapi.com/language/translate/v2/detect", {
-		"method": "POST",
-		"headers": {
-			"content-type": "application/x-www-form-urlencoded",
-			"accept-encoding": "application/gzip",
-			"x-rapidapi-key": mykey,
-			"x-rapidapi-host": "google-translate1.p.rapidapi.com"
-		},
-		"body": JSON.stringify({
-			"q": input
-		})
-	})
-	.then(response => {
-		console.log(response);
-		return(response);
-	})
-	.catch(err => {
-		console.error(err);
-	});
+    var options = {
+    method: 'POST',
+    url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
+    params: {to: 'en', 'api-version': '3.0', profanityAction: 'NoAction',
+    textType: 'plain'},
+    headers: {
+    'content-type': 'application/json',
+    'x-rapidapi-host': 'microsoft-translator-text.p.rapidapi.com',
+    'x-rapidapi-key': config.TRANSLATE_API_KEY
+      },
+    data: [{Text: input}]
+    };
+axios.request(options).then(function(response:any) {
+	console.log(response.data[0].translations[0].text);
+}).catch(function (error:any) {
+	console.error(error);
+});
 };
 
 export default translate;

@@ -1,13 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
+import SelectMode from './components/SelectMode';
 import ColorPalette from './components/ColorPalette';
-import Quiz from './components/Quiz';
+
 
 const App = () => {
   return (
-  <main>
+  <main className='App'>
     <BrowserRouter>
       <nav>
         <ul>
@@ -15,13 +16,10 @@ const App = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/justlisten">Just Listen</Link>
-          </li>
-          <li>
-            <Link to="/quiz">Quiz</Link>
-          </li>
-          <li>
             <Link to="/colors">Colors</Link>
+          </li>
+          <li>
+            <Link to="/selectmode">SelectMode</Link>
           </li>
         </ul>
       </nav>
@@ -31,21 +29,14 @@ const App = () => {
           <Home />
         </Route>
 
-        <Route exact path="/justlisten">
-          <JustListen />
-        </Route>
-
-        <Route exact path="/quiz">
-          <Quiz
-            question="Question"
-            answers={["Answer 1", "Answer 2", "Answer 3", "I'm the correct answer", "Answer 5"]}
-            correctAnswer={3}
-          />
-        </Route>
-
         <Route exact path="/colors">
           <ColorPalette />
         </Route>
+
+        <Route exact path="/SelectMode">
+          <SelectMode />
+        </Route>
+
       </Switch>
     </BrowserRouter>
  
