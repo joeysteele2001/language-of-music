@@ -1,10 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SelectMode.css';
 import { Link } from 'react-router-dom';
+import TranslationPopUp from './TranslationPopUp';
 
-const SelectMode = () => {
-  return (
-    <main>
+function SelectModePopUp() {
+  const [isOpen, setIsOpen] = useState(false);
+ 
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+  return <div>
+  <input
+    className = "SelectMode"
+    value = 'Select Mode'
+    onClick={togglePopup}
+  />
+      {isOpen && <TranslationPopUp
+    content={<>
+      <main>
       <div className="SelectModeHeader">
         <h1>Select Mode</h1>
       </div>
@@ -19,11 +32,12 @@ const SelectMode = () => {
         <div>
           <Link to="/PlayAlong">Play Along</Link>
         </div>
-
       </div>
     </main>
-  );
-};
+    </>}
+    handleClose={togglePopup}
+  />}
+</div>
+}
 
-
-export default SelectMode;
+export default SelectModePopUp;
