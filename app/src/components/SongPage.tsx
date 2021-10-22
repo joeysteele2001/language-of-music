@@ -58,7 +58,7 @@ export const SongPage = (props: Props) => {
             {
                 mode === 'ListenLearn' &&
                 <>
-                    <Link to={`${url}/Quiz`}>Quiz</Link>
+                    <Link to={`${url}/Quiz`}>Take the Quiz</Link>
                     <Switch>
                         <Route path={`${path}/Quiz`}>
                             <QuizPage />
