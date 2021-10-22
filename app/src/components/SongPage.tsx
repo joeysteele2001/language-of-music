@@ -42,6 +42,7 @@ export const SongPage = (props: Props) => {
         <div className={`SongPage ${mode}`}>
             <div>
                 <h1>Gurenge</h1>
+                <h2>LiSA</h2>
 
                 <YouTubePlayer
                     id="music-video-player"
