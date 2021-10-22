@@ -2,45 +2,34 @@ import React from 'react';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
-import SelectMode from './components/SelectMode';
-import ColorPalette from './components/ColorPalette';
+import SongPage from './components/SongPage';
 
 
 const App = () => {
   return (
-  <main className='App'>
     <BrowserRouter>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/colors">Colors</Link>
-          </li>
-          <li>
-            <Link to="/selectmode">SelectMode</Link>
-          </li>
-        </ul>
-      </nav>
+      <main>
+        <Link to="/home"><button>Home</button></Link>
 
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
 
-        <Route exact path="/colors">
-          <ColorPalette />
-        </Route>
+          <Route path="/JustListen">
+            <SongPage mode="JustListen" />
+          </Route>
 
-        <Route exact path="/SelectMode">
-          <SelectMode />
-        </Route>
+          <Route path="/ListenandLearn">
+            <SongPage mode="ListenLearn" />
+          </Route>
 
-      </Switch>
+          <Route path="/PlayAlong">
+            <SongPage mode="PlayAlong" />
+          </Route>
+        </Switch>
+      </main>
     </BrowserRouter>
- 
-  </main>
   );
 };
 
