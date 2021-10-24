@@ -149,5 +149,5 @@ const lineToElements = (line: AnnotatedText[]) => {
 }
 
 const lyricsElements = (lyrics: LyricsText) => (
-    lyrics.map((line, idx) => <div key={idx}>{idx + 1}. {lineToElements(line)}</div>)
+    lyrics.map((line, idx) => <div key={idx}>{lineToElements(line)}</div>)
 );
