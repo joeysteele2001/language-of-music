@@ -131,7 +131,7 @@ export class Lyrics extends React.PureComponent<Props, State> {
                 {this.lineElements()}
             </div>
         );
-    }
-}
+    };
+};
 
 export default Lyrics;

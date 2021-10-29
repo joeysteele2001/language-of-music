@@ -28,7 +28,7 @@ const AnswerButton = ({ children, correct, clicked = false, onClick }: Props) =>
         <button className={className} onClick={onClick}>
             {children}
         </button>
-    )
+    );
 };
 
 export default AnswerButton;

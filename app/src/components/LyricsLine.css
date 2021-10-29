@@ -1,4 +1,10 @@
-.LyricsLine {}
+.LyricsLine {
+    text-align: left;
+}
+
+.LyricsLine + .LyricsLine {
+    margin: 1em 0;
+}
 
 .LyricsLine-current {
     font-weight: bold;
