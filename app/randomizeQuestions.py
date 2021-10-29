@@ -3,7 +3,8 @@ from random import sample
 
 # takes in a song's vocab list file and creates a file with a unique subset 
 # of questions (default 5) to display in the quiz
-# the first line is the correct answer, followed by incorrect answer choices
+# the first line is the correct answer, followed by the correct answer choice
+# and then a default of three incorrect answer choices
 # only Japanese is provided for incorrect answers
 def randomizeQuestions(file, numberOfQuestions=5):
     with open(file) as myList, open('questionList.html', 'w') as output:
