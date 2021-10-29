@@ -1,0 +1,12 @@
+.Sidebar {
+    border: 2px dashed var(--text-color);
+
+    width: 25%;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.Sidebar > * {
+    border: 1px dotted var(--text-color);
+}

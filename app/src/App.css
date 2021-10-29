@@ -28,3 +28,7 @@ body {
 .dev a {
   color: inherit;
 }
+
+.noselect {
+  user-select: none;
+}
