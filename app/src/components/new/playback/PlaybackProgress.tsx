@@ -31,9 +31,9 @@ const durToStr = (dur: Duration): string => {
     return `${dur.minutes}:${secsStr}`;
 };
 
-const durToMil = (dur: Duration): Milliseconds => {
-    return 1000 * ((dur.minutes * 60) + dur.seconds);
-};
+// const durToMil = (dur: Duration): Milliseconds => {
+//     return 1000 * ((dur.minutes * 60) + dur.seconds);
+// };
 
 const milToDur = (mil: Milliseconds): Duration => {
     const minutes = Math.floor(mil / 60_000);
