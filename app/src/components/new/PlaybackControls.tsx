@@ -1,5 +1,9 @@
 import React from 'react';
 
+import Scrubber from './Scrubber';
+import PlayPauseButton from './PlayPauseButton';
+import PlaybackProgress from './PlaybackProgress';
+
 import './PlaybackControls.css';
 
 export interface Props {
@@ -7,7 +11,12 @@ export interface Props {
 }
 
 const PlaybackControls = ({ onClick }: Props) => {
+    const duration = 4 * 60000 + 20 * 1000;
+
     const [playing, setPlaying] = React.useState(false);
+
+    // normalized playback time, from 0.0 to 1.0
+    const [time, setTime] = React.useState(0);
 
     const toggle = () => {
         if (onClick) {
@@ -19,16 +28,11 @@ const PlaybackControls = ({ onClick }: Props) => {
 
     return (
         <div className="PlaybackControls">
-            <button onClick={toggle}>
-                {playing ? PAUSE_ICON : PLAY_ICON}
-            </button>
-            <div>0:00 / 4:20</div>
-            <div>Scrubber</div>
+            <PlayPauseButton onClick={toggle} playing={playing} />
+            <PlaybackProgress currentTime={time * duration} duration={duration} />
+            <Scrubber value={time} onChange={setTime} />
         </div>
     );
 };
-
-const PLAY_ICON = '\u25b6';
-const PAUSE_ICON = '\u23f8';
 
 export default PlaybackControls;
