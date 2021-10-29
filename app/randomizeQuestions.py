@@ -12,7 +12,8 @@ def randomizeQuestions(file, numberOfQuestions=5):
             numberOfQuestions = len(lines)
         indices = sample(range(0, len(lines)), numberOfQuestions)
         for i in indices:
-            output.write(lines[i])
+            output.write(' '.join(lines[i].split()[1:]) + '\n')
+            output.write(lines[i].split()[0][:-1] + '\n')
             incorrectIndices = incorrectAnswers(file, i, lines)
             for j in incorrectIndices:
                 output.write(lines[j].split()[0][:-1] + '\n')
