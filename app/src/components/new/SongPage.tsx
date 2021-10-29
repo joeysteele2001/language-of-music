@@ -5,7 +5,7 @@ import TopBar from './TopBar';
 
 import YouTubePlayer from '../YouTubePlayer';
 import Lyrics from '../Lyrics';
-import PlaybackControls from './PlaybackControls';
+import PlaybackControls from './playback/PlaybackControls';
 
 import './SongPage.css';
 
