@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ToggleSwitch from './ToggleSwitch';
-import RadioGroup from './RadioGroup';
+import ToggleSwitch from './input/ToggleSwitch';
+import RadioGroup from './input/RadioGroup';
 
 export type QuizLevel = "beginner" | "advanced";
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import QuizzesSettings, { QuizLevel } from './QuizzesSettings';
 
-import RadioGroup from './RadioGroup';
+import RadioGroup from './input/RadioGroup';
 import SmallCapsHeader from './SmallCapsHeader';
-import ToggleSwitch from './ToggleSwitch';
+import ToggleSwitch from './input/ToggleSwitch';
 
 export const Settings = () => {
     const [values, setValues] = React.useState(presetDefaults[0].preset);
@@ -16,20 +16,6 @@ export const Settings = () => {
     };
 
     const selectedPreset = () => {
-        const valuesEqual = (a: SettingsValues, b: SettingsValues) => {
-            if (a.quizLevel !== b.quizLevel
-                || a.chords !== b.chords
-                || a.sideTranslation !== b.sideTranslation) {
-                return false;
-            }
-
-            if (a.quizzes) {
-                return b.quizzes && a.quizLevel === b.quizLevel;
-            }
-
-            return a.quizLevel === b.quizLevel;
-        };
-
         const selected = presetDefaults.find(({ preset }) => valuesEqual(values, preset));
         return selected?.id;
     }
@@ -65,13 +51,13 @@ export const Settings = () => {
             <ToggleSwitch
                 checked={values.chords}
                 label="Chords"
-                onChange={checked => setValues({ ...values, chords: checked })}
+                onChange={chords => setValues({ ...values, chords })}
             />
 
             <ToggleSwitch
                 checked={values.sideTranslation}
                 label="Side Translation"
-                onChange={checked => setValues({ ...values, sideTranslation: checked })}
+                onChange={sideTranslation => setValues({ ...values, sideTranslation })}
             />
         </>
     );
@@ -86,6 +72,20 @@ type SettingsValues = {
     chords: boolean,
     sideTranslation: boolean,
 }
+
+const valuesEqual = (a: SettingsValues, b: SettingsValues) => {
+    if (a.quizLevel !== b.quizLevel
+        || a.chords !== b.chords
+        || a.sideTranslation !== b.sideTranslation) {
+        return false;
+    }
+
+    if (a.quizzes) {
+        return b.quizzes && a.quizLevel === b.quizLevel;
+    }
+
+    return a.quizLevel === b.quizLevel;
+};
 
 const presetDefaults: Array<{ id: string, preset: SettingsValues }> = [
     {

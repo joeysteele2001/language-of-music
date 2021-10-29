@@ -4,7 +4,7 @@ import './App.css';
 import Home from './components/Home';
 import ColorPalette from './components/ColorPalette';
 import SongPage from './components/SongPage';
-import ToggleSwitch from './components/new/ToggleSwitch';
+import ToggleSwitch from './components/new/input/ToggleSwitch';
 import NewHome from './components/new/Home';
 import NewSongPage from './components/new/SongPage';
 
