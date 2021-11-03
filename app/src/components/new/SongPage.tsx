@@ -7,9 +7,17 @@ import YouTubePlayer from '../YouTubePlayer';
 import Lyrics from '../Lyrics';
 import PlaybackControls from './playback/PlaybackControls';
 
+import { SettingsValues, presetDefaults } from './Settings';
+
 import './SongPage.css';
 
-export const SongPage = () => {
+export interface Props {
+    settings?: SettingsValues;
+}
+
+export const SongPage = (props: Props) => {
+    const settings = props.settings || presetDefaults[0].preset;
+
     return (
         <div className="NewHome">
             <Sidebar />
@@ -32,9 +40,10 @@ export const SongPage = () => {
                         <Lyrics>
                             {['short', 'lines', 'of', 'lyrics']}
                         </Lyrics>
-                        <Lyrics>
+
+                        {settings.sideTranslation && <Lyrics>
                             {['líneas', 'cortas', 'de', 'letras']}
-                        </Lyrics>
+                        </Lyrics>}
                     </div>
                 </main>
             </div>

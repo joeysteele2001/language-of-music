@@ -5,20 +5,34 @@ import RadioGroup from './input/RadioGroup';
 import SmallCapsHeader from './SmallCapsHeader';
 import ToggleSwitch from './input/ToggleSwitch';
 
-export const Settings = () => {
+export interface Props {
+    onChange?: (settings: SettingsValues) => void;
+}
+
+export const Settings = (props: Props) => {
+    const { onChange } = props;
+
     const [values, setValues] = React.useState(presetDefaults[0].preset);
+
+    const handleChange = (newValues: SettingsValues) => {
+        if (onChange) {
+            onChange(newValues);
+        }
+    }
 
     const handlePresetChange = (raw: string) => {
         const preset = presetDefaults.find(({ id }) => id === raw);
         if (preset) {
             setValues(preset.preset);
+            handleChange(preset.preset);
         }
+
     };
 
     const selectedPreset = () => {
         const selected = presetDefaults.find(({ preset }) => valuesEqual(values, preset));
         return selected?.id;
-    }
+    };
 
     return (
         <>
@@ -63,9 +77,9 @@ export const Settings = () => {
     );
 };
 
-type PresetMode = "just-listen" | "listen-learn" | "play-along";
+export type PresetMode = "just-listen" | "listen-learn" | "play-along";
 
-type SettingsValues = {
+export type SettingsValues = {
     preset?: PresetMode,
     quizzes: boolean,
     quizLevel: QuizLevel,
@@ -87,7 +101,7 @@ const valuesEqual = (a: SettingsValues, b: SettingsValues) => {
     return a.quizLevel === b.quizLevel;
 };
 
-const presetDefaults: Array<{ id: string, preset: SettingsValues }> = [
+export const presetDefaults: Array<{ id: string, preset: SettingsValues }> = [
     {
         id: 'just-listen',
         preset: {
