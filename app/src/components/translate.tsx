@@ -10,6 +10,7 @@
     var options = {
     method: 'POST',
     url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
+    //change fr to en to translate other languages to english
     params: {to: 'fr', 'api-version': '3.0', profanityAction: 'NoAction',
     textType: 'plain'},
     headers: {
