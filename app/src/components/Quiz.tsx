@@ -4,10 +4,10 @@ import './Quiz.css';
 
 export interface Props {
     /** The quiz question text. */
-    question: string;
+    question: React.ReactNode;
 
     /** The quiz answers' texts. */
-    answers: string[];
+    answers: React.ReactNode[];
 
     /** Index of the correct answer. */
     correctAnswer: number;

@@ -3,7 +3,14 @@ import Quiz from './Quiz';
 
 const QuizPage = () => {
     return (
-        <Quiz question="Select answer" answers={['1','2','3']} correctAnswer={1}/>
+        <Quiz
+            question={<><span style={{ color: 'magenta' }}>Select</span> answer</>}
+            answers={[
+                '1',
+                <><span style={{ textTransform: 'uppercase' }}>Choose</span> <span style={{ color: 'red' }}>me</span><span>!</span></>,
+                '3',
+            ]}
+            correctAnswer={1} />
     );
 };
 
