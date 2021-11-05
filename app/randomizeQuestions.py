@@ -14,8 +14,8 @@ def randomizeQuestions(file, numberOfQuestions=5):
         indices = sample(range(0, len(lines)), numberOfQuestions)
         count = 1
         for i in indices:
-            output.write('<div id=q' + str(count) + '>' + '\n') #  add id to div tags
-            output.write('\t' + '<div>' + ' '.join(lines[i].split()[1:]) + '</div>' + '\n')
+            output.write('<div id="q' + str(count) + '">' + '\n') #  add id to div tags
+            output.write('\t' + '<div id="question">' + ' '.join(lines[i].split()[1:]) + '</div>' + '\n')
             output.write('\t' + lines[i].split()[0][:-1] + '\n')
             incorrectIndices = incorrectAnswers(file, i, lines)
             for j in incorrectIndices:

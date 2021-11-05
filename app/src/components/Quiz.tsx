@@ -48,8 +48,33 @@ export const Quiz = ({ question, answers, correctAnswer }: Props) => {
 
     // randomize position of the correct answer
     const randomizeOrder = () => {
-        let myIndex = Math.floor(Math.random() * 5)
-        // question = 
+        let myIndex = Math.floor(Math.random() * 5); // randomized index for correct answer, 1-4
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', '../../questionList.html')
+        // how to load one question at a time?
+        let current = 1;
+        xhr.onreadystatechange = () => { // onload?
+            let currentQuestion = document.getElementById("q" + current.toString());
+            var lines = currentQuestion?.innerHTML
+            // question is the first line of the div; second line is the correct answer
+            question = currentQuestion?.getElementsByTagName("question").toString() ?? 'string';
+            let i = 1;
+            while (i < 5) { // for each of the four answer choices
+                if (i == myIndex) {
+                    // assign the correct answer choice to the randomly generated index
+                    answers[i-1] = currentQuestion?.querySelectorAll('*')[i-1];
+                    correctAnswer = myIndex;
+                } else {
+                    // assign the other answer choices to the remaining answer choice indices
+                    answers[i-1] = currentQuestion?.querySelectorAll('*')[i-1];
+                }
+                i++;
+            }
+            if (current < 5) { // total number of questions
+                current++;
+            }
+        };
+    }
     }
 
     // Make a `<div>` element for each answer.
