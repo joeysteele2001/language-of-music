@@ -1,6 +1,10 @@
  import config from './config';
+
+ export interface Props {
+    input: string
+  }
  
- function translate(input:string){
+ function translate(props:Props) {
     var axios = require("axios").default;
 
     var options = {
@@ -13,10 +17,10 @@
     'x-rapidapi-host': 'microsoft-translator-text.p.rapidapi.com',
     'x-rapidapi-key': config.TRANSLATE_API_KEY
       },
-    data: [{Text: input}]
+    data: [{Text: props.input}]
     };
-axios.request(options).then(function(response:any) {
-	return(response.data[0].translations[0].text);
+axios.request(options).then((response:any) => {
+	 return(response.data[0].translations[0].text);
 });
 };
 

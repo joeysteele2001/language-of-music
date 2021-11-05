@@ -119,9 +119,12 @@ export class Lyrics extends React.PureComponent<Props, State> {
             }
 
             return (
+                <div>
                 <LyricsLine key={idx} current={idx === this.state.activeLine}>
                     {content}
                 </LyricsLine>
+                <PopUpFunction line={content}></PopUpFunction>
+                </div>
             );
         });
     };
@@ -131,7 +134,6 @@ export class Lyrics extends React.PureComponent<Props, State> {
             <><div className="Lyrics">
                 {this.lineElements()}
             </div>
-                    <PopUpFunction />
                 </>
         );
     };

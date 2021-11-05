@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Link, Switch, useRouteMatch } from 'react-router-dom';
 import SelectMode from './SelectMode';
 import './Home.css';
+import getLyrics from './getLyrics';
+import translate from './translate';
 
 
 
@@ -11,13 +13,14 @@ const Home = () => {
     return (
         <main>
             <div className="HomeHeader">
-                <h1>App Name</h1>
+                <h1>APP NAME</h1>
             </div>
-            {//When any song clicked: link to selectmode page & simultaneously navigate to that song's data in a library//
-            }
             <div className="Home">
                 <div>
                     <button className="songButton">Song1</button>
+                </div>
+                <div>
+                    {getLyrics}
                 </div>
                 <div>
                     <Link to={`${url}/SelectMode`}><button className="songButton">Song2</button></Link>

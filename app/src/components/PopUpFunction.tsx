@@ -1,7 +1,13 @@
 import React, {useState} from 'react';
 import TranslationPopUp from './TranslationPopUp';
+import translate from './translate';
+import reactDOMServer, { renderToString } from 'react-dom/server'
 
-function PopUpFunction() {
+export interface Props {
+  line: any
+}
+
+function PopUpFunction(props:Props) {
     const [isOpen, setIsOpen] = useState(false);
    
     const togglePopup = () => {
@@ -10,17 +16,18 @@ function PopUpFunction() {
     return <div>
     <input
       className = "LyricButton"
-      value = 'lyrics here'
+      value = {props.line}
       onClick={togglePopup}
     />
         {isOpen && <TranslationPopUp
       content={<>
-        <b>Selected Lyrics</b>
-        <p>Translation Here</p>
+        <b>{props.line}</b>
+       {translate(renderToString(<div>{props.line}</div>))}
       </>}
       handleClose={togglePopup}
     />}
   </div>
+  
 }
  
 export default PopUpFunction;
