@@ -1,0 +1,7 @@
+.Lyrics {
+    white-space: pre;
+    border: 1px solid black;
+    border-radius: 8px;
+    overflow: scroll;
+    max-height: 100%;
+}

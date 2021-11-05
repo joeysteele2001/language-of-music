@@ -1,3 +1,30 @@
+:root {
+  --primary-color: #3e188f;
+  --primary-light: #e9dfff;
+  --accent-color: #ef8518;
+  --highlight-color: #50c234;
+  --incorrect-color: #d42d21;
+
+  --text-color: #ffffff;
+  --dev-text-color: #aaaaaa;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
 .App {
   text-align: center;
+}
+
+/* TEMPORARY: STYLING FOR THINGS THAT ARE TEMPORARY AND WON'T BE IN THE FINAL PRODUCT */
+.dev {
+  color: var(--dev-text-color);
+  font-style: italic;
+  border: 2px dotted var(--dev-text-color);
+}
+
+.dev a {
+  color: inherit;
 }

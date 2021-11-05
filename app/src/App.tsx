@@ -1,40 +1,45 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import './App.css';
-import YouTubePlayer from './components/YouTubePlayer';
 import Home from './components/Home';
+import ColorPalette from './components/ColorPalette';
+import SongPage from './components/SongPage';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/rickroll">Rickroll</Link>
-          </li>
-        </ul>
-      </nav>
+      <main>
+        <nav className="dev">
+          <ul>
+            <li><Link to="/home">Home</Link></li>
+            <li><Link to="/colors">Color Palette</Link></li>
+          </ul>
+        </nav>
 
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
 
-        <Route exact path="/rickroll">
-          <YouTubePlayer
-            id="music-video-player"
-            title="Music Video Player"
-            videoId="dQw4w9WgXcQ"
-          />
-        </Route>
-      </Switch>
+          <Route path="/JustListen">
+            <SongPage mode="JustListen" />
+          </Route>
 
+          <Route path="/ListenandLearn">
+            <SongPage mode="ListenLearn" />
+          </Route>
 
+          <Route path="/PlayAlong">
+            <SongPage mode="PlayAlong" />
+          </Route>
+
+          <Route path="/colors">
+            <ColorPalette />
+          </Route>
+        </Switch>
+      </main>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
