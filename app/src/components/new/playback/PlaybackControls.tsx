@@ -3,15 +3,26 @@ import React from 'react';
 import Scrubber from './Scrubber';
 import PlayPauseButton from './PlayPauseButton';
 import PlaybackProgress from './PlaybackProgress';
+import { Duration, Milliseconds, duration as dur } from '../../../util/duration';
 
 import './PlaybackControls.css';
 
 export interface Props {
+    duration?: number | Duration;
     onClick?: (playing: boolean) => void;
 }
 
-const PlaybackControls = ({ onClick }: Props) => {
-    const duration = 4 * 60000 + 20 * 1000;
+const defaultDuration = dur.toMillis({ minutes: 4, seconds: 20 });
+
+const PlaybackControls = (props: Props) => {
+    const { onClick } = props;
+
+    let rawDuration = props.duration || defaultDuration;
+    if (typeof rawDuration === 'object') {
+        rawDuration = dur.toMillis(rawDuration);
+    }
+
+    const duration: Milliseconds = rawDuration;
 
     const [playing, setPlaying] = React.useState(false);
 
