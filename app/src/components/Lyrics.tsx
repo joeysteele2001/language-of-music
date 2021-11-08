@@ -2,7 +2,7 @@ import React from 'react';
 import './Lyrics.css';
 import LyricsLine from './LyricsLine';
 
-// TODO: add play / pause / scrub functionality
+import { Milliseconds } from '../util/duration';
 
 export interface Props {
     /** The actual lyrics.
@@ -15,101 +15,22 @@ export interface Props {
      * 
      * Specify times in milliseconds from the start.
      */
-    times?: number[];
-}
-export interface State {
-    activeLine: number;
+    times?: Milliseconds[];
+
+    /** The current time in the song, as milliseconds from the start. */
+    currentTime?: Milliseconds;
 }
 
 /** A scrolling lyrics view. */
-export class Lyrics extends React.PureComponent<Props, State> {
-    // Store a handle to the timer in order to clear it when the component unloads.
-    timeoutID: ReturnType<typeof setTimeout> | undefined;
-
-    // The line number stored for updating the timer
-    // This is necessary because we need to update the timer synchronously, but
-    // setting state is asynchronous
-    lineForTime: number;
-
-    // The JS time (in milliseconds) that the component loaded
-    startTime: number;
-
-    // The time (in milliseconds) between component mount and most recent component update
-    time: number;
-
-    constructor(props: Props) {
-        // initialize component: necessary for all class components
-        super(props);
-
-        // initialize the component's state
-        this.state = { activeLine: 0 };
-
-        this.lineForTime = 0;
-        this.startTime = 0;
-        this.time = 0;
-    }
-
-    /** Increment the active line of lyrics. */
-    private incActiveLine = () => {
-        // set numChildren to 0 if no children were given
-        const numChildren = this.props.children?.length || 0;
-
-        // do nothing if we're at the last line of lyrics
-        if (this.state.activeLine >= numChildren) {
-            return;
-        }
-
-        // increment the immediate timer line counter
-        // also, set the next timer
-        if (this.props.times) {
-            // calculate the amount of time until we go to the next line
-            const times = this.props.times;
-            const line = this.lineForTime;
-            const deltaTime = times[line + 1] - times[line];
-
-            // javascript timers aren't guaranteed to be completely accurate
-            // so, we calculate the error in time so that we don't drift off
-            this.time += deltaTime;
-            const actualTime = new Date().getTime() - this.startTime;
-            const timeError = actualTime - this.time;
-
-            this.timeoutID = setTimeout(this.incActiveLine, deltaTime - timeError);
-            this.lineForTime++;
-        }
-
-        // update the state
-        // we have to call `setState` rather than setting it directly
-        // we take in the old `activeLine` and return the new one
-        // see https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous
-        this.setState(({ activeLine }) => {
-            return { activeLine: activeLine + 1 };
-        });
-    }
-
-    // automatically increment the lyrics line if line times were given
-    // set the timer when the component first loads
-    componentDidMount() {
-        this.startTime = new Date().getTime();
-
-        if (this.props.times) {
-            const diff = this.props.times[1] - this.props.times[0];
-            this.timeoutID = setTimeout(this.incActiveLine, diff);
-        }
-    }
-
-    // clear the lyrics line timer when the component unloads
-    componentWillUnmount() {
-        if (this.timeoutID) {
-            clearInterval(this.timeoutID);
-        }
-    }
-
+export class Lyrics extends React.PureComponent<Props> {
     /** Get the inner list of `LyricsLine` elements for rendering. */
     private lineElements = () => {
         // don't render anything if there are no children
         if (!this.props.children) {
             return false;
         }
+
+        const activeLine = this.activeLine();
 
         return this.props.children.map((line, idx) => {
             let content: React.ReactNode = line;
@@ -118,11 +39,37 @@ export class Lyrics extends React.PureComponent<Props, State> {
             }
 
             return (
-                <LyricsLine key={idx} current={idx === this.state.activeLine}>
+                <LyricsLine key={idx} current={idx === activeLine}>
                     {content}
                 </LyricsLine>
             );
         });
+    };
+
+    private activeLine = () => {
+        // find the first line of lyrics that starts *after* the current time
+        const { times, currentTime } = this.props;
+
+        if (times && currentTime) {
+            const idx = times.findIndex(t => t > currentTime);
+
+            if (idx === -1) {
+                // no lines start after this one, so we're on the last line
+                return times.length - 1;
+            }
+
+            if (idx === 0) {
+                // the first line's start time is after 0ms, so we'll say we're on the first line
+                return 0;
+            }
+
+            // otherwise, return the previous line
+            return idx - 1;
+
+        } else {
+            // stick on the first line of lyrics by default
+            return 0;
+        }
     };
 
     render() {
