@@ -1,11 +1,7 @@
 import React from 'react';
+import { Milliseconds } from '../util/duration';
 // import PlaybackControls from './new/playback/PlaybackControls';
 import './YouTubePlayer.css';
-
-// TODO: add YouTube API
-// TODO: disable YouTube embed controls
-// TODO: add our own play / pause button
-// TODO: add our own time scrubber
 
 declare global {
     interface Window {
@@ -22,14 +18,18 @@ export interface Props {
 
     /** the id of the YouTube video (e.g. `dQw4w9WgXcQ`) */
     videoId: string;
+
+    /** callback to run on every time update */
+    onTimeUpdate?: (newTime: Milliseconds) => void;
 }
 
 interface State {
-    player?: any;
+    player?: YT.Player;
 }
 
-
 class YouTubePlayer extends React.Component<Props, State> {
+    timeUpdateTimerID?: ReturnType<typeof setInterval>;
+
     componentDidMount = () => {
         // load the YouTube iframe API if it hasn't been loaded already
         if (!window.YT) {
@@ -61,18 +61,39 @@ class YouTubePlayer extends React.Component<Props, State> {
                     color: 'white',
                     controls: 1,
                     fs: 0,
-                    modestbranding: 1, // 
+                    // setting `color` to `white` disables the ability to enable `modestbranding`
+                    // but we'll try anyway just in case YouTube ever decides to be nice
+                    modestbranding: 1,
                     origin: 'http://localhost:3000',
                     playsinline: 1,
                 },
                 events: {
-                    onReady: (evt: any) => evt.target.playVideo(),
-                    onStateChange: (evt) => { console.log(evt.data) },
+                    onReady: this.onReady,
                 }
             });
 
             this.setState({ player: newPlayer });
         }
+    };
+
+    private onReady = (evt: YT.PlayerEvent) => {
+        evt.target.playVideo();
+
+        if (!this.props.onTimeUpdate) {
+            // we're done; just play the video
+            return;
+        }
+
+        // poll for the video time every ~100ms to update the parent component
+        // this doesn't need to be super precisely-timed, so `setInterval` is fine
+        this.timeUpdateTimerID = setInterval(() => {
+            const { player } = this.state;
+            const { onTimeUpdate } = this.props;
+
+            if (player && onTimeUpdate) {
+                onTimeUpdate(player.getCurrentTime() * 1000);
+            }
+        }, 100);
     };
 
     render = () => {
