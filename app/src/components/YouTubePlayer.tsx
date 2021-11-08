@@ -19,6 +19,12 @@ export interface Props {
     /** the id of the YouTube video (e.g. `dQw4w9WgXcQ`) */
     videoId: string;
 
+    /** the width of the video player, in pixels */
+    width?: number | string;
+
+    /** the height of the video player, in pixels */
+    height?: number | string;
+
     /** callback to run on every time update */
     onTimeUpdate?: (newTime: Milliseconds) => void;
 }
@@ -49,13 +55,15 @@ class YouTubePlayer extends React.Component<Props, State> {
     };
 
     loadVideo = () => {
-        const playerId = this.props.id;
-        const videoId = this.props.videoId;
+        const { id: playerId, videoId, width, height } = this.props;
 
         // if the YouTube API isn't loaded, we can't load a video
         if (window.YT) {
             const newPlayer = new YT.Player(playerId, {
                 videoId,
+                width,
+                height,
+
                 playerVars: {
                     autoplay: 0,
                     color: 'white',
