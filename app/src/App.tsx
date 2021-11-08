@@ -7,6 +7,7 @@ import SongPage from './components/SongPage';
 import ToggleSwitch from './components/new/input/ToggleSwitch';
 import NewHome from './components/new/Home';
 import NewSongPage from './components/new/SongPage';
+import YouTubePlayer from './components/YouTubePlayer';
 
 const App = () => {
   return (
@@ -19,6 +20,14 @@ const App = () => {
         <Route path="/new-songpage">
           <NewSongPage />
         </Route>
+
+        <Route path="/youtube-demo">
+          <YouTubePlayer
+            id="music-video"
+            title="Gurenge"
+            videoId="_IkopJwRDKU"
+          />
+        </Route>
       </Switch>
 
       <nav className="dev">
@@ -28,6 +37,7 @@ const App = () => {
           <li><Link to="/components">Components Demo</Link></li>
           <li><Link to="/new-home">New Home</Link></li>
           <li><Link to="/new-songpage">New Song Page</Link></li>
+          <li><Link to="/youtube-demo">YouTube Player Demo</Link></li>
         </ul>
       </nav>
 
