@@ -5,11 +5,11 @@ import TopBar from './TopBar';
 
 import YouTubePlayer from '../YouTubePlayer';
 import Lyrics from '../Lyrics';
-import PlaybackControls from './playback/PlaybackControls';
 
 import { SettingsValues, presetDefaults } from './Settings';
 
 import './SongPage.css';
+import { Milliseconds } from '../../util/duration';
 
 export interface Props {
     settings?: SettingsValues;
@@ -17,6 +17,8 @@ export interface Props {
 
 export const SongPage = (props: Props) => {
     const settings = props.settings || presetDefaults[0].preset;
+
+    const [time, setTime] = React.useState<Milliseconds>(0);
 
     return (
         <div className="NewHome">
@@ -31,9 +33,8 @@ export const SongPage = (props: Props) => {
                         id="music-video"
                         title="Gurenge"
                         videoId="_IkopJwRDKU"
+                        onTimeUpdate={setTime}
                     />
-
-                    <PlaybackControls />
 
                     <div className="lyrics">
                         { /* TODO: wrap long lines of lyrics so they don't go off the screen */}
