@@ -33,7 +33,7 @@ interface State {
 }
 
 class YouTubePlayer extends React.Component<Props, State> {
-    timeUpdateTimerID?: ReturnType<typeof setInterval>;
+    timeUpdatePollID?: ReturnType<typeof setInterval>;
 
     componentDidMount = () => {
         // load the YouTube iframe API if it hasn't been loaded already
@@ -54,8 +54,8 @@ class YouTubePlayer extends React.Component<Props, State> {
     };
 
     componentWillUnmount = () => {
-        if (this.timeUpdateTimerID) {
-            clearInterval(this.timeUpdateTimerID);
+        if (this.timeUpdatePollID) {
+            clearInterval(this.timeUpdatePollID);
         }
     };
 
@@ -99,7 +99,7 @@ class YouTubePlayer extends React.Component<Props, State> {
 
         // poll for the video time every ~100ms to update the parent component
         // this doesn't need to be super precisely-timed, so `setInterval` is fine
-        this.timeUpdateTimerID = setInterval(() => {
+        this.timeUpdatePollID = setInterval(() => {
             const { player } = this.state;
             const { onTimeUpdate } = this.props;
 
