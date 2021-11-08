@@ -9,6 +9,7 @@ import Button from './Button';
 import './SongPage.css';
 
 import exampleLyrics from '../resources/exampleLyrics.json';
+import { Milliseconds } from '../util/duration';
 
 export type SongMode = "JustListen" | "ListenLearn" | "PlayAlong";
 
@@ -30,6 +31,8 @@ export const SongPage = (props: Props) => {
     const { path, url } = useRouteMatch();
     const query = useQuery();
 
+    const [time, setTime] = React.useState<Milliseconds>(0);
+
     const songId = query.get("song") || DEFAULT_SONG;
 
     let lyrics;
@@ -49,11 +52,12 @@ export const SongPage = (props: Props) => {
                     id="music-video-player"
                     title="Music Video Player"
                     videoId={songId}
+                    onTimeUpdate={setTime}
                 />
             </div>
 
             <div>
-                <Lyrics times={exampleLyrics.times}>
+                <Lyrics times={exampleLyrics.times} currentTime={time}>
                     {lyrics}
                 </Lyrics>
             </div>
