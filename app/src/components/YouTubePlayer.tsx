@@ -1,6 +1,5 @@
 import React from 'react';
 import { Milliseconds } from '../util/duration';
-// import PlaybackControls from './new/playback/PlaybackControls';
 import './YouTubePlayer.css';
 
 declare global {
