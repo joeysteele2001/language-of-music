@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const SongBrowser = () => {
-    const { url } = useRouteMatch();
-
     return (
         <div className="SongBrowser">
             <div className="SongBrowser-song">
@@ -14,7 +12,7 @@ export const SongBrowser = () => {
             </div>
 
             <div className="SongBrowser-song">
-                <Link to={`${url}/SelectMode`}>
+                <Link to={`/new-songpage?song=Vq04MeNcRUM`}>
                     <div
                         className="SongBrowser-thumbnail"
                         style={{
