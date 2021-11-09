@@ -5,20 +5,19 @@ import Home from './components/Home';
 import ColorPalette from './components/ColorPalette';
 import SongPage from './components/SongPage';
 import ToggleSwitch from './components/new/input/ToggleSwitch';
-import NewHome from './components/new/Home';
-import NewSongPage from './components/new/SongPage';
 import YouTubePlayer from './components/YouTubePlayer';
+import Main from './components/new/Main';
 
 const App = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/new-home">
-          <NewHome />
+          <Main />
         </Route>
 
         <Route path="/new-songpage">
-          <NewSongPage />
+          <Main />
         </Route>
 
         <Route path="/youtube-demo">

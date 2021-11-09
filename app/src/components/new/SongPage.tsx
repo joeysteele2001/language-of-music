@@ -1,54 +1,47 @@
 import React from 'react';
 
-import Sidebar from './Sidebar';
-import TopBar from './TopBar';
-
 import YouTubePlayer from '../YouTubePlayer';
 import Lyrics from '../Lyrics';
 
-import { SettingsValues, presetDefaults } from './Settings';
+import { Milliseconds } from '../../util/duration';
+import { Settings, DEFAULT_PRESET } from '../../util/settings';
 
 import './SongPage.css';
-import { Milliseconds } from '../../util/duration';
+
 
 export interface Props {
-    settings?: SettingsValues;
+    settings?: Settings;
 }
 
 export const SongPage = (props: Props) => {
-    const settings = props.settings || presetDefaults[0].preset;
+    const settings = props.settings || DEFAULT_PRESET;
 
     const [time, setTime] = React.useState<Milliseconds>(0);
 
     return (
-        <div className="NewHome">
-            <Sidebar />
+        <>
+            <h1>Song Name</h1>
 
-            <div className="main-side">
-                <TopBar />
-                <main>
-                    <h1>Song Name</h1>
+            <YouTubePlayer
+                id="music-video"
+                title="Gurenge"
+                videoId="_IkopJwRDKU"
+                onTimeUpdate={setTime}
+            />
 
-                    <YouTubePlayer
-                        id="music-video"
-                        title="Gurenge"
-                        videoId="_IkopJwRDKU"
-                        onTimeUpdate={setTime}
-                    />
+            <div className="lyrics">
+                { /* TODO: wrap long lines of lyrics so they don't go off the screen */}
+                <Lyrics currentTime={time}>
+                    {['short', 'lines', 'of', 'lyrics']}
+                </Lyrics>
 
-                    <div className="lyrics">
-                        { /* TODO: wrap long lines of lyrics so they don't go off the screen */}
-                        <Lyrics>
-                            {['short', 'lines', 'of', 'lyrics']}
-                        </Lyrics>
-
-                        {settings.sideTranslation && <Lyrics>
-                            {['líneas', 'cortas', 'de', 'letras']}
-                        </Lyrics>}
-                    </div>
-                </main>
+                {settings.parameters.sideTranslation &&
+                    <Lyrics currentTime={time}>
+                        {['líneas', 'cortas', 'de', 'letras']}
+                    </Lyrics>
+                }
             </div>
-        </div>
+        </>
     );
 };
 

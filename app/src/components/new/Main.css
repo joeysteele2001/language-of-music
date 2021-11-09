@@ -1,0 +1,7 @@
+.Main {
+    display: flex;
+}
+
+.main-side {
+    flex-grow: 1;
+}

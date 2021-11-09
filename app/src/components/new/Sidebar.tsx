@@ -1,10 +1,17 @@
 import React from 'react';
-
 import Settings from './Settings';
+
+import { Settings as SettingsValues } from '../../util/settings';
 
 import './Sidebar.css';
 
-export const Sidebar = () => {
+export interface Props {
+    onSettingsChange?: (settings: SettingsValues) => void;
+}
+
+export const Sidebar = (props: Props) => {
+    const { onSettingsChange } = props;
+
     return (
         <div className="Sidebar">
             <header>App Name or Icon</header>
@@ -24,7 +31,7 @@ export const Sidebar = () => {
             </nav>
 
             <footer>
-                <Settings />
+                <Settings onChange={onSettingsChange} />
             </footer>
         </div>
     );

@@ -1,9 +1,17 @@
 import React from 'react';
-import QuizzesSettings, { QuizLevel } from './QuizzesSettings';
+import QuizzesSettings from './QuizzesSettings';
 
 import RadioGroup from './input/RadioGroup';
 import SmallCapsHeader from './SmallCapsHeader';
 import ToggleSwitch from './input/ToggleSwitch';
+
+import {
+    parametersEqual,
+    validatePreset,
+    Settings as SettingsValues,
+    DEFAULT_PRESET,
+    PRESET_DEFAULTS,
+} from '../../util/settings';
 
 export interface Props {
     onChange?: (settings: SettingsValues) => void;
@@ -12,26 +20,29 @@ export interface Props {
 export const Settings = (props: Props) => {
     const { onChange } = props;
 
-    const [values, setValues] = React.useState(presetDefaults[0].preset);
+    const [values, setValues] = React.useState(DEFAULT_PRESET);
 
     const handleChange = (newValues: SettingsValues) => {
+        setValues(newValues);
+
         if (onChange) {
             onChange(newValues);
         }
     }
 
     const handlePresetChange = (raw: string) => {
-        const preset = presetDefaults.find(({ id }) => id === raw);
-        if (preset) {
-            setValues(preset.preset);
-            handleChange(preset.preset);
+        const presetName = validatePreset(raw);
+        if (presetName) {
+            const preset = PRESET_DEFAULTS[presetName];
+            setValues(preset);
+            handleChange(preset);
         }
 
     };
 
     const selectedPreset = () => {
-        const selected = presetDefaults.find(({ preset }) => valuesEqual(values, preset));
-        return selected?.id;
+        const selected = Object.values(PRESET_DEFAULTS).find((preset) => parametersEqual(values.parameters, preset.parameters));
+        return selected?.preset;
     };
 
     return (
@@ -50,88 +61,42 @@ export const Settings = (props: Props) => {
             />
 
             <QuizzesSettings
-                settings={{
-                    enabled: values.quizzes,
-                    level: values.quizLevel,
-                }}
+                settings={values.parameters.quizzes}
 
-                onChange={settings => setValues({
+                onChange={settings => handleChange({
                     ...values,
-                    quizzes: settings.enabled,
-                    quizLevel: settings.level,
+                    parameters: {
+                        ...values.parameters,
+                        quizzes: settings,
+                    },
                 })}
             />
 
             <ToggleSwitch
-                checked={values.chords}
+                checked={values.parameters.chords}
                 label="Chords"
-                onChange={chords => setValues({ ...values, chords })}
+                onChange={chords => handleChange({
+                    ...values,
+                    parameters: {
+                        ...values.parameters,
+                        chords,
+                    }
+                })}
             />
 
             <ToggleSwitch
-                checked={values.sideTranslation}
+                checked={values.parameters.sideTranslation}
                 label="Side Translation"
-                onChange={sideTranslation => setValues({ ...values, sideTranslation })}
+                onChange={sideTranslation => handleChange({
+                    ...values,
+                    parameters: {
+                        ...values.parameters,
+                        sideTranslation,
+                    },
+                })}
             />
         </>
     );
 };
-
-export type PresetMode = "just-listen" | "listen-learn" | "play-along";
-
-export type SettingsValues = {
-    preset?: PresetMode,
-    quizzes: boolean,
-    quizLevel: QuizLevel,
-    chords: boolean,
-    sideTranslation: boolean,
-}
-
-const valuesEqual = (a: SettingsValues, b: SettingsValues) => {
-    if (a.quizLevel !== b.quizLevel
-        || a.chords !== b.chords
-        || a.sideTranslation !== b.sideTranslation) {
-        return false;
-    }
-
-    if (a.quizzes) {
-        return b.quizzes && a.quizLevel === b.quizLevel;
-    }
-
-    return a.quizLevel === b.quizLevel;
-};
-
-export const presetDefaults: Array<{ id: string, preset: SettingsValues }> = [
-    {
-        id: 'just-listen',
-        preset: {
-            preset: 'just-listen',
-            quizzes: false,
-            quizLevel: 'beginner',
-            chords: false,
-            sideTranslation: true,
-        }
-    },
-
-    {
-        id: 'listen-learn', preset: {
-            preset: 'listen-learn',
-            quizzes: true,
-            quizLevel: 'beginner',
-            chords: false,
-            sideTranslation: true,
-        }
-    },
-
-    {
-        id: 'play-along', preset: {
-            preset: 'play-along',
-            quizzes: false,
-            quizLevel: 'beginner',
-            chords: true,
-            sideTranslation: false,
-        }
-    },
-];
 
 export default Settings;

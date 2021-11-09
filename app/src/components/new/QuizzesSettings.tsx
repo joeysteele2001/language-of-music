@@ -3,28 +3,12 @@ import React from 'react';
 import ToggleSwitch from './input/ToggleSwitch';
 import RadioGroup from './input/RadioGroup';
 
-export type QuizLevel = "beginner" | "advanced";
-
-const validateLevel = (raw: string): QuizLevel | undefined => {
-    switch (raw) {
-        case "beginner":
-        case "advanced":
-            return raw;
-
-        default:
-            return undefined;
-    }
-}
-
-export type Settings = {
-    enabled: boolean,
-    level: QuizLevel,
-}
+import { quiz } from '../../util/settings';
 
 export interface Props {
-    settings: Settings,
+    settings: quiz.Settings,
 
-    onChange?: (newSettings: Settings) => void,
+    onChange?: (newSettings: quiz.Settings) => void,
 }
 
 export const QuizzesSettings = (props: Props) => {
@@ -32,15 +16,21 @@ export const QuizzesSettings = (props: Props) => {
 
     const handleEnableChange = (enabled: boolean) => {
         if (onChange) {
-            onChange({ ...settings, enabled })
+            if (enabled) {
+                onChange({ enabled: true, level: 'beginner' });
+            } else {
+                onChange({ enabled: false });
+            }
         }
     };
 
     const handleLevelChange = (level: string) => {
         if (onChange) {
-            const validated = validateLevel(level);
+            const validated = quiz.validateLevel(level);
             if (validated) {
-                onChange({ ...settings, level: validated })
+                if (settings.enabled) {
+                    onChange({ enabled: true, level: validated });
+                }
             }
         }
     };
@@ -61,7 +51,7 @@ export const QuizzesSettings = (props: Props) => {
                     { id: 'beginner', label: 'Beginner' },
                     { id: 'advanced', label: 'Advanced' },
                 ]}
-                checked={settings.level}
+                checked={settings.enabled ? settings.level : 'beginner'}
                 disabled={!settings.enabled}
                 onChange={handleLevelChange}
             />
