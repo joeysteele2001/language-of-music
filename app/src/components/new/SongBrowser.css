@@ -1,0 +1,34 @@
+.SongBrowser {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin: 0 2rem;
+    justify-items: center;
+}
+
+@media (max-width: 1200px) {
+    .SongBrowser {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .SongBrowser {
+        grid-template-columns: 1fr;
+    }
+}
+
+.SongBrowser-song {
+    width: 100%;
+    max-width: 500px;
+}
+
+.SongBrowser-thumbnail {
+    background-color: black;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.SongBrowser-song a {
+    color: inherit;
+}

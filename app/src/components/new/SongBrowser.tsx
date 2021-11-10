@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Song } from '../../util/song';
 
+import './SongBrowser.css';
 export interface Props {
     songs?: Song[];
 }
