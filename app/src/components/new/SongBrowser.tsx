@@ -51,14 +51,10 @@ export const SongBrowser = (props: Props) => {
                 songs.map((song, idx) => (
                     <div className="SongBrowser-song" key={idx}>
                         <Link to={`/songpage?song=${song.videoId}`}>
-                            <div
+                            <img
+                                src={`https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg`}
+                                alt={song.title}
                                 className="SongBrowser-thumbnail"
-                                style={{
-                                    backgroundImage: `url(https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg)`,
-                                    backgroundRepeat: "no-repeat",
-                                    backgroundPosition: "center",
-                                    backgroundSize: "cover",
-                                }}
                             />
                             <div className="SongBrowser-name">{song.title}{song.artist && ` - ${song.artist}`}</div>
                         </Link>
