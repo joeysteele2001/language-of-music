@@ -53,6 +53,12 @@ class YouTubePlayer extends React.Component<Props, State> {
         }
     };
 
+    componentWillUnmount = () => {
+        if (this.timeUpdateTimerID) {
+            clearInterval(this.timeUpdateTimerID);
+        }
+    };
+
     loadVideo = () => {
         const { id: playerId, videoId, width, height } = this.props;
 
