@@ -39,6 +39,141 @@ const DEFAULT_SONGS: Song[] = [
         artist: 'LiSA',
         videoId: '_IkopJwRDKU',
     },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
+    {
+        title: 'Gurenge',
+        artist: 'LiSA',
+        videoId: '_IkopJwRDKU',
+    },
 ]
 
 export const SongGallery = (props: Props) => {

@@ -1,7 +1,17 @@
 .Main {
     display: flex;
+
+    margin: 8px;
+    height: calc(100% - 2 * 8px);
 }
 
 .main-side {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    overflow: scroll;
     flex-grow: 1;
 }

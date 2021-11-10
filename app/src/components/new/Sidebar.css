@@ -10,3 +10,12 @@
 .Sidebar > * {
     border: 1px dotted var(--text-color);
 }
+
+.Sidebar > nav ul {
+    list-style-type: none;
+}
+
+.Sidebar > nav > ul {
+    margin: 0;
+    padding: 0;
+}

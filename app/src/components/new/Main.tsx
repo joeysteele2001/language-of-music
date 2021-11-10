@@ -8,6 +8,7 @@ import TopBar from './TopBar';
 import { DEFAULT_PRESET } from '../../util/settings';
 
 import './Main.css';
+import ColorPalette from '../ColorPalette';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
@@ -28,6 +29,10 @@ export const Main = () => {
 
                         <Route path="/songpage">
                             <SongPage settings={settings} />
+                        </Route>
+
+                        <Route path="/colors">
+                            <ColorPalette />
                         </Route>
                     </Switch>
                 </main>

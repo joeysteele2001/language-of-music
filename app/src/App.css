@@ -13,6 +13,13 @@
 body {
   background-color: var(--primary-color);
   color: var(--text-color);
+
+  height: 99vh;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
 }
 
 .App {
