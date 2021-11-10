@@ -1,4 +1,4 @@
-.SongBrowser {
+.SongGallery {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
@@ -7,26 +7,26 @@
 }
 
 @media (max-width: 1200px) {
-    .SongBrowser {
+    .SongGallery {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 800px) {
-    .SongBrowser {
+    .SongGallery {
         grid-template-columns: 1fr;
     }
 }
 
-.SongBrowser-song {
+.SongGallery-song {
     width: 100%;
     max-width: 500px;
 }
 
-.SongBrowser-thumbnail {
+.SongGallery-thumbnail {
     width: 100%;
 }
 
-.SongBrowser-song a {
+.SongGallery-song a {
     color: inherit;
 }

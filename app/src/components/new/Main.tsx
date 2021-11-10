@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 import Sidebar from './Sidebar';
-import SongBrowser from './SongBrowser';
+import SongGallery from './SongGallery';
 import SongPage from './SongPage';
 import TopBar from './TopBar';
 
@@ -23,7 +23,7 @@ export const Main = () => {
                     <Switch>
                         <Route path="/home">
                             <h1>Home</h1>
-                            <SongBrowser />
+                            <SongGallery />
                         </Route>
 
                         <Route path="/songpage">

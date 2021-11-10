@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Song } from '../../util/song';
 
-import './SongBrowser.css';
+import './SongGallery.css';
 export interface Props {
     songs?: Song[];
 }
@@ -41,22 +41,22 @@ const DEFAULT_SONGS: Song[] = [
     },
 ]
 
-export const SongBrowser = (props: Props) => {
+export const SongGallery = (props: Props) => {
     const songs = props.songs || DEFAULT_SONGS;
 
     return (
-        <div className="SongBrowser">
+        <div className="SongGallery">
             {
                 // todo use song video ids when each song here is unique
                 songs.map((song, idx) => (
-                    <div className="SongBrowser-song" key={idx}>
+                    <div className="SongGallery-song" key={idx}>
                         <Link to={`/songpage?song=${song.videoId}`}>
                             <img
                                 src={`https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg`}
                                 alt={song.title}
-                                className="SongBrowser-thumbnail"
+                                className="SongGallery-thumbnail"
                             />
-                            <div className="SongBrowser-name">{song.title}{song.artist && ` - ${song.artist}`}</div>
+                            <div className="SongGallery-name">{song.title}{song.artist && ` - ${song.artist}`}</div>
                         </Link>
                     </div>
                 ))
@@ -65,4 +65,4 @@ export const SongBrowser = (props: Props) => {
     );
 };
 
-export default SongBrowser;
+export default SongGallery;

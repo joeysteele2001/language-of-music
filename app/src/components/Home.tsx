@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import SelectMode from './SelectMode';
 import './Home.css';
-import SongBrowser from './new/SongBrowser';
+import SongGallery from './new/SongGallery';
 
 const Home = () => {
     const { path } = useRouteMatch();
@@ -13,7 +13,7 @@ const Home = () => {
                 <h1><span className="dev">App Name</span></h1>
             </div>
 
-            <SongBrowser />
+            <SongGallery />
 
             <Switch>
                 <Route path={`${path}/SelectMode`}>
