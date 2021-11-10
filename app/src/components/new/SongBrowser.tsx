@@ -47,9 +47,10 @@ export const SongBrowser = (props: Props) => {
     return (
         <div className="SongBrowser">
             {
-                songs.map(song => (
-                    <div className="SongBrowser-song">
-                        <Link to={`/new-songpage?song=${song.videoId}`}>
+                // todo use song video ids when each song here is unique
+                songs.map((song, idx) => (
+                    <div className="SongBrowser-song" key={idx}>
+                        <Link to={`/songpage?song=${song.videoId}`}>
                             <div
                                 className="SongBrowser-thumbnail"
                                 style={{

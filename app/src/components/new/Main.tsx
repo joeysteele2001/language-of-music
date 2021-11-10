@@ -21,12 +21,12 @@ export const Main = () => {
 
                 <main>
                     <Switch>
-                        <Route path="/new-home">
-                            <h1>new home</h1>
+                        <Route path="/home">
+                            <h1>Home</h1>
                             <SongBrowser />
                         </Route>
 
-                        <Route path="/new-songpage">
+                        <Route path="/songpage">
                             <SongPage settings={settings} />
                         </Route>
                     </Switch>
