@@ -1,0 +1,17 @@
+.navitem {
+    border-top: 1px solid var(--text-light);
+    padding: 0.5rem 0.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-content: center;
+}
+
+.navitem:first {
+    border-top: none;
+}
+
+.navitem a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}

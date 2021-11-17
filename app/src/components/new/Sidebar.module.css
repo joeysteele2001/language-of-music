@@ -1,0 +1,11 @@
+.sidebar {
+    border-right: 2px solid var(--text-color);
+    padding: 1rem;
+    width: 25%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.sidebar footer {
+    border-top: 2px solid var(--text-color);
+}

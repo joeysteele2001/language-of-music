@@ -3,8 +3,8 @@ import Settings from './Settings';
 
 import { Settings as SettingsValues } from '../../util/settings';
 
-import './Sidebar.css';
-import { Link } from 'react-router-dom';
+import styles from './Sidebar.module.css';
+import SideNav from './SideNav';
 
 export interface Props {
     onSettingsChange?: (settings: SettingsValues) => void;
@@ -14,23 +14,10 @@ export const Sidebar = (props: Props) => {
     const { onSettingsChange } = props;
 
     return (
-        <div className="Sidebar">
+        <div className={styles.sidebar}>
             <header>App Name or Icon</header>
 
-            <nav>
-                <ul>
-                    <li><Link to="/home">Song Library</Link></li>
-                    <li>
-                        Languages
-                        <ul>
-                            <li>Japanese</li>
-                            <li>French</li>
-                        </ul>
-                    </li>
-                    <li>High Quality</li>
-                    <li><Link to="/colors">Color Palette</Link></li>
-                </ul>
-            </nav>
+            <SideNav />
 
             <footer>
                 <Settings onChange={onSettingsChange} />
