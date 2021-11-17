@@ -2,9 +2,8 @@ import React from 'react';
 import { Route, Link, Switch, useRouteMatch } from 'react-router-dom';
 import SelectMode from './SelectMode';
 import './Home.css';
-import getLyrics from './getLyrics';
-import translate from './translate';
-
+import YoutubeID from './YoutubeID';
+import Search from './search';
 
 
 const Home = () => {
@@ -17,11 +16,12 @@ const Home = () => {
             </div>
             <div className="Home">
                 <div>
-                    <button className="songButton">Song1</button>
+                    <Search/>
                 </div>
                 <div>
-                    {getLyrics}
+                    <button className="songButton">Song1</button>
                 </div>
+
                 <div>
                     <Link to={`${url}/SelectMode`}><button className="songButton">Song2</button></Link>
                 </div>
@@ -31,7 +31,11 @@ const Home = () => {
                     </Route>
                 </Switch>
             </div>
+            <div>
+            {YoutubeID()}
+            </div>
         </main>
+        
     );
 };
 

@@ -1,17 +1,20 @@
 import config from './config';
  
- function getLyrics(): void{
+//This function takes in the song id and returns the Genius URL - needs to be sent to the scrape.py with flask server//
+ function GeniusURL(path:any) {
     var axios = require("axios").default;
     var options = {
       method: 'GET',
-      url: 'https://api.genius.com/songs/378195',
+      url: 'https://api.genius.com'+path,
       params: {'access_token': config.GENIUS_API_KEY}
     };
     
     axios.request(options).then(function (response:any) {
-        console.log(response.data);
+        console.log(response.data.response.song.url);
     }).catch(function (error:any) {
         console.error(error);
     });
+  
+
 };
-export default getLyrics;
+export default GeniusURL;

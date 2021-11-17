@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import TranslationPopUp from './TranslationPopUp';
 import translate from './translate';
-import reactDOMServer, { renderToString } from 'react-dom/server'
 
 export interface Props {
   line: any
@@ -22,7 +21,7 @@ function PopUpFunction(props:Props) {
         {isOpen && <TranslationPopUp
       content={<>
         <b>{props.line}</b>
-       {translate(renderToString(<div>{props.line}</div>))}
+       {translate(props.line)}
       </>}
       handleClose={togglePopup}
     />}
