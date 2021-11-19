@@ -5,7 +5,6 @@ import SongGallery from './content/SongGallery';
 import SongPage from './content/SongPage';
 import TopBar from './layout/TopBar';
 import ColorPalette from './content/ColorPalette';
-import Loading from './pieces/Loading';
 
 import { DEFAULT_PRESET } from '../util/settings';
 import songs from '../resources/songs.json';
@@ -35,10 +34,6 @@ export const Main = () => {
 
                         <Route path="/colors">
                             <ColorPalette />
-                        </Route>
-
-                        <Route path="/loading">
-                            <Loading />
                         </Route>
                     </Switch>
                 </main>
