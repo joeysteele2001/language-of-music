@@ -1,5 +1,5 @@
 import React from 'react';
-import { Milliseconds, Duration, duration as dur } from '../../../util/duration';
+import { Milliseconds, Duration, duration as dur } from '../../util/duration';
 
 export interface Props {
     /** The duration of the song. */

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ToggleSwitch from './input/ToggleSwitch';
-import RadioGroup from './input/RadioGroup';
+import ToggleSwitch from '../../input/ToggleSwitch';
+import RadioGroup from '../../input/RadioGroup';
 
-import { quiz } from '../../util/settings';
+import { quiz } from '../../../util/settings';
 
 export interface Props {
     settings: quiz.Settings,

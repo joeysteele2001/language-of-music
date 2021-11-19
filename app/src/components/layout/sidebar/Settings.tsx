@@ -1,9 +1,9 @@
 import React from 'react';
 import QuizzesSettings from './QuizzesSettings';
 
-import RadioGroup from './input/RadioGroup';
-import SmallCapsHeader from './SmallCapsHeader';
-import ToggleSwitch from './input/ToggleSwitch';
+import RadioGroup from '../../input/RadioGroup';
+import SmallCapsHeader from '../../pieces/SmallCapsHeader';
+import ToggleSwitch from '../../input/ToggleSwitch';
 
 import {
     parametersEqual,
@@ -11,7 +11,7 @@ import {
     Settings as SettingsValues,
     DEFAULT_PRESET,
     PRESET_DEFAULTS,
-} from '../../util/settings';
+} from '../../../util/settings';
 
 export interface Props {
     onChange?: (settings: SettingsValues) => void;

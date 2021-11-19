@@ -2,9 +2,9 @@ import React from 'react';
 import './LyricsScroll.css';
 import LyricsLine from './LyricsLine';
 
-import { Milliseconds } from '../util/duration';
-import { LyricsText } from '../util/lyrics';
-import { LineView } from './new/Lyrics';
+import { Milliseconds } from '../../util/duration';
+import { LyricsText } from '../../util/lyrics';
+import { LineView } from './Lyrics';
 
 export interface Props {
     lyrics: LyricsText;

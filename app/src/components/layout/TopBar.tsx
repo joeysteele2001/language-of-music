@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchBar from './input/SearchBar';
+import SearchBar from '../input/SearchBar';
 
 import './TopBar.css';
 

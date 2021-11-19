@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-import YouTubePlayer from '../YouTubePlayer';
-import LyricsScroll from '../LyricsScroll';
+import YouTubePlayer from '../playback/YouTubePlayer';
+import LyricsScroll from '../lyrics/LyricsScroll';
 
 import { Milliseconds } from '../../util/duration';
 import { Settings, DEFAULT_PRESET } from '../../util/settings';

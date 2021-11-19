@@ -3,7 +3,7 @@ import React from 'react';
 import Scrubber from './Scrubber';
 import PlayPauseButton from './PlayPauseButton';
 import PlaybackProgress from './PlaybackProgress';
-import { Duration, Milliseconds, duration as dur } from '../../../util/duration';
+import { Duration, Milliseconds, duration as dur } from '../../util/duration';
 
 import './PlaybackControls.css';
 

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Milliseconds } from '../util/duration';
-import './YouTubePlayer.css';
+import { Milliseconds } from '../../util/duration';
 
 declare global {
     interface Window {

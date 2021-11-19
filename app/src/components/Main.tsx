@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-import Sidebar from './Sidebar';
-import SongGallery from './SongGallery';
-import SongPage from './SongPage';
-import TopBar from './TopBar';
-import ColorPalette from '../ColorPalette';
+import Sidebar from './layout/sidebar/Sidebar';
+import SongGallery from './content/SongGallery';
+import SongPage from './content/SongPage';
+import TopBar from './layout/TopBar';
+import ColorPalette from './content/ColorPalette';
 
-import { DEFAULT_PRESET } from '../../util/settings';
-import songs from '../../resources/songs.json';
+import { DEFAULT_PRESET } from '../util/settings';
+import songs from '../resources/songs.json';
 
 import './Main.css';
 

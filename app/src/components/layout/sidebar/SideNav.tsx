@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './SideNav.module.css';
 
 import NavItem from './NavItem';
-import Icon, { IconName } from './Icon';
+import Icon, { IconName } from '../../pieces/Icon';
 
 export const SideNav = () => {
     return (

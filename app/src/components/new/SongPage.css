@@ -1,7 +1,0 @@
-.lyrics {
-    display: flex;
-}
-
-.lyrics > * {
-    flex: 1;
-}
