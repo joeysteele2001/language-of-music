@@ -65,7 +65,7 @@ export const SongPage = (props: Props) => {
             </>
         );
     } else {
-        return <Loading />;
+        return <Loading>Loading song...</Loading>;
     }
 
 };
@@ -80,7 +80,7 @@ const LyricsBoxes = (props: LyricsBoxesProps) => {
     const { lyrics, time, sideTranslation } = props;
 
     if (!lyrics) {
-        return <Loading />;
+        return <Loading>Loading lyrics...</Loading>;
     }
 
     const sideBox = sideTranslation &&
