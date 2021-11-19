@@ -41,21 +41,6 @@ export const SongPage = (props: Props) => {
 
     // TODO: make chords work
 
-    const lyricsElems = () => {
-        if (lyrics) {
-            /* TODO: wrap long lines of lyrics so they don't go off the screen */
-            return (<>
-                <LyricsScroll lyrics={lyrics.lyrics} currentTime={time} times={lyrics.times} />
-
-                {settings.parameters.sideTranslation &&
-                    <LyricsScroll lyrics={lyrics.lyrics} currentTime={time} times={lyrics.times} />
-                }
-            </>);
-        } else {
-            return "loading lyrics...";
-        }
-    };
-
     if (song) {
         return (
             <>
@@ -70,7 +55,11 @@ export const SongPage = (props: Props) => {
                 />
 
                 <div className="lyrics">
-                    {lyricsElems()}
+                    <LyricsBoxes
+                        lyrics={lyrics}
+                        sideTranslation={settings.parameters.sideTranslation}
+                        time={time}
+                    />
                 </div>
             </>
         );
@@ -78,6 +67,39 @@ export const SongPage = (props: Props) => {
         return <h1>Loading Song...</h1>;
     }
 
+};
+
+interface LyricsBoxesProps {
+    lyrics: Lyrics | undefined;
+    time: Milliseconds;
+    sideTranslation: boolean;
+}
+
+const LyricsBoxes = (props: LyricsBoxesProps) => {
+    const { lyrics, time, sideTranslation } = props;
+
+    if (!lyrics) {
+        return <>loading lyrics...</>;
+    }
+
+    const sideBox = sideTranslation &&
+        <LyricsScroll
+            lyrics={lyrics.lyrics}
+            currentTime={time}
+            times={lyrics.times}
+        />;
+
+    return (
+        <>
+            <LyricsScroll
+                lyrics={lyrics.lyrics}
+                currentTime={time}
+                times={lyrics.times}
+            />
+
+            {sideBox}
+        </>
+    );
 };
 
 export default SongPage;
