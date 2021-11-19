@@ -1,7 +1,7 @@
 import fallingInLove from '../resources/lyrics/falling-in-love.json';
 import gurenge from '../resources/lyrics/gurenge-lisa.json';
 import { Milliseconds } from './duration';
-import promiseDelay from './promiseDelay';
+import { promiseDelayRand } from './promiseDelay';
 
 export type Lyrics = { times?: Milliseconds[], lyrics: LyricsText };
 export type LyricsText = LyricsLine[];
@@ -12,7 +12,7 @@ export const getLyrics = async (id: string): Promise<Lyrics | undefined> => {
     const result = LYRICS_MAP[id];
 
     // simulate loading time by waiting 2.5 seconds to give the lyrics
-    return promiseDelay(result, 2500);
+    return promiseDelayRand(result, { mean: 2500, variance: 1500 });
 };
 
 export const getLyricsOrDefault = async (id?: string): Promise<Lyrics> => {
