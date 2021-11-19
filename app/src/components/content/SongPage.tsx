@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import YouTubePlayer from '../playback/YouTubePlayer';
 import LyricsScroll from '../lyrics/LyricsScroll';
+import Loading from '../pieces/Loading';
 
 import { Milliseconds } from '../../util/duration';
 import { Settings, DEFAULT_PRESET } from '../../util/settings';
@@ -64,7 +65,7 @@ export const SongPage = (props: Props) => {
             </>
         );
     } else {
-        return <h1>Loading Song...</h1>;
+        return <Loading />;
     }
 
 };
@@ -79,7 +80,7 @@ const LyricsBoxes = (props: LyricsBoxesProps) => {
     const { lyrics, time, sideTranslation } = props;
 
     if (!lyrics) {
-        return <>loading lyrics...</>;
+        return <Loading />;
     }
 
     const sideBox = sideTranslation &&
