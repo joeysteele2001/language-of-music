@@ -6,12 +6,21 @@
   --incorrect-color: #d42d21;
 
   --text-color: #ffffff;
+  --text-light: #aaaaaa;
+  --disabled-color: #7f7f7f;
   --dev-text-color: #aaaaaa;
 }
 
 body {
   background-color: var(--primary-color);
   color: var(--text-color);
+
+  height: 99vh;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
 }
 
 .App {
@@ -27,4 +36,8 @@ body {
 
 .dev a {
   color: inherit;
+}
+
+.noselect {
+  user-select: none;
 }

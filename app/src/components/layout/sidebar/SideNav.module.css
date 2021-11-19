@@ -1,0 +1,16 @@
+/* TODO: change ul into a flexbox */
+
+.sidenav ul {
+    list-style-type: none;
+}
+
+.sidenav > ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sidenav li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}

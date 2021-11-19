@@ -1,0 +1,8 @@
+.RadioGroup > label {
+    display: block;
+}
+
+.RadioGroup:disabled {
+    color: var(--disabled-color);
+    border-color: var(--disabled-color);
+}

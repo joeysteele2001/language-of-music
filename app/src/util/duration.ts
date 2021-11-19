@@ -1,4 +1,3 @@
-
 export type Duration = { minutes: number, seconds: number, remainder?: number };
 export type Milliseconds = number;
 

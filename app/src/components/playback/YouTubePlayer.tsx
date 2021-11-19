@@ -1,6 +1,5 @@
 import React from 'react';
-import { Milliseconds } from '../util/duration';
-import './YouTubePlayer.css';
+import { Milliseconds } from '../../util/duration';
 
 declare global {
     interface Window {
@@ -33,7 +32,7 @@ interface State {
 }
 
 class YouTubePlayer extends React.Component<Props, State> {
-    timeUpdatePollID?: ReturnType<typeof setInterval>;
+    timeUpdateTimerID?: ReturnType<typeof setInterval>;
 
     componentDidMount = () => {
         // load the YouTube iframe API if it hasn't been loaded already
@@ -54,8 +53,8 @@ class YouTubePlayer extends React.Component<Props, State> {
     };
 
     componentWillUnmount = () => {
-        if (this.timeUpdatePollID) {
-            clearInterval(this.timeUpdatePollID);
+        if (this.timeUpdateTimerID) {
+            clearInterval(this.timeUpdateTimerID);
         }
     };
 
@@ -99,7 +98,7 @@ class YouTubePlayer extends React.Component<Props, State> {
 
         // poll for the video time every ~100ms to update the parent component
         // this doesn't need to be super precisely-timed, so `setInterval` is fine
-        this.timeUpdatePollID = setInterval(() => {
+        this.timeUpdateTimerID = setInterval(() => {
             const { player } = this.state;
             const { onTimeUpdate } = this.props;
 
