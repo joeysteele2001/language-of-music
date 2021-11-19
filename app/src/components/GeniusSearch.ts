@@ -1,5 +1,5 @@
 import config from './config';
-import GeniusURL from './GeniusURL';
+import Scraper from './scraper';
 
 //This function takes in the search string and returns the first songs id//
  function GeniusSearch(input:any) {
@@ -11,11 +11,10 @@ import GeniusURL from './GeniusURL';
     };
     
     axios.request(options).then(function (response:any) {
-        GeniusURL(response.data.response.hits[0].result.api_path);
+        Scraper(response.data.response.hits[0].result.api_path);
     }).catch(function (error:any) {
         console.error(error);
     });
-
 
 };
 export default GeniusSearch;

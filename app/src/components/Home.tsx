@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Link, Switch, useRouteMatch } from 'react-router-dom';
 import SelectMode from './SelectMode';
 import './Home.css';
-import YoutubeID from './YoutubeID';
 import Search from './search';
 
 
@@ -30,9 +29,6 @@ const Home = () => {
                         <SelectMode />
                     </Route>
                 </Switch>
-            </div>
-            <div>
-            {YoutubeID()}
             </div>
         </main>
         

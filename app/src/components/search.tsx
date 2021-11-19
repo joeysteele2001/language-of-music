@@ -1,5 +1,6 @@
 import React from 'react';
 import GeniusSearch from './GeniusSearch';
+import YoutubeID from './YoutubeID';
 
 const Search = () => {
     return(
@@ -23,3 +24,4 @@ export default Search;
 const { search } = window.location;
 const query = new URLSearchParams(search).get('q');
 {GeniusSearch(query)}
+{YoutubeID(query)}

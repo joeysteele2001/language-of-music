@@ -1,16 +1,16 @@
 import config from './config';
  
 //This function returns the youtube id of a song//
- function YoutubeID() {
+ function YoutubeID(input:any) {
     var axios = require("axios").default;
     var options = {
       method: 'GET',
-      url: 'https://api.genius.com/search?q=on%20ira',
-      params: {'access_token': config.GENIUS_API_KEY}
+      url: 'https://www.googleapis.com/youtube/v3/search?part=snippet',
+      params: {maxResults : 5, q : input, key: config.YOUTUBE_API_KEY}
     };
     
     axios.request(options).then(function (response:any) {
-        console.log(response.data);
+        console.log(response.data.items[0].id.videoId);
     }).catch(function (error:any) {
         console.error(error);
     });

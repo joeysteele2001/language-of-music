@@ -5,7 +5,8 @@ import requests
 from bs4 import BeautifulSoup
 import url
 
-function =
+
+def function(url) =
     page = requests.get(url)
     html = BeautifulSoup(page.text, "html.parser")
     lyrics = html.select_one('div[class^="lyrics"], div[class^="SongPage__Section"]').get_text(separator="\n")
