@@ -10,12 +10,11 @@ import { Settings, DEFAULT_PRESET } from '../../util/settings';
 import './SongPage.css';
 
 import exampleLyrics from '../../resources/exampleLyrics.json';
+import { getSongOrDefault } from '../../util/song';
 
 export interface Props {
     settings?: Settings;
 }
-
-const DEFAULT_SONG = '_IkopJwRDKU';
 
 // Custom hook function to get the `?song=<id>` part of the URL
 // Modified from an example on `reactrouter.com`
@@ -30,7 +29,8 @@ export const SongPage = (props: Props) => {
 
     const [time, setTime] = React.useState<Milliseconds>(0);
 
-    const songId = query.get('song') || DEFAULT_SONG;
+    const songId = query.get('song') || undefined;
+    const song = getSongOrDefault(songId);
 
     let lyrics;
     if (settings.parameters.chords) {
@@ -41,12 +41,13 @@ export const SongPage = (props: Props) => {
 
     return (
         <>
-            <h1>Song Name</h1>
+            <h1>{song.title}</h1>
+            {song.artist && <h2>{song.artist}</h2>}
 
             <YouTubePlayer
                 id="music-video"
                 title="Music Video Player"
-                videoId={songId}
+                videoId={song.videoId}
                 onTimeUpdate={setTime}
             />
 

@@ -4,11 +4,12 @@ import Sidebar from './Sidebar';
 import SongGallery from './SongGallery';
 import SongPage from './SongPage';
 import TopBar from './TopBar';
+import ColorPalette from '../ColorPalette';
 
 import { DEFAULT_PRESET } from '../../util/settings';
+import songs from '../../resources/songs.json';
 
 import './Main.css';
-import ColorPalette from '../ColorPalette';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
@@ -24,7 +25,7 @@ export const Main = () => {
                     <Switch>
                         <Route path="/home">
                             <h1>Home</h1>
-                            <SongGallery />
+                            <SongGallery songs={songs} />
                         </Route>
 
                         <Route path="/songpage">
