@@ -3,43 +3,39 @@ import React from 'react';
 import styles from './SideNav.module.css';
 
 import NavItem from './NavItem';
-import Icon, { IconName } from '../../pieces/Icon';
+import { IconName } from '../../pieces/Icon';
 
 export const SideNav = () => {
     return (
         <nav className={styles.sidenav}>
             <ul>
                 <li>
-                    <NavItem
-                        to="/home"
-                        icon={<Icon name={IconName.Book} />}
-                    >
+                    <NavItem to="/home" iconName={IconName.Book}>
                         Song Library
                     </NavItem>
                 </li>
                 <li>
-                    <NavItem icon={<Icon name={IconName.Globe} />}>Languages</NavItem>
+                    <NavItem iconName={IconName.Globe}>Languages</NavItem>
                     <ul>
                         <li>Japanese</li>
                         <li>French</li>
-                        <li><NavItem icon={<Icon name={IconName.Stroopwafel} />}>German</NavItem></li>
+                        <li>
+                            <NavItem iconName={IconName.Stroopwafel}>
+                                German
+                            </NavItem>
+                        </li>
                     </ul>
                 </li>
                 <li>
-                    <NavItem icon={<Icon name={IconName.Star} />}>
-                        High Quality
-                    </NavItem>
+                    <NavItem iconName={IconName.Star}>High Quality</NavItem>
                 </li>
                 <li>
-                    <NavItem
-                        to="/colors"
-                        icon={<Icon name={IconName.Palette} />}
-                    >
+                    <NavItem to="/colors" iconName={IconName.Palette}>
                         Color Palette
                     </NavItem>
                 </li>
             </ul>
-        </nav>
+        </nav >
     );
 };
 

@@ -9,7 +9,7 @@ const Icon = (props: Props) => {
     return <i className={className} />;
 };
 
-export enum IconName {
+export const enum IconName {
     Stroopwafel = 'stroopwafel',
     Book = 'book',
     Star = 'star',
