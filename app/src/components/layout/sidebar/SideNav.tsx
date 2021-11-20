@@ -11,7 +11,7 @@ export const SideNav = () => {
             <ul>
                 <li>
                     <NavItem
-                        to="/home"
+                        to="/"
                         icon={<Icon name={IconName.Book} />}
                     >
                         Song Library

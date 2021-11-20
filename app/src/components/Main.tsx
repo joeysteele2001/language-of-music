@@ -23,17 +23,17 @@ export const Main = () => {
 
                 <main>
                     <Switch>
-                        <Route path="/home">
-                            <h1>Home</h1>
-                            <SongGallery songs={songs} />
-                        </Route>
-
                         <Route path="/songpage">
                             <SongPage settings={settings} />
                         </Route>
 
                         <Route path="/colors">
                             <ColorPalette />
+                        </Route>
+
+                        <Route path="/">
+                            <h1>Home</h1>
+                            <SongGallery songs={songs} />
                         </Route>
                     </Switch>
                 </main>
