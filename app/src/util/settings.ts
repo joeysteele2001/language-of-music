@@ -1,6 +1,7 @@
 export type Settings = {
     preset?: PresetMode,
     parameters: Parameters,
+    autostart: boolean,
 };
 
 export type Parameters = {
@@ -33,6 +34,7 @@ export const PRESET_DEFAULTS: Record<PresetMode, Settings> = {
             chords: false,
             sideTranslation: true,
         },
+        autostart: false,
     },
 
     'listen-learn': {
@@ -42,6 +44,7 @@ export const PRESET_DEFAULTS: Record<PresetMode, Settings> = {
             chords: false,
             sideTranslation: true,
         },
+        autostart: false,
     },
 
     'play-along': {
@@ -51,6 +54,7 @@ export const PRESET_DEFAULTS: Record<PresetMode, Settings> = {
             chords: true,
             sideTranslation: false,
         },
+        autostart: false,
     },
 };
 

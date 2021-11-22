@@ -3,14 +3,17 @@ import React from 'react';
 import styles from './SideNav.module.css';
 
 import NavItem from './NavItem';
-import { IconName } from '../../pieces/Icon';
+import Icon, { IconName } from '../../pieces/Icon';
 
 export const SideNav = () => {
     return (
         <nav className={styles.sidenav}>
             <ul>
                 <li>
-                    <NavItem to="/home" iconName={IconName.Book}>
+                    <NavItem
+                        to="/"
+                        icon={<Icon name={IconName.Book} />}
+                    >
                         Song Library
                     </NavItem>
                 </li>
