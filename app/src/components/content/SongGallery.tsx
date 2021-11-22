@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { languageNames } from '../../util/language';
 
 import { SongLibrary } from '../../util/songLibrary';
 import Loading from '../pieces/Loading';
 
-import './SongGallery.css';
+import styles from './SongGallery.module.css';
+
 export interface Props {
     /** The song library to display. 
      * 
@@ -28,21 +30,26 @@ export const SongGallery = (props: Props) => {
     }
 
     return (
-        <div className="SongGallery">
+        <div className={styles.SongGallery}>
             {
                 // todo use song video ids when each song here is unique
-                songs.map((song, idx) => (
-                    <div className="SongGallery-song" key={idx}>
-                        <Link to={`/songpage?song=${song.videoId}`}>
-                            <img
-                                src={`https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg`}
-                                alt={song.title}
-                                className="SongGallery-thumbnail"
-                            />
-                            <div className="SongGallery-name">{song.title}{song.artist && ` - ${song.artist}`}</div>
-                        </Link>
-                    </div>
-                ))
+                songs.map((song, idx) => {
+                    const lang = languageNames[song.language];
+
+                    return (
+                        <div className={styles.song} key={idx}>
+                            <Link to={`/songpage?song=${song.videoId}`}>
+                                <img
+                                    src={`https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg`}
+                                    alt={song.title}
+                                    className={styles.thumbnail}
+                                />
+                                <div className={styles.name}>{song.title}{song.artist && ` - ${song.artist}`}</div>
+                                <div className={styles.lang}>{lang}</div>
+                            </Link>
+                        </div>
+                    );
+                })
             }
         </div>
     );

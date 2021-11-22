@@ -18,15 +18,15 @@
     }
 }
 
-.SongGallery-song {
+.song {
     width: 100%;
     max-width: 500px;
 }
 
-.SongGallery-thumbnail {
+.thumbnail {
     width: 100%;
 }
 
-.SongGallery-song a {
+.song a {
     color: inherit;
 }
