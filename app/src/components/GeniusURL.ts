@@ -1,7 +1,7 @@
 import config from './config';
 import Scraper from './scraper';
  
-//This function takes in the song id and returns the Genius URL - needs to be sent to the scrape.py with flask server//
+//This function takes in the song id and returns the Genius URL and connects to the scraper.tsx//
  function GeniusURL(path:any) {
     var axios = require("axios").default;
     var options = {
@@ -11,8 +11,7 @@ import Scraper from './scraper';
     };
     
     axios.request(options).then(function (response:any) {
-        console.log(response.data.response.song.url),
-        Scraper(response.data.response.song.url);
+        Scraper(response.data.response.song.url.replace('https://genius.com/',''));
     }).catch(function (error:any) {
         console.error(error);
     });

@@ -1,11 +1,11 @@
-from flask import Flask, send_from_directory, request
-from flask_restful import Api, Resource, reqparse
+from flask import Flask
 from flask_cors import CORS
-from src.components.HelloApiHandler import HelloApiHandler
 import os
 import re
 import requests
 from bs4 import BeautifulSoup
+
+#Flask server set up
 
 app = Flask(__name__,  static_url_path='', static_folder='src/components')
 CORS(app)
