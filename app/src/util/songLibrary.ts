@@ -1,18 +1,26 @@
 import defaultLibrary from '../resources/songs.json';
-import { parseLanguageCode } from './language';
+import { Language, parseLanguageCode } from './language';
 import { promiseDelayRand } from './promiseDelay';
 import { Song } from './song';
 
-export type SongLibrary = Song[];
+export type SongLibrary = {
+    songs: Song[],
+    languages: Language[],
+};
 
 /** Do not use me publicly! */
-export const DEFAULT_LIBRARY = (() => (
+export const DEFAULT_LIBRARY: SongLibrary = (() => {
     // parse the language names in songs.json
-    defaultLibrary.map(song => {
+    const songs = defaultLibrary.map(song => {
         const language = parseLanguageCode(song.language);
         return { ...song, language };
-    })
-))();
+    });
+
+    const languages = Array.from(new Set(songs.map(song => song.language)));
+
+    return { songs, languages };
+
+})();
 
 let library: SongLibrary | undefined;
 

@@ -10,10 +10,10 @@ export type Song = {
     language: Language,
 };
 
-export const DEFAULT_SONG: Song = DEFAULT_LIBRARY[0];
+export const DEFAULT_SONG: Song = DEFAULT_LIBRARY.songs[0];
 
 export const getSong = async (id: string): Promise<Song | undefined> => {
-    const result = DEFAULT_LIBRARY.find(song => song.videoId === id);
+    const result = DEFAULT_LIBRARY.songs.find(song => song.videoId === id);
 
     // simulate loading time by waiting to give the song
     return promiseDelayRand(result, { mean: 1500, variance: 1000 });

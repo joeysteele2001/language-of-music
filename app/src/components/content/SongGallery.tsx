@@ -2,28 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { languageNames } from '../../util/language';
 
-import { SongLibrary } from '../../util/songLibrary';
 import Loading from '../pieces/Loading';
 
+import DataLoading from '../../util/loading';
+
 import styles from './SongGallery.module.css';
+import { Song } from '../../util/song';
 
 export interface Props {
     /** The song library to display. 
      * 
-     * Shows a loading icon if no songs are listed.
+     * Shows a loading icon if undefined.
     */
-    load: () => Promise<SongLibrary>;
+    songs: DataLoading<Song[]>;
 }
 
 export const SongGallery = (props: Props) => {
-    const { load: loadSongs } = props;
-
-    const [songs, setSongs] = React.useState<SongLibrary | undefined>();
-
-    // call the 
-    React.useEffect(() => {
-        loadSongs().then(setSongs);
-    }, [loadSongs]);
+    const { songs } = props;
 
     if (!songs) {
         return <Loading>Loading song library...</Loading>;

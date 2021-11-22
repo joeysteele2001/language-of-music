@@ -7,12 +7,18 @@ import TopBar from './layout/TopBar';
 import ColorPalette from './content/ColorPalette';
 
 import { DEFAULT_PRESET } from '../util/settings';
-import { getLibrary } from '../util/songLibrary';
+import { getLibrary, SongLibrary } from '../util/songLibrary';
+import { Loading } from '../util/loading';
 
 import './Main.css';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
+    const [library, setLibrary] = React.useState<Loading<SongLibrary>>();
+
+    React.useEffect(() => {
+        getLibrary().then(setLibrary);
+    }, []);
 
     return (
         <div className="Main">
@@ -33,7 +39,7 @@ export const Main = () => {
 
                         <Route path="/">
                             <h1>Home</h1>
-                            <SongGallery load={getLibrary} />
+                            <SongGallery songs={library?.songs} />
                         </Route>
                     </Switch>
                 </main>
