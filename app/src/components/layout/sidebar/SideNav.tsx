@@ -18,28 +18,27 @@ export const SideNav = () => {
                     </NavItem>
                 </li>
                 <li>
-                    <NavItem icon={<Icon name={IconName.Globe} />}>Languages</NavItem>
+                    <NavItem iconName={IconName.Globe}>Languages</NavItem>
                     <ul>
                         <li>Japanese</li>
                         <li>French</li>
-                        <li><NavItem icon={<Icon name={IconName.Stroopwafel} />}>German</NavItem></li>
+                        <li>
+                            <NavItem iconName={IconName.Stroopwafel}>
+                                German
+                            </NavItem>
+                        </li>
                     </ul>
                 </li>
                 <li>
-                    <NavItem icon={<Icon name={IconName.Star} />}>
-                        High Quality
-                    </NavItem>
+                    <NavItem iconName={IconName.Star}>High Quality</NavItem>
                 </li>
                 <li>
-                    <NavItem
-                        to="/colors"
-                        icon={<Icon name={IconName.Palette} />}
-                    >
+                    <NavItem to="/colors" iconName={IconName.Palette}>
                         Color Palette
                     </NavItem>
                 </li>
             </ul>
-        </nav>
+        </nav >
     );
 };
 
