@@ -23,6 +23,9 @@ export interface Props {
     /** the height of the video player, in pixels */
     height?: number | string;
 
+    /** should the video auto start? default false */
+    autostart?: boolean;
+
     /** callback to run on every time update */
     onTimeUpdate?: (newTime: Milliseconds) => void;
 }
@@ -89,7 +92,11 @@ class YouTubePlayer extends React.Component<Props, State> {
     };
 
     private onReady = (evt: YT.PlayerEvent) => {
-        evt.target.playVideo();
+        const { autostart } = this.props;
+
+        if (autostart) {
+            evt.target.playVideo();
+        }
 
         if (!this.props.onTimeUpdate) {
             // we're done; just play the video

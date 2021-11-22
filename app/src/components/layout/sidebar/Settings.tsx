@@ -95,6 +95,15 @@ export const Settings = (props: Props) => {
                     },
                 })}
             />
+
+            <ToggleSwitch
+                checked={values.autostart}
+                label="Auto Start"
+                onChange={autostart => handleChange({
+                    ...values,
+                    autostart,
+                })}
+            />
         </>
     );
 };

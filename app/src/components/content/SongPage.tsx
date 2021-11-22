@@ -44,6 +44,7 @@ export const SongPage = (props: Props) => {
                 id="music-video"
                 title="Music Video Player"
                 videoId={song.videoId}
+                autostart={settings.autostart}
                 onTimeUpdate={setTime}
             />
 
