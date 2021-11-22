@@ -7,7 +7,7 @@ import TopBar from './layout/TopBar';
 import ColorPalette from './content/ColorPalette';
 
 import { DEFAULT_PRESET } from '../util/settings';
-import songs from '../resources/songs.json';
+import { getLibrary } from '../util/songLibrary';
 
 import './Main.css';
 
@@ -33,7 +33,7 @@ export const Main = () => {
 
                         <Route path="/">
                             <h1>Home</h1>
-                            <SongGallery songs={songs} />
+                            <SongGallery load={getLibrary} />
                         </Route>
                     </Switch>
                 </main>

@@ -1,16 +1,19 @@
-import songs from '../resources/songs.json';
+
+import { Language } from './language';
 import { promiseDelayRand } from './promiseDelay';
+import { DEFAULT_LIBRARY } from './songLibrary';
 
 export type Song = {
     title: string,
     artist?: string,
     videoId: string,
+    language: Language,
 };
 
-export const DEFAULT_SONG: Song = songs[0];
+export const DEFAULT_SONG: Song = DEFAULT_LIBRARY[0];
 
 export const getSong = async (id: string): Promise<Song | undefined> => {
-    const result = songs.find(song => song.videoId === id);
+    const result = DEFAULT_LIBRARY.find(song => song.videoId === id);
 
     // simulate loading time by waiting to give the song
     return promiseDelayRand(result, { mean: 1500, variance: 1000 });

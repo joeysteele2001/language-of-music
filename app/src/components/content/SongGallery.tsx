@@ -1,183 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Song } from '../../util/song';
+import { SongLibrary } from '../../util/songLibrary';
+import Loading from '../pieces/Loading';
 
 import './SongGallery.css';
 export interface Props {
-    songs?: Song[];
+    /** The song library to display. 
+     * 
+     * Shows a loading icon if no songs are listed.
+    */
+    load: () => Promise<SongLibrary>;
 }
 
-const DEFAULT_SONGS: Song[] = [
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'You Are Immune',
-        artist: 'Kurzgesagt',
-        videoId: 'LmpuerlbJu0',
-    },
-    {
-        title: 'Never Gonna Give You Up',
-        artist: 'Rick Astley',
-        videoId: 'dQw4w9WgXcQ',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-    {
-        title: 'Gurenge',
-        artist: 'LiSA',
-        videoId: '_IkopJwRDKU',
-    },
-]
-
 export const SongGallery = (props: Props) => {
-    const songs = props.songs || DEFAULT_SONGS;
+    const { load: loadSongs } = props;
+
+    const [songs, setSongs] = React.useState<SongLibrary | undefined>();
+
+    // call the 
+    React.useEffect(() => {
+        loadSongs().then(setSongs);
+    }, [loadSongs]);
+
+    if (!songs) {
+        return <Loading>Loading song library...</Loading>;
+    }
 
     return (
         <div className="SongGallery">
