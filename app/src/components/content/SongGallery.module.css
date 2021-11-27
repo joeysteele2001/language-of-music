@@ -1,0 +1,48 @@
+.SongGallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin: 0 2rem;
+    justify-items: center;
+}
+
+@media (max-width: 1200px) {
+    .SongGallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .SongGallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+.song {
+    width: 100%;
+    max-width: 500px;
+}
+
+.thumbnail {
+    width: 100%;
+}
+
+.song a {
+    color: inherit;
+}
+
+.lang {
+    font-style: italic;
+    font-weight: bold;
+    text-align: right;
+    text-transform: uppercase;
+    flex-grow: 1;
+}
+
+.metadata {
+    height: 1.5rem;
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: flex-end;
+}

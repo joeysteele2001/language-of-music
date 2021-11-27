@@ -1,3 +1,0 @@
-# Joey
-
-Joey made this.

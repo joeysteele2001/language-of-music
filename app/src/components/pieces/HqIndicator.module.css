@@ -1,0 +1,7 @@
+.hq {
+    text-decoration: none;
+}
+
+.hq:hover {
+    cursor: help;
+}

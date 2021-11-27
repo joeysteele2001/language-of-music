@@ -1,0 +1,14 @@
+.SongPage {
+    overflow: auto;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) 10%;
+    height: 10in;
+}
+
+.lyrics {
+    display: flex;
+}
+
+.lyrics > * {
+    flex: 1;
+}

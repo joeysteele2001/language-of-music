@@ -1,4 +1,43 @@
+:root {
+  --primary-color: #3e188f;
+  --primary-light: #e9dfff;
+  --accent-color: #ef8518;
+  --highlight-color: #50c234;
+  --incorrect-color: #d42d21;
+
+  --text-color: #ffffff;
+  --text-light: #aaaaaa;
+  --disabled-color: #7f7f7f;
+  --dev-text-color: #aaaaaa;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+
+  height: 99vh;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
   text-align: center;
-  background-color: #e9dfff;
+}
+
+/* TEMPORARY: STYLING FOR THINGS THAT ARE TEMPORARY AND WON'T BE IN THE FINAL PRODUCT */
+.dev {
+  color: var(--dev-text-color);
+  font-style: italic;
+  border: 2px dotted var(--dev-text-color);
+}
+
+.dev a {
+  color: inherit;
+}
+
+.noselect {
+  user-select: none;
 }

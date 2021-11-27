@@ -1,0 +1,21 @@
+[
+    {
+        "title": "Gurenge",
+        "artist": "LiSA",
+        "videoId": "MpYy6wwqxoo",
+        "language": "jpn"
+    },
+    {
+        "title": "Never Gonna Give You Up",
+        "artist": "Rick Astley",
+        "videoId": "dQw4w9WgXcQ",
+        "language": "eng",
+        "hq": true
+    },
+    {
+        "title": "Can't Help Falling in Love",
+        "artist": "Elvis Presley",
+        "videoId": "vGJTaP6anOU",
+        "language": "eng"
+    }
+]
