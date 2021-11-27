@@ -32,10 +32,17 @@
 }
 
 .lang {
-    font-size: 0.75rem;
     font-style: italic;
     font-weight: bold;
-    padding: 0.5rem 0;
     text-align: right;
     text-transform: uppercase;
+    flex-grow: 1;
+}
+
+.metadata {
+    height: 1.5rem;
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: flex-end;
 }

@@ -8,7 +8,7 @@ export type Song = {
     artist?: string,
     videoId: string,
     language: Language,
-    hq?: boolean,
+    hq: boolean,
 };
 
 export const DEFAULT_SONG: Song = DEFAULT_LIBRARY.songs[0];
