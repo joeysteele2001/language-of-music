@@ -7,16 +7,31 @@ import TopBar from './layout/TopBar';
 import ColorPalette from './content/ColorPalette';
 
 import { DEFAULT_PRESET } from '../util/settings';
-import songs from '../resources/songs.json';
+import { getLibrary, SongLibrary } from '../util/songLibrary';
+import { Loading } from '../util/loading';
 
 import './Main.css';
+import { Language } from '../util/language';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
+    const [lang, setLang] = React.useState<Language | 'all'>('all');
+    const [library, setLibrary] = React.useState<Loading<SongLibrary>>();
+
+    React.useEffect(() => {
+        getLibrary().then(setLibrary);
+    }, []);
+
+    const languages = new Set(library?.languages);
 
     return (
         <div className="Main">
-            <Sidebar onSettingsChange={setSettings} />
+            <Sidebar
+                languages={languages}
+                onSettingsChange={setSettings}
+                onLangChange={setLang}
+                selectedLanguage={lang}
+            />
 
             <div className="main-side">
                 <TopBar />
@@ -33,7 +48,7 @@ export const Main = () => {
 
                         <Route path="/">
                             <h1>Home</h1>
-                            <SongGallery songs={songs} />
+                            <SongGallery songs={library?.songs} lang={lang} />
                         </Route>
                     </Switch>
                 </main>
