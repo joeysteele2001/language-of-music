@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { languageNames } from '../../util/language';
+import { Language, languageNames } from '../../util/language';
 
 import Loading from '../pieces/Loading';
 
@@ -15,6 +15,8 @@ export interface Props {
      * Shows a loading icon if undefined.
     */
     songs: DataLoading<Song[]>;
+
+    lang?: Language | 'all';
 }
 
 export const SongGallery = (props: Props) => {
@@ -24,27 +26,31 @@ export const SongGallery = (props: Props) => {
         return <Loading>Loading song library...</Loading>;
     }
 
+    const lang = props.lang || 'all';
+
     return (
         <div className={styles.SongGallery}>
             {
                 // todo use song video ids when each song here is unique
-                songs.map((song, idx) => {
-                    const lang = languageNames[song.language];
+                songs
+                    .filter(song => lang === 'all' || song.language === lang)
+                    .map((song, idx) => {
+                        const lang = languageNames[song.language];
 
-                    return (
-                        <div className={styles.song} key={idx}>
-                            <Link to={`/songpage?song=${song.videoId}`}>
-                                <img
-                                    src={`https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg`}
-                                    alt={song.title}
-                                    className={styles.thumbnail}
-                                />
-                                <div className={styles.name}>{song.title}{song.artist && ` - ${song.artist}`}</div>
-                                <div className={styles.lang}>{lang}</div>
-                            </Link>
-                        </div>
-                    );
-                })
+                        return (
+                            <div className={styles.song} key={idx}>
+                                <Link to={`/songpage?song=${song.videoId}`}>
+                                    <img
+                                        src={`https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg`}
+                                        alt={song.title}
+                                        className={styles.thumbnail}
+                                    />
+                                    <div className={styles.name}>{song.title}{song.artist && ` - ${song.artist}`}</div>
+                                    <div className={styles.lang}>{lang}</div>
+                                </Link>
+                            </div>
+                        );
+                    })
             }
         </div>
     );

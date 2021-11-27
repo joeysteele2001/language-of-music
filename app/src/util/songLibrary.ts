@@ -5,7 +5,7 @@ import { Song } from './song';
 
 export type SongLibrary = {
     songs: Song[],
-    languages: Language[],
+    languages: Set<Language>,
 };
 
 /** Do not use me publicly! */
@@ -16,7 +16,7 @@ export const DEFAULT_LIBRARY: SongLibrary = (() => {
         return { ...song, language };
     });
 
-    const languages = Array.from(new Set(songs.map(song => song.language)));
+    const languages = new Set(songs.map(song => song.language));
 
     return { songs, languages };
 
