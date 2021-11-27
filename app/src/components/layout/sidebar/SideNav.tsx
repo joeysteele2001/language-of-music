@@ -17,8 +17,6 @@ export const SideNav = (props: Props) => {
     const selectedLang = props.selectedLang || 'all';
     const { onLangChange } = props;
 
-    // const [selectedLang, setSelectedLang] = React.useState<Language | "all">('all');
-
     return (
         <nav className={styles.sidenav}>
             <ul>
@@ -32,32 +30,11 @@ export const SideNav = (props: Props) => {
                 </li>
                 <li>
                     <NavItem iconName={IconName.Globe}>Languages</NavItem>
-                    <ul>
-                        <button
-                            className={
-                                styles.langbutton +
-                                (selectedLang === 'all' ? ' ' + styles['langbutton-sel'] : '')
-                            }
-                            onClick={onLangChange && (() => onLangChange('all'))}
-                        >
-                            All
-                        </button>
-
-                        {
-                            Array.from(languages.values())
-                                .sort()
-                                .map(lang =>
-                                    <li>
-                                        <LangButton
-                                            key={lang}
-                                            selected={selectedLang === lang}
-                                            lang={lang}
-                                            onClick={onLangChange}
-                                        />
-                                    </li>
-                                )
-                        }
-                    </ul>
+                    <Languages
+                        languages={languages}
+                        selected={selectedLang}
+                        onLangChange={onLangChange}
+                    />
                 </li>
                 <li>
                     <NavItem to="/hq" iconName={IconName.Star}>High Quality</NavItem>
@@ -69,6 +46,45 @@ export const SideNav = (props: Props) => {
                 </li>
             </ul>
         </nav >
+    );
+};
+
+interface LanguagesProps {
+    languages: Set<Language>;
+    selected: Language | 'all';
+    onLangChange?: (language: Language | 'all') => void;
+}
+
+const Languages = (props: LanguagesProps) => {
+    const { languages, selected, onLangChange } = props;
+
+    return (
+        <ul>
+            <button
+                className={
+                    styles.langbutton +
+                    (selected === 'all' ? ' ' + styles['langbutton-sel'] : '')
+                }
+                onClick={onLangChange && (() => onLangChange('all'))}
+            >
+                All
+            </button>
+
+            {
+                Array.from(languages.values())
+                    .sort()
+                    .map(lang =>
+                        <li>
+                            <LangButton
+                                key={lang}
+                                selected={selected === lang}
+                                lang={lang}
+                                onClick={onLangChange}
+                            />
+                        </li>
+                    )
+            }
+        </ul>
     );
 };
 
