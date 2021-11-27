@@ -30,3 +30,12 @@
 .song a {
     color: inherit;
 }
+
+.lang {
+    font-size: 0.75rem;
+    font-style: italic;
+    font-weight: bold;
+    padding: 0.5rem 0;
+    text-align: right;
+    text-transform: uppercase;
+}

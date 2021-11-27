@@ -35,10 +35,15 @@ export const SongGallery = (props: Props) => {
                 songs
                     .filter(song => lang === 'all' || song.language === lang)
                     .map((song, idx) => {
-                        const lang = languageNames[song.language];
+                        const langName = languageNames[song.language];
 
                         return (
                             <div className={styles.song} key={idx}>
+                                {
+                                    lang === 'all' &&
+                                    <div className={styles.lang}>{langName}</div>
+                                }
+
                                 <Link to={`/songpage?song=${song.videoId}`}>
                                     <img
                                         src={`https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg`}
@@ -46,7 +51,6 @@ export const SongGallery = (props: Props) => {
                                         className={styles.thumbnail}
                                     />
                                     <div className={styles.name}>{song.title}{song.artist && ` - ${song.artist}`}</div>
-                                    <div className={styles.lang}>{lang}</div>
                                 </Link>
                             </div>
                         );
