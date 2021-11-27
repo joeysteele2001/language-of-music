@@ -46,6 +46,13 @@ export const Main = () => {
                             <ColorPalette />
                         </Route>
 
+                        <Route path="/hq">
+                            <h1>High Quality</h1>
+                            <SongGallery songs={
+                                library?.songs.filter(song => song.hq)
+                            } />
+                        </Route>
+
                         <Route path="/">
                             <h1>Home</h1>
                             <SongGallery songs={library?.songs} lang={lang} />
