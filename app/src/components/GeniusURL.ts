@@ -1,4 +1,4 @@
-import config from './config';
+import config from '../config';
 import Scraper from './scraper';
  
 //This function takes in the song id and returns the Genius URL and connects to the scraper.tsx//

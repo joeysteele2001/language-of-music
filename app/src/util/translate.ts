@@ -1,4 +1,4 @@
- import config from './config';
+ import config from '../config';
  
  function translate(input:string){
     var axios = require("axios").default;

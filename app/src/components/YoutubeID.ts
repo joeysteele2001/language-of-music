@@ -1,4 +1,4 @@
-import config from './config';
+import config from '../config';
  
 //This function returns the youtube id of a song//
  function YoutubeID(input:any) {

@@ -1,4 +1,4 @@
-import config from './config';
+import config from '../config';
 import GeniusURL from './GeniusURL';
 
 //This function takes in the search string and returns the first songs id//
