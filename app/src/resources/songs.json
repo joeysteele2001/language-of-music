@@ -9,7 +9,8 @@
         "title": "Never Gonna Give You Up",
         "artist": "Rick Astley",
         "videoId": "dQw4w9WgXcQ",
-        "language": "eng"
+        "language": "eng",
+        "hq": true
     },
     {
         "title": "Can't Help Falling in Love",

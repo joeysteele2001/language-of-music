@@ -8,6 +8,7 @@ import DataLoading from '../../util/loading';
 
 import styles from './SongGallery.module.css';
 import { Song } from '../../util/song';
+import HqIndicator from '../pieces/HqIndicator';
 
 export interface Props {
     /** The song library to display. 
@@ -35,14 +36,9 @@ export const SongGallery = (props: Props) => {
                 songs
                     .filter(song => lang === 'all' || song.language === lang)
                     .map((song, idx) => {
-                        const langName = languageNames[song.language];
-
                         return (
                             <div className={styles.song} key={idx}>
-                                {
-                                    lang === 'all' &&
-                                    <div className={styles.lang}>{langName}</div>
-                                }
+                                <Metadata hq={song.hq} lang={lang === 'all' ? song.language : undefined} />
 
                                 <Link to={`/songpage?song=${song.videoId}`}>
                                     <img
@@ -56,6 +52,36 @@ export const SongGallery = (props: Props) => {
                         );
                     })
             }
+        </div>
+    );
+};
+
+interface MetadataProps {
+    lang?: Language;
+    hq?: boolean,
+}
+
+const Metadata = (props: MetadataProps) => {
+    const { lang, hq } = props;
+
+    return (
+        <div className={styles.metadata}>
+            {hq && <HqIndicator />}
+            <LangName lang={lang} />
+        </div>
+    );
+};
+
+interface LangNameProps {
+    lang?: Language;
+}
+
+const LangName = (props: LangNameProps) => {
+    const { lang } = props;
+
+    return (
+        <div className={styles.lang}>
+            {lang && languageNames[lang]}
         </div>
     );
 };

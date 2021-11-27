@@ -12,6 +12,7 @@ import { Loading } from '../util/loading';
 
 import './Main.css';
 import { Language } from '../util/language';
+import HqExplanation from './content/HqExplanation';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
@@ -44,6 +45,17 @@ export const Main = () => {
 
                         <Route path="/colors">
                             <ColorPalette />
+                        </Route>
+
+                        <Route path="/hqexplanation">
+                            <HqExplanation />
+                        </Route>
+
+                        <Route path="/hq">
+                            <h1>High Quality</h1>
+                            <SongGallery songs={
+                                library?.songs.filter(song => song.hq)
+                            } />
                         </Route>
 
                         <Route path="/">

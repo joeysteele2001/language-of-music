@@ -13,7 +13,11 @@ export const DEFAULT_LIBRARY: SongLibrary = (() => {
     // parse the language names in songs.json
     const songs = defaultLibrary.map(song => {
         const language = parseLanguageCode(song.language);
-        return { ...song, language };
+
+        // hack to check whether the song has an `hq` property that is truthy
+        const hq = (song as any).hq ? true : false;
+
+        return { ...song, language, hq };
     });
 
     const languages = new Set(songs.map(song => song.language));
