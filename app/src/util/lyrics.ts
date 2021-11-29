@@ -1,5 +1,6 @@
 import fallingInLove from '../resources/lyrics/falling-in-love.json';
 import gurenge from '../resources/lyrics/gurenge-lisa.json';
+import yoruNiKakeru from '../resources/lyrics/yoru-ni-kakeru.json';
 import { Milliseconds } from './duration';
 import { promiseDelayRand } from './promiseDelay';
 
@@ -27,6 +28,7 @@ type LyricsMap = {
 const LYRICS_MAP: LyricsMap = {
     'vGJTaP6anOU': fallingInLove,
     'MpYy6wwqxoo': gurenge,
+    'vEyPvak2K9o': yoruNiKakeru,
 };
 
 const DEFAULT_LYRICS = fallingInLove;
