@@ -11,10 +11,10 @@ const Search = () => {
             <input
                 type="text"
                 id="header-search"
-                placeholder="Search songs"
+                placeholder="Add new songs"
                 name="q"
             />
-            <button type="submit">Search</button>
+            <button type="submit">Add</button>
         </form>
     );
 };
@@ -23,7 +23,5 @@ export default Search;
 
 const { search } = window.location;
 const query = new URLSearchParams(search).get('q');
-// eslint-disable-next-line
 { GeniusSearch(query) }
-// eslint-disable-next-line
 { YoutubeID(query) }

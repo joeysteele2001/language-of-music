@@ -8,10 +8,6 @@ export const TopBar = () => {
     return (
         <header className="TopBar">
             <Search />
-            <label>
-                Add Song
-                <button className="add-song">+</button>
-            </label>
         </header>
     );
 };
