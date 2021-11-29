@@ -1,16 +1,13 @@
 import React from 'react';
+import { QuizQuestion as Question } from '../../util/quiz';
 import AnswerButton from './AnswerButton';
 import styles from './QuizQuestion.module.css';
 
+const DEFAULT_PROMPT = "Choose the best answer.";
+
 export interface Props {
-    /** The quiz question text. */
-    question: React.ReactNode;
-
-    /** The quiz answers' texts. */
-    answers: React.ReactNode[];
-
-    /** Index of the correct answer. */
-    correctAnswer: number;
+    /** The quiz question text and answer info. */
+    question: Question;
 
     /** Callback function called when the correct answer is selected.
      * 
@@ -19,9 +16,11 @@ export interface Props {
     onAnswer?: (correct: boolean) => void;
 }
 
-export const QuizQuestion = ({ question, answers, correctAnswer, onAnswer }: Props) => {
+export const QuizQuestion = ({ question, onAnswer }: Props) => {
+    const { questionText, answers, correctAnswer } = question;
+
     // state for the quiz
-    const [feedback, setFeedback] = React.useState("");
+    const [feedback, setFeedback] = React.useState(DEFAULT_PROMPT);
     const [clicked, setClicked] = React.useState<undefined | number>(undefined);
     const [enabled, setEnabled] = React.useState(true);
     const [hasAnsweredWrong, setHasAnsweredWrong] = React.useState(false);
@@ -47,7 +46,11 @@ export const QuizQuestion = ({ question, answers, correctAnswer, onAnswer }: Pro
     const handleCorrect = () => {
         setFeedback("Correct!");
         if (onAnswer) {
-            setTimeout(() => onAnswer(!hasAnsweredWrong), 1000);
+            setTimeout(() => {
+                onAnswer(!hasAnsweredWrong);
+                resetQuiz();
+                setHasAnsweredWrong(false);
+            }, 1000);
         }
     };
 
@@ -60,7 +63,7 @@ export const QuizQuestion = ({ question, answers, correctAnswer, onAnswer }: Pro
     // reset the quiz to its initial state
     const resetQuiz = () => {
         setClicked(undefined);
-        setFeedback("");
+        setFeedback(DEFAULT_PROMPT);
         setEnabled(true);
     }
 
@@ -86,7 +89,7 @@ export const QuizQuestion = ({ question, answers, correctAnswer, onAnswer }: Pro
     // the actual quiz component's elements
     return (
         <div className={styles.Quiz}>
-            <div className={styles.question}>{question}</div>
+            <div className={styles.question}>{questionText}</div>
             <div className={styles.feedback}>{feedback}</div>
             <div className={styles.answers}>{answersButtons}</div>
         </div>

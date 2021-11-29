@@ -13,7 +13,12 @@ import { Loading } from '../util/loading';
 import './Main.css';
 import { Language } from '../util/language';
 import HqExplanation from './content/HqExplanation';
-import QuizQuestion from './quiz/QuizQuestion';
+import Quiz from './quiz/Quiz';
+
+const exampleQuestions = [
+    { questionText: 'Question 1', answers: [1, 2, 3, 4], correctAnswer: 3 },
+    { questionText: 'Second Question', answers: ['nope', 'no', 'YES', 'shake head', 'uh uh', 'naw'], correctAnswer: 2 },
+];
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
@@ -49,11 +54,8 @@ export const Main = () => {
                         </Route>
 
                         <Route path="/quiz">
-                            <QuizQuestion
-                                question="Question text."
-                                answers={["Answer 1", "Answer 2", "Choose me!", "Answer 4"]}
-                                correctAnswer={2}
-                                onAnswer={(correct) => { console.log(`Quiz was answered! Correct first time? ${correct}`) }}
+                            <Quiz
+                                questions={exampleQuestions}
                             />
                         </Route>
 
