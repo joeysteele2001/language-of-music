@@ -3,25 +3,27 @@ import GeniusSearch from './GeniusSearch';
 import YoutubeID from './YoutubeID';
 
 const Search = () => {
-    return(
-    <form action="/" method="get">
-        <label htmlFor="header-search">
-            <span className="visually-hidden">Search</span>
-        </label>
-        <input
-            type="text"
-            id="header-search"
-            placeholder="Search songs"
-            name="q" 
-        />
-        <button type="submit">Search</button>
-    </form>
+    return (
+        <form action="/" method="get">
+            <label htmlFor="header-search">
+                <span className="visually-hidden">Search</span>
+            </label>
+            <input
+                type="text"
+                id="header-search"
+                placeholder="Search songs"
+                name="q"
+            />
+            <button type="submit">Search</button>
+        </form>
     );
-    };
+};
 
 export default Search;
 
 const { search } = window.location;
 const query = new URLSearchParams(search).get('q');
-{GeniusSearch(query)}
-{YoutubeID(query)}
+// eslint-disable-next-line
+{ GeniusSearch(query) }
+// eslint-disable-next-line
+{ YoutubeID(query) }
