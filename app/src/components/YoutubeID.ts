@@ -1,6 +1,6 @@
 import config from './config';
  
-//This function returns the youtube id of a song//
+//This function returns the youtube id of a song in the console log//
  function YoutubeID(input:any) {
     var axios = require("axios").default;
     var options = {

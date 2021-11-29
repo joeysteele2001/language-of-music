@@ -6,6 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 
 #Flask server set up
+#you'll need to install flask and beautiful soup to use this
 
 app = Flask(__name__,  static_url_path='', static_folder='src/components')
 CORS(app)
