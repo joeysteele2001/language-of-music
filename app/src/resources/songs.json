@@ -3,14 +3,15 @@
         "title": "Gurenge",
         "artist": "LiSA",
         "videoId": "MpYy6wwqxoo",
-        "language": "jpn"
+        "language": "jpn",
+        "hq": true
     },
     {
         "title": "Never Gonna Give You Up",
         "artist": "Rick Astley",
         "videoId": "dQw4w9WgXcQ",
         "language": "eng",
-        "hq": true
+        "hq": false
     },
     {
         "title": "Can't Help Falling in Love",
@@ -22,12 +23,14 @@
         "title": "Yoru ni Kakeru",
         "artist": "Hatsune Niku",
         "videoId": "vEyPvak2K9o",
-        "language": "jpn"
+        "language": "jpn",
+        "hq": true
     },
     {
         "title": "Pretender",
         "artist": "Official Hige Dandism",
         "videoId": "TQ8WlA2GXbk",
-        "language": "jpn"
+        "language": "jpn",
+        "hq": true
     }
 ]
