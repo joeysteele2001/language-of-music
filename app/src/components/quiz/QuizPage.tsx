@@ -1,9 +1,9 @@
 import React from 'react';
-import Quiz from './Quiz';
+import QuizQuestion from './QuizQuestion';
 
 const QuizPage = () => {
     return (
-        <Quiz
+        <QuizQuestion
             question={<><span style={{ color: 'magenta' }}>Select</span> answer</>}
             answers={[
                 '1',

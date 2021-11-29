@@ -13,6 +13,7 @@ import { Loading } from '../util/loading';
 import './Main.css';
 import { Language } from '../util/language';
 import HqExplanation from './content/HqExplanation';
+import QuizQuestion from './quiz/QuizQuestion';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
@@ -45,6 +46,14 @@ export const Main = () => {
 
                         <Route path="/colors">
                             <ColorPalette />
+                        </Route>
+
+                        <Route path="/quiz">
+                            <QuizQuestion
+                                question="Question text."
+                                answers={["Answer 1", "Answer 2", "Choose me!", "Answer 4"]}
+                                correctAnswer={2}
+                            />
                         </Route>
 
                         <Route path="/hqexplanation">

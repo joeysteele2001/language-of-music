@@ -13,7 +13,7 @@ export interface Props {
     correctAnswer: number;
 }
 
-export const Quiz = ({ question, answers, correctAnswer }: Props) => {
+export const QuizQuestion = ({ question, answers, correctAnswer }: Props) => {
     // state for the quiz
     const [feedback, setFeedback] = React.useState("");
     const [clicked, setClicked] = React.useState<undefined | number>(undefined);
@@ -74,4 +74,4 @@ export const Quiz = ({ question, answers, correctAnswer }: Props) => {
     );
 };
 
-export default Quiz;
+export default QuizQuestion;

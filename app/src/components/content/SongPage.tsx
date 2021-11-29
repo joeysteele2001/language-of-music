@@ -55,6 +55,9 @@ export const SongPage = (props: Props) => {
                     onTimeUpdate={setTime}
                 />
 
+                {settings.parameters.quizzes &&
+                    <button>Take the Quiz</button>}
+
                 <div className="lyrics">
                     <LyricsBoxes
                         lyrics={lyrics}
