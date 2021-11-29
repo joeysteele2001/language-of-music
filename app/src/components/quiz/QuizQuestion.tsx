@@ -1,6 +1,6 @@
 import React from 'react';
 import AnswerButton from './AnswerButton';
-import './Quiz.css';
+import styles from './QuizQuestion.module.css';
 
 export interface Props {
     /** The quiz question text. */
@@ -11,13 +11,20 @@ export interface Props {
 
     /** Index of the correct answer. */
     correctAnswer: number;
+
+    /** Callback function called when the correct answer is selected.
+     * 
+     * If the first answer given was incorrect, then `correct` is `false`.
+     */
+    onAnswer?: (correct: boolean) => void;
 }
 
-export const QuizQuestion = ({ question, answers, correctAnswer }: Props) => {
+export const QuizQuestion = ({ question, answers, correctAnswer, onAnswer }: Props) => {
     // state for the quiz
     const [feedback, setFeedback] = React.useState("");
     const [clicked, setClicked] = React.useState<undefined | number>(undefined);
     const [enabled, setEnabled] = React.useState(true);
+    const [hasAnsweredWrong, setHasAnsweredWrong] = React.useState(false);
 
     // the function that is called when a button is clicked
     // idx: the index of the button
@@ -30,13 +37,25 @@ export const QuizQuestion = ({ question, answers, correctAnswer }: Props) => {
         setClicked(idx);
 
         if (idx === correctAnswer) {
-            setFeedback("Correct!");
+            handleCorrect();
         } else {
-            setFeedback("Incorrect.");
-            setTimeout(resetQuiz, 1500);
+            handleIncorrect();
         }
 
     }
+
+    const handleCorrect = () => {
+        setFeedback("Correct!");
+        if (onAnswer) {
+            setTimeout(() => onAnswer(!hasAnsweredWrong), 1000);
+        }
+    };
+
+    const handleIncorrect = () => {
+        setFeedback("Incorrect.");
+        setHasAnsweredWrong(true);
+        setTimeout(resetQuiz, 1500);
+    };
 
     // reset the quiz to its initial state
     const resetQuiz = () => {
@@ -66,10 +85,10 @@ export const QuizQuestion = ({ question, answers, correctAnswer }: Props) => {
 
     // the actual quiz component's elements
     return (
-        <div className="Quiz">
-            <div className="Quiz-question">{question}</div>
-            <div className="Quiz-feedback">{feedback}</div>
-            <div className="Quiz-answers">{answersButtons}</div>
+        <div className={styles.Quiz}>
+            <div className={styles.question}>{question}</div>
+            <div className={styles.feedback}>{feedback}</div>
+            <div className={styles.answers}>{answersButtons}</div>
         </div>
     );
 };

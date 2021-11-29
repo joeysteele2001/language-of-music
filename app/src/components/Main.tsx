@@ -53,6 +53,7 @@ export const Main = () => {
                                 question="Question text."
                                 answers={["Answer 1", "Answer 2", "Choose me!", "Answer 4"]}
                                 correctAnswer={2}
+                                onAnswer={(correct) => { console.log(`Quiz was answered! Correct first time? ${correct}`) }}
                             />
                         </Route>
 
