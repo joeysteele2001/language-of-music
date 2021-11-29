@@ -1,13 +1,13 @@
 import React from 'react';
 
-import SearchBar from '../input/SearchBar';
+import Search from '../search';
 
 import './TopBar.css';
 
 export const TopBar = () => {
     return (
         <header className="TopBar">
-            <SearchBar />
+            <Search />
             <label>
                 Add Song
                 <button className="add-song">+</button>

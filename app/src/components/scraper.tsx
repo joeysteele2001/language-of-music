@@ -1,4 +1,6 @@
 //connects to flask server to get lyrics, alreadly formatted
+//TODO - this is the part that will return lyrics for the song page
+//you need to install flask and beautiful soup first then put 'flask run' in a new terminal
 //change consolelog to return when incorporating into the lyric display
 function Scraper(path:any) {
     var axios = require("axios");
