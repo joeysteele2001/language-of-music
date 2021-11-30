@@ -3,6 +3,8 @@ import { AnnotatedText } from "./text";
 import gurenge from '../resources/vocab/gurenge.json';
 import pretender from '../resources/vocab/pretender.json';
 import yoru from '../resources/vocab/yoru-ni-kakenu.json';
+import falling from '../resources/vocab/falling-in-love.json';
+
 import { QuizQuestion, QuizQuestions } from "./quiz";
 import { randomize } from "./shuffle";
 
@@ -51,6 +53,7 @@ const parseVocabList = (list: RawVocabWord[]): VocabList => {
 export const GURENGE_VOCAB = parseVocabList(gurenge);
 export const PRETENDER_VOCAB = parseVocabList(pretender);
 export const YORU_VOCAB = parseVocabList(yoru);
+export const FALLING_VOCAB = parseVocabList(falling);
 
 export const generateQuiz = (list: VocabList, difficulty: Difficulty, numQuestions: number = 5): QuizQuestions => {
     const vocab = vocabAtOrBelowDifficulty(list, difficulty).slice(0, numQuestions);

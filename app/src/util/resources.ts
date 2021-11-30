@@ -4,7 +4,7 @@ import yoruNiKakeruLyrics from '../resources/lyrics/yoru-ni-kakeru.json';
 import pretenderLyrics from '../resources/lyrics/pretender.json';
 
 import { Lyrics } from './lyrics';
-import { GURENGE_VOCAB, PRETENDER_VOCAB, VocabList, YORU_VOCAB } from './vocab';
+import { FALLING_VOCAB, GURENGE_VOCAB, PRETENDER_VOCAB, VocabList, YORU_VOCAB } from './vocab';
 import { promiseDelayRand } from './promiseDelay';
 
 export type Resource = {
@@ -27,6 +27,7 @@ export const getResourceOrDefault = async (id?: string): Promise<Resource> => {
 const RESOURCES_MAP: Record<string, Resource> = {
     'vGJTaP6anOU': {
         lyrics: fallingInLoveLyrics,
+        vocab: FALLING_VOCAB,
     },
     'MpYy6wwqxoo': {
         lyrics: gurengeLyrics,

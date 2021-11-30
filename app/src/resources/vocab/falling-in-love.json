@@ -1,0 +1,56 @@
+[
+    {
+        "word": {
+            "text": "wise"
+        },
+        "defn": {
+            "text": "smart"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "fool"
+        },
+        "defn": {
+            "text": "not smart"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "shall"
+        },
+        "defn": {
+            "text": "should"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "river"
+        },
+        "defn": {
+            "text": "body of freshwater"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "sea"
+        },
+        "defn": {
+            "text": "body of saltwater"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "flow"
+        },
+        "defn": {
+            "text": "move"
+        },
+        "difficulty": "beg"
+    }
+]
