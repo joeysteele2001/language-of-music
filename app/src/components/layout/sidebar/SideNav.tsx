@@ -44,9 +44,6 @@ export const SideNav = (props: Props) => {
                         Color Palette
                     </NavItem>
                 </li>
-                <li>
-                    <NavItem to="/quiz" iconName={IconName.Question}>Quiz</NavItem>
-                </li>
             </ul>
         </nav >
     );
