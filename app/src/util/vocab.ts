@@ -56,8 +56,8 @@ export const YORU_VOCAB = parseVocabList(yoru);
 export const FALLING_VOCAB = parseVocabList(falling);
 
 export const generateQuiz = (list: VocabList, difficulty: Difficulty, numQuestions: number = 5): QuizQuestions => {
-    const vocab = vocabAtOrBelowDifficulty(list, difficulty).slice(0, numQuestions);
-    return listToQuiz(vocab);
+    const vocab = randomize(vocabAtOrBelowDifficulty(list, difficulty));
+    return listToQuiz(vocab.slice(0, numQuestions));
 }
 
 export const vocabAtDifficulty = (list: VocabList, difficulty: Difficulty): VocabList => {
@@ -76,7 +76,10 @@ export const listToQuiz = (list: VocabList): QuizQuestions => {
 
 const wordToQuizQuestion = (list: VocabList, word: VocabWord): QuizQuestion => {
     const NUM_ANSWERS = 4;
-    const answers = randomize(list).slice(0, NUM_ANSWERS - 1).map(word => word.defn);
+    const answers = randomize(list)
+        .filter(listWord => listWord !== word)
+        .slice(0, NUM_ANSWERS - 1)
+        .map(word => word.defn);
     answers.push(word.defn);
 
     return {

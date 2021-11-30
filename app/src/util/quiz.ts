@@ -12,7 +12,7 @@ export type QuizQuestion = {
 export type QuizText = string | AnnotatedText;
 
 export const randomizeQuiz = (questions: QuizQuestion[], numQuestions?: number): QuizQuestion[] => {
-    return randomizeQuestions(questions).map(randomizeAnswerOrder);
+    return randomizeQuestions(questions, numQuestions).map(randomizeAnswerOrder);
 };
 
 export const randomizeQuestions = (questions: QuizQuestion[], numQuestions?: number): QuizQuestion[] => {
