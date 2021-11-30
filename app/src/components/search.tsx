@@ -23,5 +23,7 @@ export default Search;
 
 const { search } = window.location;
 const query = new URLSearchParams(search).get('q');
-{ GeniusSearch(query) }
-{ YoutubeID(query) }
+if (query) {
+    GeniusSearch(query);
+    YoutubeID(query);
+}

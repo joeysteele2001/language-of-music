@@ -1,20 +1,38 @@
 import config from '../config';
- //TODO incorporate with new song page so that it works for any song
+
+interface Response {
+    data: Data;
+}
+
+interface Data {
+    items: Item[];
+}
+
+interface Item {
+    id: Id;
+}
+
+interface Id {
+    videoId: string;
+}
+
+//TODO incorporate with new song page so that it works for any song
 //This function returns the youtube id of a song in the console log//
- function YoutubeID(input:any) {
+async function YoutubeID(input: string): Promise<string[]> {
     var axios = require("axios").default;
     var options = {
-      method: 'GET',
-      url: 'https://www.googleapis.com/youtube/v3/search?part=snippet',
-      params: {maxResults : 5, q : input, key: config.YOUTUBE_API_KEY}
+        method: 'GET',
+        url: 'https://www.googleapis.com/youtube/v3/search?part=snippet',
+        params: { maxResults: 5, q: input, key: config.YOUTUBE_API_KEY }
     };
-    
-    axios.request(options).then(function (response:any) {
-        console.log(response.data.items[0].id.videoId);
-    }).catch(function (error:any) {
+
+    return axios.request(options).then(function (response: Response) {
+        const ids = response.data.items.map(item => item.id.videoId);
+        console.log(ids);
+        return ids;
+    }).catch(function (error: any) {
         console.error(error);
     });
-    return('genius')
 
 };
 export default YoutubeID;
