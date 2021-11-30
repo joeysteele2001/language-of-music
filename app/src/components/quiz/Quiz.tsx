@@ -48,7 +48,7 @@ export const Quiz = (props: Props) => {
             <div className={styles.header}>
                 <h2>Quiz</h2>
                 <div className={styles.status}>
-                    <ProgressBar value={current} max={numQuestions} />
+                    <ProgressBar value={current} max={numQuestions} />&nbsp;
                     {statusText}
                 </div>
             </div>
