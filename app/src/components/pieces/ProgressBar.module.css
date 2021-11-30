@@ -1,0 +1,11 @@
+.progressbar {
+    border: 2px solid var(--text-color);
+    height: 1rem;
+}
+
+.progress {
+    background-color: var(--highlight-color);
+    height: 100%;
+
+    transition: width 0.5s;
+}

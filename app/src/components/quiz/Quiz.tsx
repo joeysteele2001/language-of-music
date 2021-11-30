@@ -4,6 +4,7 @@ import { QuizQuestion as Question, randomizeQuiz } from '../../util/quiz';
 import QuizQuestion from './QuizQuestion';
 
 import styles from './Quiz.module.css';
+import ProgressBar from '../pieces/ProgressBar';
 
 export interface Props {
     /** The questions to give in the quiz.
@@ -46,7 +47,10 @@ export const Quiz = (props: Props) => {
         <div className={styles.Quiz}>
             <div className={styles.header}>
                 <h2>Quiz</h2>
-                <div className={styles.status}>{statusText}</div>
+                <div className={styles.status}>
+                    <ProgressBar value={current} max={numQuestions} />
+                    {statusText}
+                </div>
             </div>
             {body}
         </div>
