@@ -1,10 +1,6 @@
-.Quiz-answers {
+.answers {
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-
-.Quiz div {
-    border: 1px solid gray;
 }
 
 .Quiz * {

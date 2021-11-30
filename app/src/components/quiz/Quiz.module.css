@@ -1,0 +1,20 @@
+.Quiz {
+    max-width: 80ch;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+}
+
+.header > * {
+    flex-grow: 1;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
