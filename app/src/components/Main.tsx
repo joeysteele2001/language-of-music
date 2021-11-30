@@ -16,7 +16,7 @@ import HqExplanation from './content/HqExplanation';
 import Quiz from './quiz/Quiz';
 
 const exampleQuestions = [
-    { questionText: 'Question 1', answers: [1, 2, 3, 4], correctAnswer: 3 },
+    { questionText: 'Question 1', answers: ['1', '2', '3', '4'], correctAnswer: 3 },
     { questionText: 'Second Question', answers: ['nope', 'no', 'YES', 'shake head', 'uh uh', 'naw'], correctAnswer: 2 },
 ];
 

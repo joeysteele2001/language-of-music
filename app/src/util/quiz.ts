@@ -1,13 +1,15 @@
-import React from "react";
 import { randomize } from "./shuffle";
+import { AnnotatedText } from "./text";
 
 export type QuizQuestions = QuizQuestion[];
 
 export type QuizQuestion = {
-    questionText: React.ReactNode,
-    answers: React.ReactNode[],
+    questionText: QuizText,
+    answers: QuizText[],
     correctAnswer: number,
 };
+
+export type QuizText = string | AnnotatedText;
 
 export const randomizeQuiz = (questions: QuizQuestion[], numQuestions?: number): QuizQuestion[] => {
     return randomizeQuestions(questions).map(randomizeAnswerOrder);

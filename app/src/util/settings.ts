@@ -1,3 +1,5 @@
+import { Difficulty } from "./vocab";
+
 export type Settings = {
     preset?: PresetMode,
     parameters: Parameters,
@@ -40,7 +42,7 @@ export const PRESET_DEFAULTS: Record<PresetMode, Settings> = {
     'listen-learn': {
         preset: 'listen-learn',
         parameters: {
-            quizzes: { enabled: true, level: 'beginner' },
+            quizzes: { enabled: true, difficulty: 'beg' },
             chords: false,
             sideTranslation: true,
         },
@@ -72,29 +74,16 @@ export const validatePreset = (raw: string): PresetMode | undefined => {
 };
 
 export namespace quiz {
-    export type Level = 'beginner' | 'advanced';
-
     export type Settings = {
         enabled: true,
-        level: Level,
+        difficulty: Difficulty,
     } | {
         enabled: false,
     };
 
-    export const validateLevel = (raw: string): Level | undefined => {
-        switch (raw) {
-            case 'beginner':
-            case 'advanced':
-                return raw;
-
-            default:
-                return undefined;
-        }
-    };
-
     export const settingsEqual = (a: Settings, b: Settings) => {
         if (a.enabled) {
-            return b.enabled && a.level === b.level;
+            return b.enabled && a.difficulty === b.difficulty;
         }
 
         return !b.enabled;

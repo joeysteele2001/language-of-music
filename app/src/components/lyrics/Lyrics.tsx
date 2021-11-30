@@ -1,6 +1,6 @@
 import React from 'react';
 import { LyricsLine, LyricsText } from '../../util/lyrics';
-import { AnnotatedText } from '../../util/text';
+import TextView from '../pieces/TextView';
 
 export interface Props {
     text: LyricsText;
@@ -21,24 +21,8 @@ export const LineView = (props: LineProps) => {
 
     return (<>
         {line.map((annotatedText, idx) =>
-            <TextElems text={annotatedText} key={idx} />)}
+            <TextView text={annotatedText} key={idx} />)}
     </>);
-};
-
-interface ElementsProps {
-    text: AnnotatedText;
-}
-
-const TextElems = (props: ElementsProps) => {
-    const { text: annotatedText } = props;
-
-    const { text, ruby } = annotatedText;
-
-    if (ruby) {
-        return <ruby>{text}<rp> (</rp><rt>{ruby}</rt><rp>)</rp></ruby>;
-    } else {
-        return <>{text}</>;
-    }
 };
 
 export default Lyrics;

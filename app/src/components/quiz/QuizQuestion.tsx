@@ -1,5 +1,6 @@
 import React from 'react';
 import { QuizQuestion as Question } from '../../util/quiz';
+import TextView from '../pieces/TextView';
 import AnswerButton from './AnswerButton';
 import styles from './QuizQuestion.module.css';
 
@@ -17,7 +18,7 @@ export interface Props {
 }
 
 export const QuizQuestion = ({ question, onAnswer }: Props) => {
-    const { questionText, answers, correctAnswer } = question;
+    const { correctAnswer } = question;
 
     // state for the quiz
     const [feedback, setFeedback] = React.useState(DEFAULT_PROMPT);
@@ -69,7 +70,7 @@ export const QuizQuestion = ({ question, onAnswer }: Props) => {
 
     // Make a `<div>` element for each answer.
     // `map` takes an array and makes a new array with the mapping function
-    const answersButtons = answers.map((answer, idx) => {
+    const answersButtons = question.answers.map((answer, idx) => {
         const correct = idx === correctAnswer;
 
         return (
@@ -81,10 +82,12 @@ export const QuizQuestion = ({ question, onAnswer }: Props) => {
                 clicked={clicked === idx}
                 onClick={() => handleClick(idx)}
             >
-                {answer}
+                <TextView text={answer} />
             </AnswerButton>
         );
     });
+
+    const questionText = <TextView text={question.questionText} />;
 
     // the actual quiz component's elements
     return (

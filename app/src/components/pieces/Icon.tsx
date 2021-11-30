@@ -23,6 +23,7 @@ export const enum IconName {
     Spinner = 'spinner',
     Hotdog = 'hotdog',
     Question = 'question',
+    Frown = 'frown',
 };
 
 const IconClassNames: Record<IconName, string> = {
@@ -34,6 +35,7 @@ const IconClassNames: Record<IconName, string> = {
     [IconName.Spinner]: 'fas fa-spinner',
     [IconName.Hotdog]: 'fas fa-hotdog',
     [IconName.Question]: 'fas fa-question',
+    [IconName.Frown]: 'fas fa-frown',
 };
 
 export enum IconSize {
