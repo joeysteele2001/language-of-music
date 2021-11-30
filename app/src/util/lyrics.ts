@@ -1,5 +1,7 @@
 import fallingInLove from '../resources/lyrics/falling-in-love.json';
 import gurenge from '../resources/lyrics/gurenge-lisa.json';
+import yoruNiKakeru from '../resources/lyrics/yoru-ni-kakeru.json';
+import pretender from '../resources/lyrics/pretender.json';
 import { Milliseconds } from './duration';
 import { promiseDelayRand } from './promiseDelay';
 
@@ -27,6 +29,10 @@ type LyricsMap = {
 const LYRICS_MAP: LyricsMap = {
     'vGJTaP6anOU': fallingInLove,
     'MpYy6wwqxoo': gurenge,
+    'vEyPvak2K9o': yoruNiKakeru,
+    'TQ8WlA2GXbk': pretender,
 };
+
+// TODO: add times to Pretender and Yoru... lyrics
 
 const DEFAULT_LYRICS = fallingInLove;
