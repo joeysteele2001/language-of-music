@@ -11,7 +11,8 @@ import { Settings, DEFAULT_PRESET } from '../../util/settings';
 import './SongPage.css';
 
 import { getSongOrDefault, Song } from '../../util/song';
-import { getLyricsOrDefault, Lyrics } from '../../util/lyrics';
+import { Lyrics } from '../../util/lyrics';
+import { getResourceOrDefault } from '../../util/resources';
 
 export interface Props {
     settings?: Settings;
@@ -37,7 +38,7 @@ export const SongPage = (props: Props) => {
     // load the song and lyrics when songId changes
     React.useEffect(() => {
         getSongOrDefault(songId).then(setSong);
-        getLyricsOrDefault(songId).then(setLyrics);
+        getResourceOrDefault(songId).then(res => setLyrics(res.lyrics));
     }, [songId]);
 
     // TODO: make chords work
