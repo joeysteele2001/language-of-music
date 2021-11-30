@@ -5,7 +5,7 @@ import pretender from '../resources/lyrics/pretender.json';
 import { Milliseconds } from './duration';
 import { promiseDelayRand } from './promiseDelay';
 
-export type Lyrics = { times?: Milliseconds[], lyrics: LyricsText };
+export type Lyrics = { times?: Milliseconds[], lyrics: LyricsText, translation?: LyricsText };
 export type LyricsText = LyricsLine[];
 export type LyricsLine = AnnotatedText[];
 export type AnnotatedText = { text: string, ruby?: string };
@@ -32,6 +32,8 @@ const LYRICS_MAP: LyricsMap = {
     'vEyPvak2K9o': yoruNiKakeru,
     'TQ8WlA2GXbk': pretender,
 };
+
+console.log(gurenge);
 
 // TODO: add times to Pretender and Yoru... lyrics
 
