@@ -1,4 +1,5 @@
 import React from "react";
+import { randomize } from "./shuffle";
 
 export type QuizQuestions = QuizQuestion[];
 
@@ -22,20 +23,3 @@ export const randomizeAnswerOrder = (question: QuizQuestion): QuizQuestion => {
     const correctAnswer = answers.findIndex(ans => ans === correct);
     return { ...question, answers, correctAnswer };
 };
-
-/** Randomize the order of `arr` in a new array. */
-const randomize = <T>(arr: T[]): T[] => {
-    const copy = arr.slice();
-    shuffle(copy);
-    return copy;
-}
-
-/** Shuffle the elements of `arr` (in-place). */
-const shuffle = <T>(arr: T[]) => {
-    // Use the Durstenfeld shuffle algorithm
-    // adapted from a StackOverflow post (2450954)
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[j], arr[i]] = [arr[i], arr[j]];
-    }
-}
