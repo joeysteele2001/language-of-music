@@ -1,5 +1,6 @@
 import React from 'react';
-import { AnnotatedText, LyricsLine, LyricsText } from '../../util/lyrics';
+import { LyricsLine, LyricsText } from '../../util/lyrics';
+import { AnnotatedText } from '../../util/text';
 
 export interface Props {
     text: LyricsText;

@@ -1,0 +1,1077 @@
+[
+    {
+        "word": {
+            "text": "明日",
+            "ruby": "あした"
+        },
+        "defn": {
+            "text": "tomorrow"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "いくつ"
+        },
+        "defn": {
+            "text": "how many, how old"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "一",
+            "ruby": "いち"
+        },
+        "defn": {
+            "text": "one"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "いつ"
+        },
+        "defn": {
+            "text": "when"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "今",
+            "ruby": "いま"
+        },
+        "defn": {
+            "text": "now"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "嫌",
+            "ruby": "いや"
+        },
+        "defn": {
+            "text": "disagreeable, detestable, unpleasant"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "うるさい"
+        },
+        "defn": {
+            "text": "noisy; annoying"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "泳ぐ",
+            "ruby": "およぐ"
+        },
+        "defn": {
+            "text": "to swim"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "顔",
+            "ruby": "かお"
+        },
+        "defn": {
+            "text": "face (body part)"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "風",
+            "ruby": "かぜ"
+        },
+        "defn": {
+            "text": "wind, breeze"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "嫌い",
+            "ruby": "きらい"
+        },
+        "defn": {
+            "text": "dislike"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "綺麗",
+            "ruby": "きれい"
+        },
+        "defn": {
+            "text": "pretty, clean, tidy"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "声",
+            "ruby": "こえ"
+        },
+        "defn": {
+            "text": "voice"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "言葉",
+            "ruby": "ことば"
+        },
+        "defn": {
+            "text": "language; word(s); expression(s)"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "これ"
+        },
+        "defn": {
+            "text": "this one"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "涼しい",
+            "ruby": "すずしい"
+        },
+        "defn": {
+            "text": "cool, refreshing (in reference to weather)"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "する"
+        },
+        "defn": {
+            "text": "to do, to try; to wear small items (e.g., necktie, watch, etc.)"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "その"
+        },
+        "defn": {
+            "text": "that"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "空",
+            "ruby": "そら"
+        },
+        "defn": {
+            "text": "sky"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "それ"
+        },
+        "defn": {
+            "text": "that one"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "手",
+            "ruby": "て"
+        },
+        "defn": {
+            "text": "hand"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "でも"
+        },
+        "defn": {
+            "text": "but, however"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "どう"
+        },
+        "defn": {
+            "text": "how, in what way"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "どこ"
+        },
+        "defn": {
+            "text": "where, what place"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "取る",
+            "ruby": "とる"
+        },
+        "defn": {
+            "text": "to take (a class); to get (a grade)"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "どれ"
+        },
+        "defn": {
+            "text": "which one"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "ない"
+        },
+        "defn": {
+            "text": "there isn't, doesn't have"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "何",
+            "ruby": "なん; なに"
+        },
+        "defn": {
+            "text": "what"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "二",
+            "ruby": "に"
+        },
+        "defn": {
+            "text": "two"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "初めて",
+            "ruby": "はじめて"
+        },
+        "defn": {
+            "text": "for the first time"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "晴れ",
+            "ruby": "はれ"
+        },
+        "defn": {
+            "text": "clear (sunny) weather"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "晴れる",
+            "ruby": "はれる"
+        },
+        "defn": {
+            "text": "to be sunny"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "人",
+            "ruby": "ひと"
+        },
+        "defn": {
+            "text": "man, person"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "二人",
+            "ruby": "ふたり"
+        },
+        "defn": {
+            "text": "two people"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "本",
+            "ruby": "ほん"
+        },
+        "defn": {
+            "text": "book"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "本当",
+            "ruby": "ほんとう"
+        },
+        "defn": {
+            "text": "real, true"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "前",
+            "ruby": "まえ"
+        },
+        "defn": {
+            "text": "before, in front"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "また"
+        },
+        "defn": {
+            "text": "and; furthermore"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "目",
+            "ruby": "め"
+        },
+        "defn": {
+            "text": "eye(s)"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "もう"
+        },
+        "defn": {
+            "text": "already; again; more"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "夜",
+            "ruby": "よる"
+        },
+        "defn": {
+            "text": "evening, night"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "零",
+            "ruby": "れい"
+        },
+        "defn": {
+            "text": "zero, nought"
+        },
+        "difficulty": "beg"
+    },
+    {
+        "word": {
+            "text": "鳴る",
+            "ruby": "なる"
+        },
+        "defn": {
+            "text": "to sound, to ring (v.i.)"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "僕",
+            "ruby": "ぼく"
+        },
+        "defn": {
+            "text": "I (used by men towards those of equal or lower status)"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "気",
+            "ruby": "き"
+        },
+        "defn": {
+            "text": "spirit, mood"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "日",
+            "ruby": "ひ"
+        },
+        "defn": {
+            "text": "sun, sunshine, day"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "そう"
+        },
+        "defn": {
+            "text": "really, (is that) so; yes, right"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "葉",
+            "ruby": "は"
+        },
+        "defn": {
+            "text": "leaf"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "そんな"
+        },
+        "defn": {
+            "text": "such, like that, that sort of"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "世界",
+            "ruby": "せかい"
+        },
+        "defn": {
+            "text": "world"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "終わり",
+            "ruby": "おわり"
+        },
+        "defn": {
+            "text": "end"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "変",
+            "ruby": "へん"
+        },
+        "defn": {
+            "text": "strange, odd"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "心",
+            "ruby": "こころ"
+        },
+        "defn": {
+            "text": "heart, mind"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "用",
+            "ruby": "よう"
+        },
+        "defn": {
+            "text": "errand, task, business (to take care of)"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "用意",
+            "ruby": "ようい"
+        },
+        "defn": {
+            "text": "preparation"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "寂しい",
+            "ruby": "さびしい"
+        },
+        "defn": {
+            "text": "lonely, lonesome"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "空気",
+            "ruby": "くうき"
+        },
+        "defn": {
+            "text": "air, atmosphere"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "為",
+            "ruby": "ため"
+        },
+        "defn": {
+            "text": "good, advantage, in order to"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "きっと"
+        },
+        "defn": {
+            "text": "surely, definitely, undoubtedly, certainly"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "それで"
+        },
+        "defn": {
+            "text": "and (conj.), thereupon, because of that"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "あ"
+        },
+        "defn": {
+            "text": "Ah"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "払う",
+            "ruby": "はらう"
+        },
+        "defn": {
+            "text": "to pay"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "君",
+            "ruby": "きみ"
+        },
+        "defn": {
+            "text": "you (informal for men)"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "明日",
+            "ruby": "あす"
+        },
+        "defn": {
+            "text": "tomorrow"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "これから"
+        },
+        "defn": {
+            "text": "from now on, after this"
+        },
+        "difficulty": "int"
+    },
+    {
+        "word": {
+            "text": "沈む",
+            "ruby": "しずむ"
+        },
+        "defn": {
+            "text": "to sink; to feel depressed"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "姿",
+            "ruby": "すがた"
+        },
+        "defn": {
+            "text": "figure, shape, appearance"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "全て",
+            "ruby": "すべて"
+        },
+        "defn": {
+            "text": "all, the whole, entirely"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "いつか"
+        },
+        "defn": {
+            "text": "sometime, one day"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "映る",
+            "ruby": "うつる"
+        },
+        "defn": {
+            "text": "to be reflected, to come out (photo)"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "笑顔",
+            "ruby": "えがお"
+        },
+        "defn": {
+            "text": "smile (on one's face)"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "思い付く",
+            "ruby": "おもいつく"
+        },
+        "defn": {
+            "text": "to think of, to hit upon"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "空",
+            "ruby": "から"
+        },
+        "defn": {
+            "text": "empty"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "霧",
+            "ruby": "きり"
+        },
+        "defn": {
+            "text": "fog, mist"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "恋",
+            "ruby": "こい"
+        },
+        "defn": {
+            "text": "love, tender passion"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "差",
+            "ruby": "さ"
+        },
+        "defn": {
+            "text": "difference, variation"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "誘う",
+            "ruby": "さそう"
+        },
+        "defn": {
+            "text": "to invite (someone to do something with you); to tempt, to lure"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "無",
+            "ruby": "む"
+        },
+        "defn": {
+            "text": "nothing, naught, zero"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "夜",
+            "ruby": "よ"
+        },
+        "defn": {
+            "text": "evening, night"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "喜び",
+            "ruby": "よろこび"
+        },
+        "defn": {
+            "text": "joy, pleasure, rejoicing"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "意",
+            "ruby": "い"
+        },
+        "defn": {
+            "text": "will"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "全",
+            "ruby": "ぜん"
+        },
+        "defn": {
+            "text": "all, whole, entire"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "それでも"
+        },
+        "defn": {
+            "text": "but (still), and yet, nevertheless"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "だって"
+        },
+        "defn": {
+            "text": "but, because, even"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "度",
+            "ruby": "たび"
+        },
+        "defn": {
+            "text": "counter for occurrences"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "疲れ",
+            "ruby": "つかれ"
+        },
+        "defn": {
+            "text": "tiredness, fatigue"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "付く",
+            "ruby": "つく"
+        },
+        "defn": {
+            "text": "to adjoin, to be attached, to adhere"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "釣",
+            "ruby": "つり"
+        },
+        "defn": {
+            "text": "fishing"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "出",
+            "ruby": "で"
+        },
+        "defn": {
+            "text": "outflow, coming (going) out, graduate (of)"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "どこか"
+        },
+        "defn": {
+            "text": "somewhere, anywhere"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "何か",
+            "ruby": "なにか"
+        },
+        "defn": {
+            "text": "something"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "涙",
+            "ruby": "なみだ"
+        },
+        "defn": {
+            "text": "tear"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "日",
+            "ruby": "にち"
+        },
+        "defn": {
+            "text": "day"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "昇る",
+            "ruby": "のぼる"
+        },
+        "defn": {
+            "text": "to arise, to ascend, to go up"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "一言",
+            "ruby": "ひとこと"
+        },
+        "defn": {
+            "text": "one word"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "広がる",
+            "ruby": "ひろがる"
+        },
+        "defn": {
+            "text": "to spread (out), to extend, to stretch, to reach to, to get around"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "無",
+            "ruby": "ぶ"
+        },
+        "defn": {
+            "text": "nothing, naught, nil, zero"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "分",
+            "ruby": "ぶ"
+        },
+        "defn": {
+            "text": "dividing, part"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "触れる",
+            "ruby": "ふれる"
+        },
+        "defn": {
+            "text": "to touch, to feel, to violate"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "分",
+            "ruby": "ぶん"
+        },
+        "defn": {
+            "text": "dividing, part, segment"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "本当",
+            "ruby": "ほんと"
+        },
+        "defn": {
+            "text": "truth, reality"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "と"
+        },
+        "defn": {
+            "text": "and"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "振り",
+            "ruby": "ふり"
+        },
+        "defn": {
+            "text": "style, manner"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "優",
+            "ruby": "ゆう"
+        },
+        "defn": {
+            "text": "superiority, high grade"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "世",
+            "ruby": "よ"
+        },
+        "defn": {
+            "text": "world, society, generation"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "限り",
+            "ruby": "かぎり"
+        },
+        "defn": {
+            "text": "limit(s), as far as possible"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "騒がしい",
+            "ruby": "さわがしい"
+        },
+        "defn": {
+            "text": "noisy"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "溶かす",
+            "ruby": "とかす"
+        },
+        "defn": {
+            "text": "to melt, to dissolve"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "恋する",
+            "ruby": "こいする"
+        },
+        "defn": {
+            "text": "to fall in love with, to love"
+        },
+        "difficulty": "adv"
+    },
+    {
+        "word": {
+            "text": "届",
+            "ruby": "とどけ"
+        },
+        "defn": {
+            "text": "report, notification, registration"
+        },
+        "difficulty": "adv"
+    }
+]
