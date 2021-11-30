@@ -63,23 +63,24 @@ const Languages = (props: LanguagesProps) => {
 
     return (
         <ul>
-            <button
-                className={
-                    styles.langbutton +
-                    (selected === 'all' ? ' ' + styles['langbutton-sel'] : '')
-                }
-                onClick={onLangChange && (() => onLangChange('all'))}
-            >
-                All
-            </button>
+            <li key="all">
+                <button
+                    className={
+                        styles.langbutton +
+                        (selected === 'all' ? ' ' + styles['langbutton-sel'] : '')
+                    }
+                    onClick={onLangChange && (() => onLangChange('all'))}
+                >
+                    All
+                </button>
+            </li>
 
             {
                 Array.from(languages.values())
                     .sort()
                     .map(lang =>
-                        <li>
+                        <li key={lang}>
                             <LangButton
-                                key={lang}
                                 selected={selected === lang}
                                 lang={lang}
                                 onClick={onLangChange}
