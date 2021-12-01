@@ -1,5 +1,9 @@
 import React from 'react';
 import { Milliseconds } from '../../util/duration';
+import Failure from '../pieces/Failure';
+import Loading from '../pieces/Loading';
+
+import styles from './YouTubePlayer.module.css';
 
 declare global {
     interface Window {
@@ -32,9 +36,15 @@ export interface Props {
 
 interface State {
     player?: YT.Player;
+    playerFailed: boolean;
 }
 
 class YouTubePlayer extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props);
+        this.state = { playerFailed: false };
+    }
+
     timeUpdateTimerID?: ReturnType<typeof setInterval>;
 
     componentDidMount = () => {
@@ -42,6 +52,7 @@ class YouTubePlayer extends React.Component<Props, State> {
         if (!window.YT) {
             // this segment of code is adapted from the official YouTube API documentation
             const tag = document.createElement('script');
+            tag.onerror = () => this.setState({ playerFailed: true });
             tag.src = 'https://www.youtube.com/iframe_api';
 
             // load the video once the API is ready
@@ -118,9 +129,17 @@ class YouTubePlayer extends React.Component<Props, State> {
     render = () => {
         const playerId = this.props.id;
 
+        let extraContent;
+        if (this.state.playerFailed) {
+            extraContent = <Failure>Video player failed!</Failure>;
+        } else if (!window.YT) {
+            extraContent = <Loading>Video player loading...</Loading>;
+        }
+
         return (
-            <div>
-                <div id={playerId} />
+            <div className={styles.container}>
+                <div id={playerId} className={styles.video} />
+                {extraContent}
             </div>
         );
     };

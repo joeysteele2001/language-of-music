@@ -12,6 +12,7 @@ import './SongPage.css';
 
 import { getSongOrDefault, Song } from '../../util/song';
 import { getLyricsOrDefault, Lyrics } from '../../util/lyrics';
+import Icon, { IconName } from '../pieces/Icon';
 
 export interface Props {
     settings?: Settings;
@@ -83,12 +84,18 @@ const LyricsBoxes = (props: LyricsBoxesProps) => {
         return <Loading>Loading lyrics...</Loading>;
     }
 
-    const sideBox = sideTranslation &&
-        <LyricsScroll
-            lyrics={lyrics.lyrics}
-            currentTime={time}
-            times={lyrics.times}
-        />;
+    let sideBox = undefined;
+    if (sideTranslation) {
+        if (lyrics.translation) {
+            sideBox = <LyricsScroll
+                lyrics={lyrics.translation}
+                currentTime={time}
+                times={lyrics.times}
+            />;
+        } else {
+            sideBox = <div className="Lyrics">No translation available. <Icon name={IconName.Frown} /></div>;
+        }
+    }
 
     return (
         <>
