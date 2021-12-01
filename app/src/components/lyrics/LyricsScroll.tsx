@@ -58,19 +58,6 @@ export const LyricsScroll = (props: Props) => {
                 </LyricsLine>
             );
         });
-
-        // return React.Children.map(children, (line, idx) => {
-        //     let content: React.ReactNode = line;
-        //     if (line === "") {
-        //         content = <br />;
-        //     }
-
-        //     return (
-        //         <LyricsLine key={idx} current={idx === active}>
-        //             {content}
-        //         </LyricsLine>
-        //     );
-        // });
     };
 
     return (
