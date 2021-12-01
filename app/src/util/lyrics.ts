@@ -33,8 +33,6 @@ const LYRICS_MAP: LyricsMap = {
     'TQ8WlA2GXbk': pretender,
 };
 
-console.log(gurenge);
-
 // TODO: add times to Pretender and Yoru... lyrics
 
 const DEFAULT_LYRICS = fallingInLove;
