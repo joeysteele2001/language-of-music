@@ -18,10 +18,11 @@ export interface Props {
     songs: DataLoading<Song[]>;
 
     lang?: Language | 'all';
+    onlyHq?: boolean;
 }
 
 export const SongGallery = (props: Props) => {
-    const { songs } = props;
+    const { songs, onlyHq } = props;
 
     if (!songs) {
         return <Loading>Loading song library...</Loading>;
@@ -38,7 +39,10 @@ export const SongGallery = (props: Props) => {
                     .map((song, idx) => {
                         return (
                             <div className={styles.song} key={idx}>
-                                <Metadata hq={song.hq} lang={lang === 'all' ? song.language : undefined} />
+                                <Metadata
+                                    hq={song.hq && !onlyHq}
+                                    lang={lang === 'all' ? song.language : undefined}
+                                />
 
                                 <Link to={`/songpage?song=${song.videoId}`}>
                                     <img
