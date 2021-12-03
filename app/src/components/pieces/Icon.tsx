@@ -23,6 +23,7 @@ export const enum IconName {
     Spinner = 'spinner',
     Hotdog = 'hotdog',
     Frown = 'frown',
+    ExclamationTriangle = 'exclamation-triangle',
     QuestionCircle = 'question-circle',
 };
 
@@ -35,6 +36,7 @@ const IconClassNames: Record<IconName, string> = {
     [IconName.Spinner]: 'fas fa-spinner',
     [IconName.Hotdog]: 'fas fa-hotdog',
     [IconName.Frown]: 'fas fa-frown',
+    [IconName.ExclamationTriangle]: 'fas fa-exclamation-triangle',
     [IconName.QuestionCircle]: 'fas fa-question-circle',
 };
 
