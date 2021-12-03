@@ -22,6 +22,7 @@ export const enum IconName {
     Globe = 'globe',
     Spinner = 'spinner',
     Hotdog = 'hotdog',
+    Frown = 'frown',
     QuestionCircle = 'question-circle',
 };
 
@@ -33,6 +34,7 @@ const IconClassNames: Record<IconName, string> = {
     [IconName.Globe]: 'fas fa-globe',
     [IconName.Spinner]: 'fas fa-spinner',
     [IconName.Hotdog]: 'fas fa-hotdog',
+    [IconName.Frown]: 'fas fa-frown',
     [IconName.QuestionCircle]: 'fas fa-question-circle',
 };
 

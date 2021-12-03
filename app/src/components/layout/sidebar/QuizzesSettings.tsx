@@ -4,6 +4,7 @@ import ToggleSwitch from '../../input/ToggleSwitch';
 import RadioGroup from '../../input/RadioGroup';
 
 import { quiz } from '../../../util/settings';
+import { difficultyNames, parseDifficulty } from '../../../util/vocab';
 
 export interface Props {
     settings: quiz.Settings,
@@ -11,25 +12,29 @@ export interface Props {
     onChange?: (newSettings: quiz.Settings) => void,
 }
 
+const difficulties = Object.entries(difficultyNames)
+    .filter(([k]) => k !== "unknown")
+    .map(([id, label]) => { return { id, label } });
+
 export const QuizzesSettings = (props: Props) => {
     const { settings, onChange } = props;
 
     const handleEnableChange = (enabled: boolean) => {
         if (onChange) {
             if (enabled) {
-                onChange({ enabled: true, level: 'beginner' });
+                onChange({ enabled: true, difficulty: 'beg' });
             } else {
                 onChange({ enabled: false });
             }
         }
     };
 
-    const handleLevelChange = (level: string) => {
+    const handleDiffChange = (difficulty: string) => {
         if (onChange) {
-            const validated = quiz.validateLevel(level);
+            const validated = parseDifficulty(difficulty);
             if (validated) {
                 if (settings.enabled) {
-                    onChange({ enabled: true, level: validated });
+                    onChange({ enabled: true, difficulty: validated });
                 }
             }
         }
@@ -47,13 +52,10 @@ export const QuizzesSettings = (props: Props) => {
 
             <RadioGroup
                 name="quiz-level"
-                buttons={[
-                    { id: 'beginner', label: 'Beginner' },
-                    { id: 'advanced', label: 'Advanced' },
-                ]}
-                checked={settings.enabled ? settings.level : 'beginner'}
+                buttons={difficulties}
+                checked={settings.enabled ? settings.difficulty : 'beg'}
                 disabled={!settings.enabled}
-                onChange={handleLevelChange}
+                onChange={handleDiffChange}
             />
         </div>
     );
