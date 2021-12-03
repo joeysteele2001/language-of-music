@@ -1,9 +1,4 @@
-import fallingInLoveLyrics from '../resources/lyrics/falling-in-love.json';
-import gurengeLyrics from '../resources/lyrics/gurenge-lisa.json';
-import yoruNiKakeruLyrics from '../resources/lyrics/yoru-ni-kakeru.json';
-import pretenderLyrics from '../resources/lyrics/pretender.json';
-
-import { Lyrics } from './lyrics';
+import { FALLING_LYRICS, GURENGE_LYRICS, Lyrics, PRETENDER_LYRICS, YORU_LYRICS } from './lyrics';
 import { FALLING_VOCAB, GURENGE_VOCAB, PRETENDER_VOCAB, VocabList, YORU_VOCAB } from './vocab';
 import { promiseDelayRand } from './promiseDelay';
 
@@ -26,24 +21,24 @@ export const getResourceOrDefault = async (id?: string): Promise<Resource> => {
 
 const RESOURCES_MAP: Record<string, Resource> = {
     'vGJTaP6anOU': {
-        lyrics: fallingInLoveLyrics,
+        lyrics: FALLING_LYRICS,
         vocab: FALLING_VOCAB,
     },
     'MpYy6wwqxoo': {
-        lyrics: gurengeLyrics,
+        lyrics: GURENGE_LYRICS,
         vocab: GURENGE_VOCAB,
     },
     'vEyPvak2K9o': {
-        lyrics: yoruNiKakeruLyrics,
+        lyrics: YORU_LYRICS,
         vocab: YORU_VOCAB,
     },
     'TQ8WlA2GXbk': {
-        lyrics: pretenderLyrics,
+        lyrics: PRETENDER_LYRICS,
         vocab: PRETENDER_VOCAB,
     },
 };
 
 const DEFAULT_RESOURCE = {
-    lyrics: gurengeLyrics,
+    lyrics: GURENGE_LYRICS,
     vocab: GURENGE_VOCAB,
 };
