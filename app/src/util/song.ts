@@ -1,5 +1,4 @@
 
-import YoutubeID from '../back/YoutubeID';
 import { Language } from './language';
 import { promiseDelayRand } from './promiseDelay';
 import { DEFAULT_LIBRARY, SongLibrary } from './songLibrary';
@@ -8,9 +7,17 @@ export type Song = {
     title: string,
     artist?: string,
     videoId: string,
+    genius?: Genius,
     language: Language,
     hq: boolean,
 };
+
+export type Genius = {
+    id: number,
+
+    /** The portion of the Genius url after `https://genius.com/` */
+    url: string,
+}
 
 export const DEFAULT_SONG: Song = DEFAULT_LIBRARY.songs[0];
 

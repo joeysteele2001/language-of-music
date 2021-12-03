@@ -13,11 +13,7 @@ import { Loading } from '../util/loading';
 import './Main.css';
 import { Language } from '../util/language';
 import HqExplanation from './content/HqExplanation';
-import YoutubeID from '../back/YoutubeID';
-import GeniusURL from '../back/GeniusURL';
-import GeniusSearch from '../back/GeniusSearch';
-import Scraper from '../back/scraper';
-import translate from '../back/translate';
+import { findSong } from '../back/findSong';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
@@ -42,21 +38,9 @@ export const Main = () => {
             <div className="main-side">
                 <TopBar onAddSong={query => {
                     console.log(`Adding song: ${query}`);
-                    YoutubeID(query).then(id => console.log(`'${query}' YouTube ID: ${id}`));
-
-                    GeniusSearch(query).then(id => {
-                        console.log(`'${query}' Genius ID: ${id}'`);
-                        return GeniusURL(id);
-                    }).then(url => {
-                        console.log(`'${query}' Genius URL: ${url}`);
-                        return Scraper(url);
-                    }).then(lyrics => {
-                        console.log(`'${query}' Lyrics:`);
-                        console.log(lyrics);
-                        const testWord = lyrics.split(' ')[0];
-                        return translate(testWord);
-                    }).then(translation => {
-                        console.log(`'${query}' first word translation: ${translation}`);
+                    findSong(query).then(song => {
+                        console.log('Found song!');
+                        console.log(song);
                     });
                 }} />
 
