@@ -1,5 +1,5 @@
 
-import YoutubeID from '../components/YoutubeID';
+import YoutubeID from '../back/YoutubeID';
 import { Language } from './language';
 import { promiseDelayRand } from './promiseDelay';
 import { DEFAULT_LIBRARY, SongLibrary } from './songLibrary';

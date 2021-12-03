@@ -1,6 +1,6 @@
-import GeniusSearch from "../components/GeniusSearch";
-import GeniusURL from "../components/GeniusURL";
-import YoutubeID from "../components/YoutubeID";
+import GeniusSearch from "../back/GeniusSearch";
+import GeniusURL from "../back/GeniusURL";
+import YoutubeID from "../back/YoutubeID";
 import { Song } from "./song";
 
 export const addSong = async (songQuery: string): Promise<Song> => {

@@ -13,11 +13,11 @@ import { Loading } from '../util/loading';
 import './Main.css';
 import { Language } from '../util/language';
 import HqExplanation from './content/HqExplanation';
-import YoutubeID from './YoutubeID';
-import GeniusURL from './GeniusURL';
-import GeniusSearch from './GeniusSearch';
-import Scraper from './scraper';
-import translate from './translate';
+import YoutubeID from '../back/YoutubeID';
+import GeniusURL from '../back/GeniusURL';
+import GeniusSearch from '../back/GeniusSearch';
+import Scraper from '../back/scraper';
+import translate from '../back/translate';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
