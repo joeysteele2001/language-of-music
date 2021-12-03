@@ -1,0 +1,1 @@
+export type AnnotatedText = { text: string, ruby?: string };
