@@ -27,9 +27,9 @@ async function YoutubeID(input: string): Promise<string[]> {
     };
 
     return axios.request(options).then(function (response: Response) {
-        const ids = response.data.items.map(item => item.id.videoId);
-        console.log(ids);
-        return ids;
+        const ids = response.data.items.map (item => item.id.videoId);
+        console.log(ids[0]);
+        return ids[0];
     }).catch(function (error: any) {
         console.error(error);
     });
