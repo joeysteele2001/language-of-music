@@ -4,10 +4,14 @@ import Search from '../search';
 
 import './TopBar.css';
 
-export const TopBar = () => {
+export interface Props {
+    onAddSong?: (query: string) => void;
+}
+
+export const TopBar = (props: Props) => {
     return (
         <header className="TopBar">
-            <Search />
+            <Search onAdd={props.onAddSong} />
         </header>
     );
 };

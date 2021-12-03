@@ -1,21 +1,17 @@
 import config from '../config';
-import Scraper from './scraper';
- 
+
 //This function takes in the song id and returns the Genius URL and connects to the scraper.tsx//
- function GeniusURL(path:any) {
+async function GeniusURL(path: string): Promise<string> {
     var axios = require("axios").default;
     var options = {
-      method: 'GET',
-      url: 'https://api.genius.com'+path,
-      params: {'access_token': config.GENIUS_API_KEY}
+        method: 'GET',
+        url: 'https://api.genius.com' + path,
+        params: { 'access_token': config.GENIUS_API_KEY }
     };
-    
-    axios.request(options).then(function (response:any) {
-        Scraper(response.data.response.song.url.replace('https://genius.com/',''));
-    }).catch(function (error:any) {
-        console.error(error);
-    });
 
+    return axios.request(options).then(function (response: any) {
+        return response.data.response.song.url.replace('https://genius.com/', '');
+    });
 };
 export default GeniusURL;
 

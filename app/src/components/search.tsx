@@ -1,29 +1,38 @@
 import React from 'react';
-import GeniusSearch from './GeniusSearch';
-import YoutubeID from './YoutubeID';
 
-const Search = () => {
+export interface Props {
+    onAdd?: (query: string) => void;
+}
+
+const Search = (props: Props) => {
+    const { onAdd } = props;
+
+    const [query, setQuery] = React.useState("");
+
+    const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+        setQuery(evt.target.value);
+    };
+
+    const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+        evt.preventDefault();
+        onAdd && onAdd(query);
+    }
+
     return (
-        <form action="/" method="get">
-            <label htmlFor="header-search">
+        <form onSubmit={handleSubmit}>
+            <label>
                 <span className="visually-hidden">Search</span>
+                <input
+                    type="text"
+                    placeholder="Add new songs..."
+                    value={query}
+                    onChange={handleChange}
+                />
             </label>
-            <input
-                type="text"
-                id="header-search"
-                placeholder="Add new songs"
-                name="q"
-            />
+
             <button type="submit">Add</button>
         </form>
     );
 };
 
 export default Search;
-
-const { search } = window.location;
-const query = new URLSearchParams(search).get('q');
-if (query) {
-    GeniusSearch(query);
-    YoutubeID(query);
-}

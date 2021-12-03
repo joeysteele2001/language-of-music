@@ -13,6 +13,11 @@ import { Loading } from '../util/loading';
 import './Main.css';
 import { Language } from '../util/language';
 import HqExplanation from './content/HqExplanation';
+import YoutubeID from './YoutubeID';
+import GeniusURL from './GeniusURL';
+import GeniusSearch from './GeniusSearch';
+import Scraper from './scraper';
+import translate from './translate';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
@@ -35,7 +40,25 @@ export const Main = () => {
             />
 
             <div className="main-side">
-                <TopBar />
+                <TopBar onAddSong={query => {
+                    console.log(`Adding song: ${query}`);
+                    YoutubeID(query).then(id => console.log(`'${query}' YouTube ID: ${id}`));
+
+                    GeniusSearch(query).then(id => {
+                        console.log(`'${query}' Genius ID: ${id}'`);
+                        return GeniusURL(id);
+                    }).then(url => {
+                        console.log(`'${query}' Genius URL: ${url}`);
+                        return Scraper(url);
+                    }).then(lyrics => {
+                        console.log(`'${query}' Lyrics:`);
+                        console.log(lyrics);
+                        const testWord = lyrics.split(' ')[0];
+                        return translate(testWord);
+                    }).then(translation => {
+                        console.log(`'${query}' first word translation: ${translation}`);
+                    });
+                }} />
 
                 <main>
                     <Switch>
