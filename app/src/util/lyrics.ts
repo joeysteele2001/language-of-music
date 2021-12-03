@@ -1,32 +1,33 @@
-import fallingInLove from '../resources/lyrics/falling-in-love.json';
-import gurenge from '../resources/lyrics/gurenge-lisa.json';
 import { Milliseconds } from './duration';
-import { promiseDelayRand } from './promiseDelay';
+import { AnnotatedText } from './text';
 
-export type Lyrics = { times?: Milliseconds[], lyrics: LyricsText };
+import fallingLyrics from '../resources/lyrics/falling-in-love.json';
+import gurengeLyrics from '../resources/lyrics/gurenge-lisa.json';
+import yoruNiKakeruLyrics from '../resources/lyrics/yoru-ni-kakeru.json';
+import pretenderLyrics from '../resources/lyrics/pretender.json';
+
+import gurengeTrans from '../resources/lyrics/gurenge-lisa-translation.json';
+import yoruNiKakeruTrans from '../resources/lyrics/yoru-ni-kakeru-translation.json';
+import pretenderTrans from '../resources/lyrics/pretender-translation.json';
+
+export type Lyrics = { times?: Milliseconds[], lyrics: LyricsText, translation?: LyricsText };
 export type LyricsText = LyricsLine[];
 export type LyricsLine = AnnotatedText[];
-export type AnnotatedText = { text: string, ruby?: string };
 
-export const getLyrics = async (id: string): Promise<Lyrics | undefined> => {
-    const result = LYRICS_MAP[id];
+const mergeLyricsAndTranslation = (lyrics: Lyrics, translation?: { translation: LyricsText }) => {
+    if (!translation) {
+        return lyrics;
+    }
 
-    // simulate loading time by waiting 2.5 seconds to give the lyrics
-    return promiseDelayRand(result, { mean: 2500, variance: 1500 });
+    return {
+        ...lyrics,
+        translation: translation.translation,
+    };
 };
 
-export const getLyricsOrDefault = async (id?: string): Promise<Lyrics> => {
-    const inputId = id || '';
-    return getLyrics(inputId).then(lyrics => lyrics || DEFAULT_LYRICS);
-};
+export const GURENGE_LYRICS = mergeLyricsAndTranslation(gurengeLyrics, gurengeTrans);
+export const YORU_LYRICS = mergeLyricsAndTranslation(yoruNiKakeruLyrics, yoruNiKakeruTrans);
+export const PRETENDER_LYRICS = mergeLyricsAndTranslation(pretenderLyrics, pretenderTrans);
+export const FALLING_LYRICS = mergeLyricsAndTranslation(fallingLyrics);
 
-type LyricsMap = {
-    [id: string]: Lyrics;
-};
-
-const LYRICS_MAP: LyricsMap = {
-    'vGJTaP6anOU': fallingInLove,
-    'MpYy6wwqxoo': gurenge,
-};
-
-const DEFAULT_LYRICS = fallingInLove;
+// TODO: add times to Pretender and Yoru... lyrics

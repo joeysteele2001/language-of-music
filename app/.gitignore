@@ -26,3 +26,4 @@ src/config.ts
 src/components/config.ts
 
 *.pyc
+src/config.ts

@@ -14,6 +14,8 @@ import './Main.css';
 import { Language } from '../util/language';
 import HqExplanation from './content/HqExplanation';
 import { findSong } from '../back/findSong';
+import Icon, { IconName } from './pieces/Icon';
+import { Link } from 'react-router-dom';
 
 export const Main = () => {
     const [settings, setSettings] = React.useState(DEFAULT_PRESET);
@@ -59,10 +61,16 @@ export const Main = () => {
                         </Route>
 
                         <Route path="/hq">
-                            <h1>High Quality</h1>
-                            <SongGallery songs={
-                                library?.songs.filter(song => song.hq)
-                            } />
+                            <h1>
+                                High Quality&nbsp;
+                                <Link to="/hqexplanation" className="main-q"><Icon name={IconName.QuestionCircle} /></Link>
+                            </h1>
+                            <SongGallery
+                                songs={
+                                    library?.songs.filter(song => song.hq)
+                                }
+                                onlyHq={true}
+                            />
                         </Route>
 
                         <Route path="/">
