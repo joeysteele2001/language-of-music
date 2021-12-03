@@ -18,7 +18,7 @@ interface Id {
 
 //TODO incorporate with new song page so that it works for any song
 //This function returns the youtube id of a song in the console log//
-async function YoutubeID(input: string): Promise<string[]> {
+async function YoutubeID(input: string): Promise<string> {
     var axios = require("axios").default;
     var options = {
         method: 'GET',
