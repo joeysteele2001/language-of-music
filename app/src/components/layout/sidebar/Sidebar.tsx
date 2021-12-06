@@ -6,6 +6,7 @@ import { Settings as SettingsValues } from '../../../util/settings';
 import styles from './Sidebar.module.css';
 import SideNav from './SideNav';
 import { Language } from '../../../util/language';
+import Logo from '../../pieces/Logo';
 
 export interface Props {
     languages?: Set<Language>;
@@ -19,7 +20,7 @@ export const Sidebar = (props: Props) => {
 
     return (
         <div className={styles.sidebar}>
-            <header>App Name or Icon</header>
+            <header><Logo /></header>
 
             <SideNav
                 languages={languages}

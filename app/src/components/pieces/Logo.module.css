@@ -1,0 +1,14 @@
+.logo {
+    font-size: 3rem;
+    text-align: center;
+    user-select: none;
+}
+
+.nolink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nolink:visited {
+    color: inherit;
+}
