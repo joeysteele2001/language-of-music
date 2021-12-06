@@ -4,6 +4,24 @@ Georgia Tech School of Music
 
 Project Studio Technology group project.
 
+## Running the Project
+
+This project contains a frontend run with NPM and a backend run with Python.
+To start the project, you will need two terminals open.
+Point both terminals to this directory.
+
+Run the following commands in the first terminal:
+
+1. `cd app`
+2. `python3 -m flask run`
+
+In the second terminal:
+
+1. `cd app`
+2. `npm start`
+
+If this is your first time running the app, you may need to install dependencies with NPM and Pip.
+
 ## Git and GitHub Workflow
 
 To add, remove, or change any code, do these things:
