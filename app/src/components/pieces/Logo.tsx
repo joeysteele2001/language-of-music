@@ -10,7 +10,6 @@ export const Logo = () => {
         <div className={styles.logo}>
             <img src={CantioLogo} alt="Cantio Logo" />
         </div>
-        {/* <div className={styles.logo}>{APP_NAME}</div> */}
     </Link>;
 };
 
