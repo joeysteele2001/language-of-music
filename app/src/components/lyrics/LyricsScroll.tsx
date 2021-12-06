@@ -17,11 +17,13 @@ export interface Props {
 
     /** The current time in the song, as milliseconds from the start. */
     currentTime?: Milliseconds;
+
+    chords?: boolean;
 }
 
 /** A scrolling lyrics view. */
 export const LyricsScroll = (props: Props) => {
-    const { lyrics, times, currentTime } = props;
+    const { lyrics, times, currentTime, chords } = props;
 
     const activeLine = () => {
         // find the first line of lyrics that starts *after* the current time
@@ -54,7 +56,7 @@ export const LyricsScroll = (props: Props) => {
         return lyrics.map((line, idx) => {
             return (
                 <LyricsLine key={idx} current={idx === active}>
-                    <LineView line={line} />
+                    <LineView line={line} chords={chords} />
                 </LyricsLine>
             );
         });

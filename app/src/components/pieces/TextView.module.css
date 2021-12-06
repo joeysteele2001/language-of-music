@@ -1,0 +1,8 @@
+.chord {
+    position: relative;
+    left: 0;
+    top: -1.7rem;
+    display: inline-block;
+    width: 0;
+    overflow: visible;
+}

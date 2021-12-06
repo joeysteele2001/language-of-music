@@ -147,6 +147,7 @@ const BottomPage = (props: BottomPageProps) => {
                 lyrics={resource?.lyrics}
                 time={time}
                 sideTranslation={settings.parameters.sideTranslation}
+                chords={settings.parameters.chords}
             />
         );
     }
@@ -166,10 +167,11 @@ interface LyricsBoxesProps {
     lyrics: Lyrics | undefined;
     time: Milliseconds;
     sideTranslation: boolean;
+    chords: boolean;
 }
 
 const LyricsBoxes = (props: LyricsBoxesProps) => {
-    const { lyrics, time, sideTranslation } = props;
+    const { lyrics, time, sideTranslation, chords } = props;
 
     if (!lyrics) {
         return <LoadingMsg>Loading lyrics...</LoadingMsg>;
@@ -182,6 +184,7 @@ const LyricsBoxes = (props: LyricsBoxesProps) => {
                 lyrics={lyrics.translation}
                 currentTime={time}
                 times={lyrics.times}
+                chords={chords}
             />;
         } else {
             sideBox = <div className="Lyrics">No translation available. <Icon name={IconName.Frown} /></div>;
@@ -194,6 +197,7 @@ const LyricsBoxes = (props: LyricsBoxesProps) => {
                 lyrics={lyrics.lyrics}
                 currentTime={time}
                 times={lyrics.times}
+                chords={chords}
             />
 
             {sideBox}

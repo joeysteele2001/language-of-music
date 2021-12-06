@@ -1,1 +1,1 @@
-export type AnnotatedText = { text: string, ruby?: string };
+export type AnnotatedText = { text: string, ruby?: string, chord?: string };
