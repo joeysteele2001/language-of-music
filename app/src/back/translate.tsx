@@ -3,7 +3,8 @@ import config from '../config';
 
 async function translate(input: string): Promise<string> {
   // TODO: remove this limitation for the demo!
-  const limited = input.split(' ')[0];
+  // const limited = input.split(' ')[0];
+  const limited = input.split('\n')[0];
 
   var axios = require("axios").default;
 
