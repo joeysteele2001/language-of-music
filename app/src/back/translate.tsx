@@ -2,6 +2,9 @@ import config from '../config';
 
 
 async function translate(input: string): Promise<string> {
+  // TODO: remove this limitation for the demo!
+  const limited = input.split(' ')[0];
+
   var axios = require("axios").default;
 
   var options = {
@@ -17,7 +20,7 @@ async function translate(input: string): Promise<string> {
       'x-rapidapi-host': 'microsoft-translator-text.p.rapidapi.com',
       'x-rapidapi-key': config.TRANSLATE_API_KEY
     },
-    data: [{ Text: input }]
+    data: [{ Text: limited }]
   };
   return axios.request(options).then((response: any) => {
     return (response.data[0].translations[0].text);

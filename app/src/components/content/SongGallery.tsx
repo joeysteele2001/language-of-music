@@ -7,7 +7,7 @@ import Loading from '../pieces/Loading';
 import DataLoading from '../../util/loading';
 
 import styles from './SongGallery.module.css';
-import { Song } from '../../util/song';
+import { GeniusId, SongMetadata } from '../../util/song';
 import HqIndicator from '../pieces/HqIndicator';
 
 export interface Props {
@@ -15,14 +15,17 @@ export interface Props {
      * 
      * Shows a loading icon if undefined.
     */
-    songs: DataLoading<Song[]>;
+    songs: DataLoading<SongMetadata[]>;
 
     lang?: Language | 'all';
     onlyHq?: boolean;
+
+    /** If a search is in progress, show a loading symbol for a song with this query. */
+    searching?: string;
 }
 
 export const SongGallery = (props: Props) => {
-    const { songs, onlyHq } = props;
+    const { songs, onlyHq, searching } = props;
 
     if (!songs) {
         return <Loading>Loading song library...</Loading>;
@@ -36,28 +39,59 @@ export const SongGallery = (props: Props) => {
                 // todo use song video ids when each song here is unique
                 songs
                     .filter(song => lang === 'all' || song.language === lang)
-                    .map((song, idx) => {
+                    .map(song => {
                         return (
-                            <div className={styles.song} key={idx}>
-                                <Metadata
-                                    hq={song.hq && !onlyHq}
-                                    lang={lang === 'all' ? song.language : undefined}
-                                />
-
-                                <Link to={`/songpage?song=${song.videoId}`}>
+                            <Song
+                                key={song.genius.id}
+                                hq={song.hq && !onlyHq}
+                                lang={lang === 'all' ? song.language : undefined}
+                                geniusId={song.genius.id}
+                                thumbnail={
                                     <img
-                                        src={`https://img.youtube.com/vi/${song.videoId}/mqdefault.jpg`}
+                                        src={song.thumbnailUrl}
                                         alt={song.title}
                                         className={styles.thumbnail}
                                     />
-                                    <div className={styles.name}>{song.title}{song.artist && ` - ${song.artist}`}</div>
-                                </Link>
-                            </div>
+                                }
+                                songText={`${song.title}${song.artist && ` - ${song.artist}`}`}
+                            />
                         );
                     })
             }
+
+            {
+                searching && <Song loading={searching} />
+            }
         </div>
     );
+};
+
+interface SongProps {
+    hq?: boolean;
+    lang?: Language;
+    geniusId?: GeniusId,
+    thumbnail?: React.ReactNode;
+    songText?: string;
+    loading?: string;
+}
+
+const Song = (props: SongProps) => {
+    const { hq, lang, geniusId, thumbnail, songText, loading } = props;
+
+    const dest = geniusId ? `/songpage?song=${geniusId}` : '';
+
+    return <div className={styles.song}>
+        {loading ?
+            <Loading>Searching for "{loading}"...</Loading> :
+            <>
+                <Metadata hq={hq} lang={lang} />
+                <Link to={dest}>
+                    {thumbnail}
+                    <div className={styles.name}>{songText}</div>
+                </Link>
+            </>
+        }
+    </div>;
 };
 
 interface MetadataProps {

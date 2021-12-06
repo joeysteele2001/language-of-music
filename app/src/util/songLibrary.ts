@@ -1,36 +1,27 @@
-import defaultLibrary from '../resources/songs.json';
-import { Language, parseLanguageCode } from './language';
+import { Language } from './language';
 import { promiseDelayRand } from './promiseDelay';
-import { Song } from './song';
+import { SongMetadata } from './song';
+import SongDataCache from './songDataCache';
 
-export type SongLibrary = {
-    songs: Song[],
-    languages: Set<Language>,
-};
+export class SongLibrary {
+    songs: SongMetadata[];
+    languages: Set<Language>;
 
-/** Do not use me publicly! */
-export const DEFAULT_LIBRARY: SongLibrary = (() => {
-    // parse the language names in songs.json
-    const songs = defaultLibrary.map(song => {
-        const language = parseLanguageCode(song.language);
+    constructor(songs: SongMetadata[] = SongDataCache.toLibrary()) {
+        this.songs = songs;
+        this.languages = new Set(this.songsArr.map(song => song.language));
+    }
 
-        // hack to check whether the song has an `hq` property that is truthy
-        const hq = (song as any).hq ? true : false;
-
-        return { ...song, language, hq };
-    });
-
-    const languages = new Set(songs.map(song => song.language));
-
-    return { songs, languages };
-
-})();
+    get songsArr() {
+        return Object.values(this.songs);
+    }
+}
 
 let library: SongLibrary | undefined;
 
 export const getLibrary = async (): Promise<SongLibrary> => {
     if (!library) {
-        return promiseDelayRand(DEFAULT_LIBRARY, { mean: 1000, variance: 500 })
+        return promiseDelayRand(new SongLibrary(), { mean: 1000, variance: 500 })
             .then((lib) => {
                 library = lib;
                 return lib;

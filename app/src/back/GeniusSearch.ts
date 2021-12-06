@@ -72,7 +72,11 @@ interface SongResponse {
 }
 
 interface ApiSong {
+    title: string;
+    url: string;
     media: Media[];
+    primary_artist: Artist;
+    song_art_image_thumbnail_url: string;
 }
 
 interface Media {
@@ -81,6 +85,10 @@ interface Media {
 }
 
 export type GeniusSong = {
+    url: string,
+    title: string,
+    artist: string,
+    thumbnailUrl: string,
     youtubeId?: string;
 }
 
@@ -93,15 +101,25 @@ export const geniusSong = async (id: number): Promise<GeniusSong> => {
     };
 
     return axios.request(options).then((response: ApiSongResponse): GeniusSong => {
-        console.log(response);
-        const media = response.data.response.song.media;
+        const song = response.data.response.song;
+        const {
+            title,
+            url: geniusUrl,
+            media,
+            primary_artist,
+            song_art_image_thumbnail_url: thumbnailUrl,
+        } = song;
+
+        const url = geniusUrl.replace('https://genius.com/', '');
+        const artist = primary_artist.name;
+
         const youtubeMedia = media.find(m => m.provider === "youtube");
-        if (!youtubeMedia) {
-            return {};
+        let youtubeId: string | undefined;
+        if (youtubeMedia) {
+            youtubeId = youtubeMedia.url.split('?v=')[1];
         }
 
-        const youtubeId = youtubeMedia.url.split('?v=')[1];
-        return { youtubeId };
+        return { url, title, artist, thumbnailUrl, youtubeId };
     });
 }
 

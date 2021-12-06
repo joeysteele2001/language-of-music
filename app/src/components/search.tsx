@@ -16,6 +16,7 @@ const Search = (props: Props) => {
     const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
         onAdd && onAdd(query);
+        setQuery("");
     }
 
     return (
