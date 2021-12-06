@@ -29,5 +29,3 @@ export const GURENGE_LYRICS = mergeLyricsAndTranslation(gurengeLyrics, gurengeTr
 export const YORU_LYRICS = mergeLyricsAndTranslation(yoruNiKakeruLyrics, yoruNiKakeruTrans);
 export const PRETENDER_LYRICS = mergeLyricsAndTranslation(pretenderLyrics, pretenderTrans);
 export const FALLING_LYRICS = mergeLyricsAndTranslation(fallingLyrics);
-
-// TODO: add times to Pretender and Yoru... lyrics
