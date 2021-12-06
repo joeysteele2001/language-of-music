@@ -4,7 +4,6 @@ import Sidebar from './layout/sidebar/Sidebar';
 import SongGallery from './content/SongGallery';
 import SongPage from './content/SongPage';
 import TopBar from './layout/TopBar';
-import ColorPalette from './content/ColorPalette';
 
 import { DEFAULT_PRESET } from '../util/settings';
 import { getLibrary, SongLibrary } from '../util/songLibrary';
@@ -68,10 +67,6 @@ export const Main = () => {
                     <Switch>
                         <Route path="/songpage">
                             <SongPage settings={settings} reportSong={addToLibrary} />
-                        </Route>
-
-                        <Route path="/colors">
-                            <ColorPalette />
                         </Route>
 
                         <Route path="/hqexplanation">
