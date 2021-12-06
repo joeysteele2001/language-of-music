@@ -1,5 +1,6 @@
 .LyricsLine {
     text-align: left;
+    height: 3em;
 }
 
 .LyricsLine + .LyricsLine {
