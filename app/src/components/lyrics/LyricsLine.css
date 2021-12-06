@@ -8,4 +8,5 @@
 
 .LyricsLine-current {
     font-weight: bold;
+    color: var(--highlight-color);
 }
