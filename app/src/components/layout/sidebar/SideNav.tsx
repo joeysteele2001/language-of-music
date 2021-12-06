@@ -39,11 +39,6 @@ export const SideNav = (props: Props) => {
                 <li>
                     <NavItem to="/hq" iconName={IconName.Star}>High Quality</NavItem>
                 </li>
-                <li>
-                    <NavItem to="/colors" iconName={IconName.Palette}>
-                        Color Palette
-                    </NavItem>
-                </li>
             </ul>
         </nav >
     );
